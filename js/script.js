@@ -79,14 +79,41 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            const name = this.querySelector('#contact_name').value;
-            const email = this.querySelector('#contact_email').value;
-            const message = this.querySelector('#contact_message').value;
+            e.preventDefault();
+            const name = this.querySelector('#name').value;
+            const email = this.querySelector('#email').value;
+            const inquiry = this.querySelector('#inquiry').value;
             
             // Simple validation
-            if (!name || !email || !message) {
-                e.preventDefault();
+            if (name && email && email.includes('@') && inquiry) {
+                // Show success message (in a real implementation, you'd send this to your server)
+                const button = this.querySelector('button');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                button.style.background = '#28a745';
                 
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.style.cssText = `
+                    background: #d4edda;
+                    color: #155724;
+                    padding: 1rem;
+                    border-radius: 10px;
+                    margin-top: 1rem;
+                    text-align: center;
+                    border: 1px solid #c3e6cb;
+                `;
+                successMessage.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We\'ll get back to you soon.';
+                
+                this.appendChild(successMessage);
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '';
+                    successMessage.remove();
+                    this.reset();
+                }, 5000);
+            } else {
                 // Show error message
                 const errorMessage = document.createElement('div');
                 errorMessage.style.cssText = `
@@ -203,3 +230,4 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+

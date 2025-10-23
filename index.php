@@ -10,7 +10,7 @@ get_header(); ?>
 <nav class="navbar">
     <div class="nav-container">
         <div class="logo">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/Once-Upon-a Maze-Logo-2.png" alt="Once Upon a Maze Logo" class="logo-img">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Once-Upon-a Maze-Logo-2.png" alt="Once Upon a Maze Logo" class="logo-img">
         </div>
         <?php
         wp_nav_menu(array(
@@ -31,55 +31,31 @@ get_header(); ?>
 <!-- Hero Section with Header Image -->
 <section id="home" class="hero">
     <div class="hero-image-container">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/Header-Image.png" alt="Once Upon a Maze" class="hero-header-img">
-    </div>
-    <div class="hero-content">
-        <div class="container">
-            <h1 class="hero-title">Welcome to Once Upon a Maze</h1>
-            <p class="hero-subtitle">Step into a world of wonder and adventure where every turn leads to magic!</p>
-            <div class="hero-buttons">
-                <a href="#about" class="btn btn-primary">Explore the Magic</a>
-                <a href="#contact" class="btn btn-secondary">Book Your Visit</a>
-            </div>
-        </div>
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Header-Image.png" alt="Once Upon a Maze" class="hero-header-img">
     </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="about-section">
+<!-- Main Content Section -->
+<section class="main-content">
     <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">About Our Magical Maze</h2>
-            <p class="section-subtitle">Discover the enchanting world we've created just for you</p>
-        </div>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Your Adventure Awaits</h3>
-                <p>Once Upon a Maze is more than just an attraction – it's a journey into a world of wonder, mystery, and pure magic. Located in the heart of Alpharetta, Georgia, our maze offers an unforgettable experience for visitors of all ages.</p>
-                <p>Every path tells a story, every corner holds a surprise, and every visit creates memories that will last a lifetime. Whether you're seeking adventure, fun with family and friends, or a unique date night experience, our maze promises to deliver magic at every turn.</p>
-                <div class="about-features">
-                    <div class="feature">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <h4>Interactive Adventure</h4>
-                        <p>Navigate through themed sections with puzzles and surprises</p>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-users"></i>
-                        <h4>Perfect for All Ages</h4>
-                        <p>Fun for families, friends, and couples alike</p>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-star"></i>
-                        <h4>Memorable Experience</h4>
-                        <p>Create lasting memories in our magical environment</p>
-                    </div>
-                </div>
+        <div class="content-header">
+            <h1 class="content-title">Every Twist Tells a Tale</h1>
+            <p class="content-subtitle">Step into a living storybook, where magic winds through enchanted pathways & whimsical rooms as familiar tales come to life.</p>
+            <div class="content-description">
+                <p>Next door to FairyTale Village, this all-new walk-through experience invites you to wander, wonder, and rediscover your favorite childhood stories — one twist at a time.</p>
+            </div>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-ticket-alt"></i>
+                    Reserve Your Adventure
+                </a>
+                <p class="ticket-info">or visit us in person — tickets available online or at the door every 15 minutes!</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- What Awaits Section -->
+<!-- What Awaits Inside Section -->
 <section class="what-awaits-section">
     <div class="container">
         <div class="story-header">
@@ -101,93 +77,126 @@ get_header(); ?>
             </div>
             
             <div class="story-card">
-                <div class="story-icon">👸</div>
-                <h3>Princess Castle</h3>
-                <p>Enter the royal chambers and experience life as a princess in our magical castle.</p>
+                <div class="story-icon">🍭</div>
+                <h3>The Land of Candy</h3>
+                <p>A sugary wonderland where gumdrops, candy canes, and peppermint paths lead the way.</p>
             </div>
             
             <div class="story-card">
-                <div class="story-icon">🦄</div>
-                <h3>Enchanted Forest</h3>
-                <p>Discover mystical creatures and hidden treasures in our enchanted woodland area.</p>
+                <div class="story-icon">🎩</div>
+                <h3>Mad Hatter's Mirrors</h3>
+                <p>Lose yourself (and find your laughter) in a topsy-turvy world of reflections and riddles.</p>
+            </div>
+            
+            <div class="story-card">
+                <div class="story-icon">🐉</div>
+                <h3>Dragon's Secret Garden</h3>
+                <p>A mystical realm where imagination blooms and a dragon keeps watch over its hidden wonders.</p>
+            </div>
+            
+            <div class="story-card">
+                <div class="story-icon">👗</div>
+                <h3>Through the Wardrobe</h3>
+                <p>Step through to another world, where tiny treasures and classic fairytale icons await.</p>
             </div>
         </div>
         
-        <div class="adventure-path">
-            <div class="path-image">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/freepik-yellow-brick-road-that-looks-like-a-cartoon-or-dra_-9229.png" alt="Adventure Path">
-            </div>
-            <div class="path-content">
-                <h3>Choose Your Adventure</h3>
-                <p>Every visit is unique! With multiple paths and interactive elements, you'll discover something new each time you visit our magical maze.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Party Section -->
-<section class="party-section">
-    <div class="container">
-        <div class="party-content">
-            <div class="party-text">
-                <h2>Book Your Magical Party</h2>
-                <p>Make your special occasion unforgettable with a private party at Once Upon a Maze. Perfect for birthdays, celebrations, and group events.</p>
-                <ul class="party-features">
-                    <li><i class="fas fa-check"></i> Private maze access for your group</li>
-                    <li><i class="fas fa-check"></i> Themed decorations and setup</li>
-                    <li><i class="fas fa-check"></i> Special surprises and activities</li>
-                    <li><i class="fas fa-check"></i> Flexible booking options</li>
-                </ul>
-                <a href="#contact" class="btn btn-primary">Book Your Party</a>
-            </div>
-            <div class="party-image">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/Birthday-Image-2.png" alt="Party Celebration">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="contact-section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Ready for Your Adventure?</h2>
-            <p class="section-subtitle">Contact us to plan your visit or book a magical party!</p>
-        </div>
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="contact-card">
-                    <h3>Visit Us</h3>
-                    <div class="contact-method">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>1000 North Point Cir<br>Alpharetta, GA 30022<br>2nd Floor, next to FairyTale Village</span>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fas fa-envelope"></i>
-                        <span><a href="mailto:onceuponamaze@gmail.com">onceuponamaze@gmail.com</a></span>
-                    </div>
-                    <div class="contact-buttons">
-                        <a href="<?php echo get_permalink(get_page_by_path('contact')); ?>" class="btn btn-primary">Get Directions</a>
-                        <a href="mailto:onceuponamaze@gmail.com" class="btn btn-secondary">Send Message</a>
-                    </div>
+        <div class="story-conclusion">
+            <div class="magical-border">
+                <p class="story-ending">Each twist of the maze reveals a new world to explore — part storybook, part adventure, all magic.</p>
+                <div class="duration-badge">
+                    <i class="fas fa-clock"></i>
+                    <span>The full experience lasts 30–60 minutes depending on your curiosity and courage!</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Follow Our Story Section -->
-<section class="story-section">
+<!-- Plan Your Visit Section -->
+<section class="plan-visit-section">
     <div class="container">
-        <div class="story-content">
-            <h2>Follow Our Story</h2>
-            <p>Stay connected with Once Upon a Maze and be the first to know about new adventures, special events, and magical surprises!</p>
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        <div class="plan-visit-header">
+            <h2 class="section-title">Plan Your Visit</h2>
+        </div>
+        
+        <div class="experience-grid-top">
+            <div class="experience-card">
+                <div class="experience-icon">⏰</div>
+                <h3>Timed Entry</h3>
+                <p>Every 15 minutes for a smooth experience</p>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-icon">🎟️</div>
+                <h3>Easy Booking</h3>
+                <p>Tickets available online or at the door</p>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-icon">👨‍👩‍👧‍👦</div>
+                <h3>Perfect for Everyone</h3>
+                <p>Children, families, friends, and anyone who believes in magic</p>
             </div>
         </div>
+        
+        <div class="experience-grid-bottom">
+            <div class="experience-card">
+                <div class="experience-icon">📍</div>
+                <h3>Great Location</h3>
+                <p>Inside North Point Mall, Alpharetta, GA<br>Next to FairyTale Village on the 2nd floor</p>
+            </div>
+            
+            <div class="experience-card">
+                <div class="experience-icon">🚗</div>
+                <h3>Free Parking</h3>
+                <p>Free parking and easy access from the parking garage mall entrance</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Party Celebration Section -->
+<section class="party-section">
+    <div class="container">
+        <div class="party-header">
+            <h2 class="section-title">Celebrate in Storybook Style</h2>
+            <p class="section-subtitle">Host your next birthday or special event inside our enchanting party rooms!</p>
+            <p class="party-excitement">Make your special day truly magical with our unforgettable party experiences!</p>
+        </div>
+        
+        <div class="party-rooms">
+            <div class="party-room">
+                <div class="party-icon">🧚‍♀️</div>
+                <h3>The Fairy Room</h3>
+                <p>Full of sparkle, flowers, and woodland charm</p>
+            </div>
+            
+            <div class="party-room">
+                <div class="party-icon">🐉</div>
+                <h3>The Dragon Room</h3>
+                <p>Bold, mystical, and full of adventure</p>
+            </div>
+        </div>
+        
+        <div class="party-cta">
+            <a href="<?php echo get_permalink(get_page_by_path('contact')); ?>" class="btn btn-white">
+                <i class="fas fa-birthday-cake"></i>
+                Inquire About Parties
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Gift Shop -->
+<section class="gift-shop">
+    <div class="container">
+        <div class="gift-shop-header">
+            <div class="gift-shop-emoji">🛍️</div>
+            <h2 class="section-title">The Whimsical Gift Shop</h2>
+        </div>
+        
+        <p class="gift-shop-text">Before you leave, stop by our charming gift shop filled with treasures inspired by your favorite stories.<br>Take a piece of the maze home and keep the magic alive.</p>
     </div>
 </section>
 

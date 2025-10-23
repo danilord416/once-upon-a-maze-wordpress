@@ -3,11 +3,6 @@
  * Once Upon a Maze Theme Functions
  */
 
-// Prevent direct access
-if (!defined('ABSPATH')) {
-    exit;
-}
-
 // Theme setup
 function once_upon_a_maze_setup() {
     // Add theme support for various features
@@ -21,19 +16,16 @@ function once_upon_a_maze_setup() {
         'caption',
     ));
     
-    // Register navigation menus
+    // Register navigation menu
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'once-upon-a-maze'),
     ));
 }
 add_action('after_setup_theme', 'once_upon_a_maze_setup');
 
-// Enqueue styles and scripts
+// Enqueue scripts and styles
 function once_upon_a_maze_scripts() {
-    // Enqueue main stylesheet
     wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.0.0');
-    
-    // Enqueue custom JavaScript
     wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'once_upon_a_maze_scripts');
@@ -42,29 +34,17 @@ add_action('wp_enqueue_scripts', 'once_upon_a_maze_scripts');
 function once_upon_a_maze_fallback_menu() {
     echo '<ul class="nav-menu">';
     echo '<li><a href="' . home_url() . '">Home</a></li>';
-    echo '<li><a href="' . home_url() . '/contact">Contact</a></li>';
+    echo '<li><a href="' . get_permalink(get_page_by_path('contact')) . '">Contact</a></li>';
+    echo '<li><a href="#" class="cta-button">Get Tickets</a></li>';
     echo '</ul>';
 }
 
-// Add customizer support
-function once_upon_a_maze_customize_register($wp_customize) {
-    // Hero Image Section
-    $wp_customize->add_section('hero_section', array(
-        'title' => __('Hero Section', 'once-upon-a-maze'),
-        'priority' => 30,
-    ));
-    
-    // Hero Image Setting
-    $wp_customize->add_setting('hero_image', array(
-        'default' => '',
-        'sanitize_callback' => 'absint',
-    ));
-    
-    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'hero_image', array(
-        'label' => __('Hero Background Image', 'once-upon-a-maze'),
-        'section' => 'hero_section',
-        'mime_type' => 'image',
-    )));
+// Add custom body classes
+function once_upon_a_maze_body_classes($classes) {
+    if (is_page('contact')) {
+        $classes[] = 'contact-page';
+    }
+    return $classes;
 }
-add_action('customize_register', 'once_upon_a_maze_customize_register');
+add_filter('body_class', 'once_upon_a_maze_body_classes');
 ?>
