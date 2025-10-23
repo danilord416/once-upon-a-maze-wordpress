@@ -41,29 +41,7 @@ get_header(); ?>
             <h2 class="section-title">Get In Touch</h2>
             <p class="section-subtitle" style="text-align: center;">Have a question or want to book a party? We'd love to hear from you!</p>
             
-            <form class="contact-form" action="mailto:onceuponamaze@gmail.com" method="post" enctype="text/plain">
-                <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="inquiry">Your Inquiry *</label>
-                    <textarea id="inquiry" name="inquiry" rows="5" required placeholder="Tell us about your question, party booking request, or any other inquiry..."></textarea>
-                </div>
-                
-                <div style="text-align: center;">
-                    <button type="submit" class="btn btn-primary btn-large">
-                        <i class="fas fa-paper-plane"></i>
-                        Send Message
-                    </button>
-                </div>
-            </form>
+            <?php echo do_shortcode('[contact-form-7 id="84e6169" title="Once Upon a Maze Contact Form"]'); ?>
         </div>
     </div>
 </section>
