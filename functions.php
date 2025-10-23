@@ -34,7 +34,7 @@ add_action('wp_enqueue_scripts', 'once_upon_a_maze_scripts');
 function once_upon_a_maze_fallback_menu() {
     echo '<ul class="nav-menu">';
     echo '<li><a href="' . home_url() . '">Home</a></li>';
-    echo '<li><a href="' . get_permalink(get_page_by_path('contact')) . '">Contact</a></li>';
+    echo '<li><a href="' . home_url('/contact/') . '">Contact</a></li>';
     echo '<li><a href="#" class="cta-button">Get Tickets</a></li>';
     echo '</ul>';
 }

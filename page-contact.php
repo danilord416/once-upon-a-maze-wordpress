@@ -1,6 +1,5 @@
 <?php
 /**
- * Template Name: Contact Page
  * The contact page template for Once Upon a Maze
  */
 
