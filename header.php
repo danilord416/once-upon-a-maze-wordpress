@@ -44,6 +44,30 @@
     ?>">
     <meta property="twitter:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/Once-Upon-a Maze-Logo-2.png">
     
+    <!-- Structured Data for Logo -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Once Upon a Maze",
+        "url": "<?php echo home_url(); ?>",
+        "logo": "<?php echo get_template_directory_uri(); ?>/assets/images/Once-Upon-a Maze-Logo-2.png",
+        "description": "Step into a living storybook, where magic winds through enchanted pathways & whimsical rooms as familiar tales come to life.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1000 North Point Cir",
+            "addressLocality": "Alpharetta",
+            "addressRegion": "GA",
+            "postalCode": "30022",
+            "addressCountry": "US"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "onceuponamaze@gmail.com"
+        }
+    }
+    </script>
+    
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
