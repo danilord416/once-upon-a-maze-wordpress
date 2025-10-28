@@ -14,6 +14,10 @@
         }
     ?>">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/assets/images/Once-Upon-a Maze-Logo-2.png">
+    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/Once-Upon-a Maze-Logo-2.png">
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo get_permalink(); ?>">
@@ -44,7 +48,7 @@
     ?>">
     <meta property="twitter:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/Once-Upon-a Maze-Logo-2.png">
     
-    <!-- Structured Data for Logo -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -64,7 +68,10 @@
         "contactPoint": {
             "@type": "ContactPoint",
             "email": "onceuponamaze@gmail.com"
-        }
+        },
+        "sameAs": [
+            "<?php echo home_url(); ?>"
+        ]
     }
     </script>
     
