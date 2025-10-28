@@ -3,6 +3,7 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="9841SaOiIaf5O9xHX8esXHkc-79bwSLF_X-pAF7a080" />
     <title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
     <meta name="description" content="<?php 
         if (is_home() || is_front_page()) {
