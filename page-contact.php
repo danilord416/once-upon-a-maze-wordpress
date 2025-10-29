@@ -106,6 +106,10 @@ get_header(); ?>
                         <i class="fas fa-envelope"></i>
                         <span><a href="mailto:onceuponamaze@gmail.com">onceuponamaze@gmail.com</a></span>
                     </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <span><a href="tel:+14702232990">470-223-2990</a></span>
+                    </div>
                 </div>
                 <div class="contact-extra">
                     <p><i class="fas fa-clock"></i> Response within 24 hours</p>
