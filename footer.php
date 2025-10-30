@@ -19,9 +19,9 @@
                         <h4>Join the Story</h4>
                         <p>Follow the magic as it unfolds!</p>
                         <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.facebook.com/share/1BahwM5YuF/?mibextid=wwXIfr" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/visitonceuponamaze/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@visitonceuponamaze" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
                         </div>
                         <a href="#" class="btn btn-white btn-small">
                             <i class="fas fa-envelope"></i>
