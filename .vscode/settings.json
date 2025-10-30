@@ -1,5 +1,7 @@
 {
-  "php.validate.executablePath": "/opt/homebrew/bin/php"
+  "php.validate.executablePath": "/opt/homebrew/bin/php",
+  "git.enableSmartCommit": true,
+  "git.postCommitCommand": "push"
 }
 
 
