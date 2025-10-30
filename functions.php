@@ -53,8 +53,9 @@ add_filter('body_class', 'once_upon_a_maze_body_classes');
 // Force Contact Form 7 emails to go to the client's inbox
 // This preserves the form's existing subject/body and only changes the recipient
 add_filter('wpcf7_mail_components', function($components) {
-    // Set the recipient email address
+    // Force recipient and sender for CF7 mail
     $components['recipient'] = 'onceuponamaze@gmail.com';
+    $components['sender'] = 'WordPress <wordpress@onceuponamaze.com>';
     return $components;
 });
 ?>
