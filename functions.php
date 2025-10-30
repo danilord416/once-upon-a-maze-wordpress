@@ -49,4 +49,12 @@ function once_upon_a_maze_body_classes($classes) {
     return $classes;
 }
 add_filter('body_class', 'once_upon_a_maze_body_classes');
+
+// Force Contact Form 7 emails to go to the client's inbox
+// This preserves the form's existing subject/body and only changes the recipient
+add_filter('wpcf7_mail_components', function($components) {
+    // Set the recipient email address
+    $components['recipient'] = 'onceuponamaze@gmail.com';
+    return $components;
+});
 ?>
