@@ -53,9 +53,56 @@ add_filter('body_class', 'once_upon_a_maze_body_classes');
 // Force Contact Form 7 emails to go to the client's inbox
 // This preserves the form's existing subject/body and only changes the recipient
 add_filter('wpcf7_mail_components', function($components) {
-    // Force recipient and sender for CF7 mail
+    // Always send to client inbox and from site domain
     $components['recipient'] = 'onceuponamaze@gmail.com';
     $components['sender'] = 'WordPress <wordpress@onceuponamaze.com>';
+
+    // Build a message containing all submitted fields
+    $submission = function_exists('WPCF7_Submission') ? WPCF7_Submission::get_instance() : null;
+    if ($submission) {
+        $posted_data = $submission->get_posted_data();
+        if (is_array($posted_data)) {
+            $ignore_keys = array(
+                '_wpcf7', '_wpcf7_version', '_wpcf7_locale', '_wpcf7_unit_tag', '_wpcf7_container_post',
+                '_wpcf7_posted_data_hash', '_wpcf7_recaptcha_response'
+            );
+
+            $lines = array();
+            foreach ($posted_data as $key => $value) {
+                if (in_array($key, $ignore_keys, true)) continue;
+                if (is_array($value)) $value = implode(', ', $value);
+                $pretty_key = ucwords(str_replace(array('-', '_'), ' ', (string)$key));
+                $lines[] = $pretty_key . ': ' . (string)$value;
+            }
+
+            if (!empty($lines)) {
+                $body_header = "New contact form submission:";
+                $components['body'] = $body_header . "\n\n" . implode("\n", $lines) . "\n";
+            }
+
+            // Set Reply-To to visitor email if present
+            $email_keys = array('your-email', 'email', 'your_email', 'contact-email');
+            foreach ($email_keys as $ek) {
+                if (!empty($posted_data[$ek]) && is_string($posted_data[$ek])) {
+                    $visitor_email = trim((string)$posted_data[$ek]);
+                    $headers = isset($components['additional_headers']) ? (string)$components['additional_headers'] : '';
+                    // Append Reply-To if not already present
+                    if (stripos($headers, 'Reply-To:') === false) {
+                        $headers = trim($headers . "\nReply-To: " . $visitor_email);
+                        $components['additional_headers'] = $headers;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
+    // Ensure a helpful subject if none set
+    if (empty($components['subject'])) {
+        $site_name = get_bloginfo('name');
+        $components['subject'] = '[' . $site_name . '] New contact form submission';
+    }
+
     return $components;
 });
 ?>
