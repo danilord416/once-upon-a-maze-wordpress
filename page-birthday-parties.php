@@ -28,12 +28,7 @@ get_header(); ?>
     </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="page-hero">
-    <div class="hero-image-container">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Birthday-Image-2.png" alt="Birthday Parties" class="hero-header-img">
-    </div>
-</section>
+
 
 <!-- Birthday Parties Content (reusing party section styling) -->
 <section class="party-section">
