@@ -37,7 +37,7 @@ function once_upon_a_maze_fallback_menu() {
     echo '<li><a href="' . home_url('/contact/') . '">Contact</a></li>';
     echo '<li><a href="' . home_url('/birthday-parties/') . '">Birthday Parties</a></li>';
     echo '<li><a href="#">FAQ\'s</a></li>';
-    echo '<li><a href="#" class="cta-button">Get Tickets</a></li>';
+    echo '<li><a href="https://www.simpletix.com/e/once-upon-a-maze-tickets-246927" target="_blank" rel="noopener noreferrer" class="cta-button">Get Tickets</a></li>';
     echo '</ul>';
 }
 
@@ -49,6 +49,29 @@ function once_upon_a_maze_body_classes($classes) {
     return $classes;
 }
 add_filter('body_class', 'once_upon_a_maze_body_classes');
+
+// Auto-update "Get Tickets" menu items to link to SimpleTix
+add_filter('wp_setup_nav_menu_item', function($menu_item) {
+    if (isset($menu_item->title) && stripos($menu_item->title, 'Get Tickets') !== false) {
+        $menu_item->url = 'https://www.simpletix.com/e/once-upon-a-maze-tickets-246927';
+        $menu_item->target = '_blank';
+    }
+    return $menu_item;
+});
+
+// Also filter nav menu output to add target="_blank" and rel attributes
+add_filter('walker_nav_menu_start_el', function($item_output, $item, $depth, $args) {
+    if (isset($item->title) && stripos($item->title, 'Get Tickets') !== false) {
+        $ticket_url = 'https://www.simpletix.com/e/once-upon-a-maze-tickets-246927';
+        // Replace href if it's different
+        $item_output = preg_replace('/href="[^"]*"/', 'href="' . esc_url($ticket_url) . '"', $item_output);
+        // Add target and rel if not present
+        if (strpos($item_output, 'target=') === false) {
+            $item_output = str_replace('<a ', '<a target="_blank" rel="noopener noreferrer" ', $item_output);
+        }
+    }
+    return $item_output;
+}, 10, 4);
 
 // Force Contact Form 7 emails to go to the client's inbox
 // This preserves the form's existing subject/body and only changes the recipient

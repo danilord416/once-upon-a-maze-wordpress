@@ -45,7 +45,7 @@ get_header(); ?>
                 <p>Next door to FairyTale Village, this all-new self-paced experience invites you to wander, wonder, and rediscover your favorite childhood stories — one turn at a time.</p>
             </div>
             <div class="hero-buttons">
-                <a href="#" class="btn btn-primary">
+                <a href="https://www.simpletix.com/e/once-upon-a-maze-tickets-246927" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                     <i class="fas fa-ticket-alt"></i>
                     Reserve Your Adventure
                 </a>
