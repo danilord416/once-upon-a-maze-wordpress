@@ -1345,6 +1345,16 @@ h1, h2, h3, h4, h5, h6 {
     width: 20px;
 }
 
+/* Center contact methods content inside contact cards */
+.contact-card .contact-method {
+    justify-content: center;
+}
+
+.contact-card .contact-method span,
+.contact-card .contact-method a {
+    text-align: center;
+}
+
 /* Party Booking Styles */
 .party-booking {
     padding: 100px 0;
