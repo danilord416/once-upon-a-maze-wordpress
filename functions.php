@@ -35,6 +35,7 @@ function once_upon_a_maze_fallback_menu() {
     echo '<ul class="nav-menu">';
     echo '<li><a href="' . home_url() . '">Home</a></li>';
     echo '<li><a href="' . home_url('/contact/') . '">Contact</a></li>';
+    echo '<li><a href="' . home_url('/operating-hours/') . '">Operating Hours</a></li>';
     echo '<li><a href="' . home_url('/birthday-parties/') . '">Birthday Parties</a></li>';
     echo '<li><a href="#">FAQ\'s</a></li>';
     echo '<li><a href="https://www.simpletix.com/e/once-upon-a-maze-tickets-246927" target="_blank" rel="noopener noreferrer" class="cta-button">Get Tickets</a></li>';

@@ -69,32 +69,6 @@ get_header(); ?>
                 </div>
             </div>
 
-            <!-- Hours Card -->
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <h3>Operating Hours</h3>
-                <div class="contact-details">
-                    <div class="hours-row">
-                        <span class="day">Fridays</span>
-                        <span class="time">10:00 AM - 9:00 PM</span>
-                    </div>
-                    <div class="hours-row">
-                        <span class="day">Saturdays</span>
-                        <span class="time">10:00 AM - 9:00 PM</span>
-                    </div>
-                    <div class="hours-row">
-                        <span class="day">Sundays</span>
-                        <span class="time">12:00 PM - 7:00 PM</span>
-                    </div>
-                </div>
-                <div class="contact-extra">
-                    <p><i class="fas fa-ticket-alt"></i> Tickets available every 15 minutes</p>
-                    <p><i class="fas fa-door-open"></i> Walk-ins welcome</p>
-                </div>
-            </div>
-
             <!-- Contact Methods Card -->
             <div class="contact-card">
                 <div class="contact-icon">
