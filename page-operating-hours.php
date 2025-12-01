@@ -28,13 +28,6 @@ get_header(); ?>
     </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="page-hero">
-    <div class="hero-image-container">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Header-Image.png" alt="Operating Hours Header" class="hero-header-img">
-    </div>
-</section>
-
 <!-- Operating Hours Content -->
 <section class="contact-info">
     <div class="container">
@@ -55,12 +48,6 @@ get_header(); ?>
                             src="https://www.canva.com/design/DAG6R7M-1sw/AWJzNFWohnWqce2Mf1bp5Q/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
                           </iframe>
                         </div>
-                        <p style="text-align:center; font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;">
-                            <a href="https://www.canva.com/design/DAG6R7M-1sw/AWJzNFWohnWqce2Mf1bp5Q/view?utm_content=DAG6R7M-1sw&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
-                               target="_blank" rel="noopener" style="color: #FF69B4; text-decoration: none;">
-                                View in Canva
-                            </a>
-                        </p>
                     </div>
                 </div>
                 <div class="contact-extra">
