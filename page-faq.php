@@ -164,7 +164,7 @@ get_header(); ?>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>We invite you to explore next door at FairyTale Village</p>
+                    <p>We invite you to explore next door at <a href="https://fairytalevillage.com" target="_blank" rel="noopener noreferrer">FairyTale Village</a></p>
                 </div>
             </div>
         </div>
