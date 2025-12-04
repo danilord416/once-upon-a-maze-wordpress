@@ -29,13 +29,6 @@ get_header(); ?>
     </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="page-hero">
-    <div class="hero-image-container">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Header-Image.png" alt="Once Upon a Maze FAQ" class="hero-header-img">
-    </div>
-</section>
-
 <!-- FAQ Section -->
 <section class="faq-section">
     <div class="container">

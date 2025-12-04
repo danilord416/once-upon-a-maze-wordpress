@@ -208,7 +208,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 // Toggle current item
-                item.classList.toggle('active', !isActive);
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
             });
         }
     });
