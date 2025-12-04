@@ -14,6 +14,8 @@
             echo 'Celebrate your child\'s birthday at Once Upon a Maze in Alpharetta, GA with magical themed party rooms, private space, and an unforgettable storybook maze experience.';
         } elseif (is_page('operating-hours')) {
             echo 'View the current operating hours for Once Upon a Maze at North Point Mall in Alpharetta, GA before planning your visit to our storybook maze attraction.';
+        } elseif (is_page('faq')) {
+            echo 'Find answers to frequently asked questions about Once Upon a Maze. Learn about tickets, location, accessibility, and more.';
         } else {
             echo get_bloginfo('description');
         }
@@ -36,6 +38,8 @@
             echo 'Host a birthday party at Once Upon a Maze in Alpharetta, GA and enjoy themed party rooms, storybook adventures, and a whimsical celebration for kids and families.';
         } elseif (is_page('operating-hours')) {
             echo 'Check the latest operating hours for Once Upon a Maze at North Point Mall in Alpharetta, GA so you know when our interactive storybook maze is open.';
+        } elseif (is_page('faq')) {
+            echo 'Find answers to frequently asked questions about Once Upon a Maze. Learn about tickets, location, accessibility, and more.';
         } else {
             echo get_bloginfo('description');
         }
