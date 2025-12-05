@@ -788,7 +788,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     max-width: 400px;
     height: 300px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 15px;
     margin: 0 auto 1.5rem auto;
     display: block;

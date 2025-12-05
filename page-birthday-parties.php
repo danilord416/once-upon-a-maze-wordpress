@@ -42,13 +42,13 @@ get_header(); ?>
 
         <div class="party-rooms">
             <div class="party-room">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Fairy.jpeg" alt="Fairy Room" class="party-room-image">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fairy-1.png" alt="Fairy Room" class="party-room-image">
                 <h3>The Fairy Room</h3>
                 <p>Full of sparkle, flowers, and woodland charm</p>
             </div>
 
             <div class="party-room">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Dragon.jpeg" alt="Dragon Room" class="party-room-image">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dragon-1.png" alt="Dragon Room" class="party-room-image">
                 <h3>The Dragon Room</h3>
                 <p>Bold, mystical, and full of adventure</p>
             </div>
