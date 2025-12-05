@@ -42,24 +42,63 @@ get_header(); ?>
 
         <div class="party-rooms">
             <div class="party-room">
-                <div class="party-icon">🧚‍♀️</div>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Fairy.jpeg" alt="Fairy Room" class="party-room-image">
                 <h3>The Fairy Room</h3>
                 <p>Full of sparkle, flowers, and woodland charm</p>
             </div>
 
             <div class="party-room">
-                <div class="party-icon">🐉</div>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Dragon.jpeg" alt="Dragon Room" class="party-room-image">
                 <h3>The Dragon Room</h3>
                 <p>Bold, mystical, and full of adventure</p>
             </div>
         </div>
 
+        <div class="party-details">
+            <div class="party-details-content">
+                <p class="party-details-intro">Each room offers 1,000 sq. ft. of party space, with seating for up to 25 guests. You'll enjoy:</p>
+                
+                <ul class="party-features">
+                    <li>Three heavy-duty 6-foot tables and 30 chairs</li>
+                    <li>A dedicated gift space</li>
+                    <li>A themed picture spot for those must-have memories</li>
+                </ul>
+
+                <div class="party-packages">
+                    <h3 class="party-packages-title">Party Packages:</h3>
+                    <p class="party-package-price">Room rental is $100 for two hours.</p>
+                    <p class="party-package-note">(Tickets to the Once Upon a Maze experience are purchased separately so you can tailor your visit.)</p>
+                </div>
+
+                <div class="party-addons">
+                    <h3 class="party-addons-title">Add-On Options</h3>
+                    <p class="party-addons-intro">Enhance your celebration with optional add-ons:</p>
+                    <ul class="party-addons-list">
+                        <li><strong>Party Essentials</strong> – plates, napkins, juice boxes, tablecloths, and cake-cutting utensils ($3 per person)</li>
+                        <li><strong>Party Favor Bags</strong> – fun themed trinkets for each child ($5 per child)</li>
+                        <li><strong>Pizza Package</strong> – kid-friendly pizza for your guests ($5 per person)</li>
+                    </ul>
+                </div>
+
+                <div class="party-fairytale">
+                    <h3 class="party-fairytale-title">Explore Once Upon a Maze for Just $10/Guest</h3>
+                    <p>Make the celebration even more magical! Party guests can add admission to <a href="https://fairytalevillage.com" target="_blank" rel="noopener noreferrer">FairyTale Village</a> for only $10 per person when purchased on the same day as your party. This rate applies to all party guests and must be added at the time of your visit.</p>
+                </div>
+
+                <div class="party-customize">
+                    <h3 class="party-customize-title">Customize Your Celebration</h3>
+                    <p>Add balloon decorations or themed décor with our independent party stylist, Kathryn.</p>
+                    <p>Contact her directly at <a href="tel:678-943-5469">678-943-5469</a> for details and pricing.</p>
+                </div>
+            </div>
+        </div>
+
         <div class="party-cta">
-            <a href="<?php echo home_url('/contact/'); ?>" class="btn btn-white">
+            <a href="<?php echo home_url('/contact/'); ?>" class="btn btn-white btn-large">
                 <i class="fas fa-birthday-cake"></i>
-                Inquire About Parties
+                Book Your Party Today!
             </a>
-            <p class="party-note">More details coming soon. In the meantime, reach out via our contact page to learn more!</p>
+            <p class="party-cta-note">Ready to celebrate? Complete the form below to request your party date, or contact us directly by phone, email, or in person at Once Upon a Maze, located inside North Point Mall on the second floor above H&M.</p>
         </div>
     </div>
 </section>
