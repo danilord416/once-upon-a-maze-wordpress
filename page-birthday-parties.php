@@ -81,7 +81,7 @@ get_header(); ?>
                 </div>
 
                 <div class="party-fairytale">
-                    <h3 class="party-fairytale-title">Explore Once Upon a Maze for Just $10/Guest</h3>
+                    <h3 class="party-fairytale-title">Explore FairyTale Village for Just $10/Guest</h3>
                     <p>Make the celebration even more magical! Party guests can add admission to <a href="https://fairytalevillage.com" target="_blank" rel="noopener noreferrer">FairyTale Village</a> for only $10 per person when purchased on the same day as your party. This rate applies to all party guests and must be added at the time of your visit.</p>
                 </div>
 
@@ -98,7 +98,6 @@ get_header(); ?>
                 <i class="fas fa-birthday-cake"></i>
                 Book Your Party Today!
             </a>
-            <p class="party-cta-note">Ready to celebrate? Complete the form below to request your party date, or contact us directly by phone, email, or in person at Once Upon a Maze, located inside North Point Mall on the second floor above H&M.</p>
         </div>
     </div>
 </section>
