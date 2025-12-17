@@ -12,6 +12,7 @@ get_header(); ?>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Once-Upon-a Maze-Logo-2.png" alt="Once Upon a Maze Logo" class="logo-img">
         </div>
         <a href="https://www.simpletix.com/e/once-upon-a-maze-tickets-246927" target="_blank" rel="noopener noreferrer" class="cta-button header-tickets-btn">Get Tickets</a>
+        <a href="https://app.squareup.com/gift/MLMNZYDMGM3AS/order" target="_blank" rel="noopener noreferrer" class="cta-button header-gift-cards-btn">Gift Cards</a>
         <?php
         wp_nav_menu(array(
             'theme_location' => 'primary',
