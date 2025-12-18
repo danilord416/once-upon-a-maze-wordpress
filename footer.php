@@ -31,6 +31,10 @@
                 </div>
             </div>
             
+            <div class="footer-sister-section">
+                <p>Visiting Once Upon a Maze? Your story doesn't have to end here. Step next door to our sister experience, <a href="https://fairytalevillage.com" target="_blank" rel="noopener noreferrer">FairyTale Village</a> - an enchanting walk-through adventure just steps away. <a href="https://fairytalevillage.com" target="_blank" rel="noopener noreferrer">Learn more about FairyTale Village</a></p>
+            </div>
+            
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Once-Upon-a Maze-Logo-2.png" alt="Once Upon a Maze Logo" class="footer-logo-small">

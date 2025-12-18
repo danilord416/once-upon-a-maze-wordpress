@@ -1176,6 +1176,36 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-2px);
 }
 
+.footer-sister-section {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.footer-sister-section p {
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-sister-section a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.footer-sister-section a:hover {
+    color: #FF69B4;
+    text-decoration: underline;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
@@ -1364,6 +1394,16 @@ h1, h2, h3, h4, h5, h6 {
     .footer-info {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+    
+    .footer-sister-section {
+        padding: 1.5rem 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .footer-sister-section p {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
     
     .footer-bottom-content {
