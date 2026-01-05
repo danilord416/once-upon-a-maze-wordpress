@@ -43,7 +43,7 @@
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Once-Upon-a Maze-Logo-2.png" alt="Once Upon a Maze Logo" class="footer-logo-small">
-                    <p>&copy; 2025 Once Upon a Maze. All rights reserved.</p>
+                    <p>&copy; 2026 Once Upon a Maze. All rights reserved.</p>
                 </div>
             </div>
         </div>
