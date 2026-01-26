@@ -77,13 +77,13 @@ get_header(); ?>
                     <ul class="party-addons-list">
                         <li><strong>Party Essentials</strong> – plates, napkins, juice boxes, tablecloths, and cake-cutting utensils ($3 per person)</li>
                         <li><strong>Party Favor Bags</strong> – fun themed trinkets for each child ($5 per child)</li>
-                        <li><strong>Pizza Package</strong> – kid-friendly pizza for your guests ($5 per person)</li>
+                        <li><strong>Pizza Package</strong> – kid-friendly pizza for your guests ($6.50 per person)</li>
                     </ul>
                 </div>
 
                 <div class="party-fairytale">
                     <h3 class="party-fairytale-title">Explore FairyTale Village for Just $10/Guest</h3>
-                    <p>Make the celebration even more magical! Party guests can add admission to <a href="https://fairytalevillage.com" target="_blank" rel="noopener noreferrer">FairyTale Village</a> for only $10 per person when purchased on the same day as your party. This rate applies to all party guests and must be added at the time of your visit.</p>
+                    <p>In addition to booking Once Upon A Maze tickets for $12.50 per person with a minimum of 17, make the celebration even more magical! Add admission to <a href="https://fairytalevillage.com" target="_blank" rel="noopener noreferrer">FairyTale Village</a> for only $10 per person, 17 minimum. Ask us for details.</p>
                 </div>
 
                 <div class="party-customize">
