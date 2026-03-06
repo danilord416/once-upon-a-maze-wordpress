@@ -158,34 +158,48 @@ get_header(); ?>
     </div>
 </section>
 
-<!-- Party Celebration Section -->
-<section class="party-section">
+<!-- Upcoming Events Section -->
+<section class="party-section events-section">
     <div class="container">
         <div class="party-header">
-            <h2 class="section-title">Celebrate in Storybook Style</h2>
-            <p class="section-subtitle">Host your next birthday or special event inside our enchanting party rooms!</p>
-            <p class="party-excitement">Make your special day truly magical with our unforgettable party experiences!</p>
+            <h2 class="section-title">Upcoming Events</h2>
         </div>
         
-        <div class="party-rooms">
-            <div class="party-room">
-                <div class="party-icon">🧚‍♀️</div>
-                <h3>The Fairy Room</h3>
-                <p>Full of sparkle, flowers, and woodland charm</p>
+        <div class="events-grid">
+            <!-- Event 1: Enchanting Egg Spotting Adventure -->
+            <div class="event-card">
+                <div class="event-icon">🥚</div>
+                <h3 class="event-title">Enchanting Egg Spotting Adventure</h3>
+                <p class="event-dates">March 27–29 &amp; April 3–4</p>
+                <p class="event-description">The Easter Bunny has visited every fairytale in our Maze and left behind enchanted eggs. Spot one egg in each fairy tale world, complete your quest card, and earn a spring surprise.</p>
+                <a href="https://www.simpletix.com/e/once-upon-a-maze-tickets-246927" target="_blank" rel="noopener noreferrer" class="btn btn-white event-btn">
+                    <i class="fas fa-ticket-alt"></i>
+                    Purchase Tickets
+                </a>
             </div>
             
-            <div class="party-room">
-                <div class="party-icon">🐉</div>
-                <h3>The Dragon Room</h3>
-                <p>Bold, mystical, and full of adventure</p>
+            <!-- Event 2: Birthday Parties -->
+            <div class="event-card">
+                <div class="event-icon">🎂</div>
+                <h3 class="event-title">Birthday Parties</h3>
+                <p class="event-description">Host your next birthday or special event inside our enchanting party rooms! Choose between The Fairy Room—full of sparkle, flowers, and woodland charm—or The Dragon Room—bold, mystical, and full of adventure. Make your special day truly magical.</p>
+                <a href="<?php echo home_url('/birthday-parties/'); ?>" class="btn btn-white event-btn">
+                    <i class="fas fa-birthday-cake"></i>
+                    Learn More
+                </a>
             </div>
-        </div>
-        
-        <div class="party-cta">
-            <a href="<?php echo get_permalink(get_page_by_path('contact')); ?>" class="btn btn-white">
-                <i class="fas fa-birthday-cake"></i>
-                Inquire About Parties
-            </a>
+            
+            <!-- Event 3: Waldorf-Inspired Classes -->
+            <div class="event-card">
+                <div class="event-icon">📚</div>
+                <h3 class="event-title">Waldorf-Inspired Classes</h3>
+                <p class="event-dates">Coming Soon — April 2026</p>
+                <p class="event-description">We're bringing Waldorf-inspired classes to Once Upon a Maze. More details coming soon!</p>
+                <a href="<?php echo home_url('/contact/'); ?>" class="btn btn-white event-btn">
+                    <i class="fas fa-envelope"></i>
+                    Get Notified
+                </a>
+            </div>
         </div>
     </div>
 </section>
