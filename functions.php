@@ -75,56 +75,84 @@ add_filter('walker_nav_menu_start_el', function($item_output, $item, $depth, $ar
     return $item_output;
 }, 10, 4);
 
-// Force Contact Form 7 emails to go to the client's inbox
-// This preserves the form's existing subject/body and only changes the recipient
+// Store Contact Form 7 posted data so we can use it when building the email (reliable across environments)
+$once_upon_a_maze_cf7_posted_data = array();
+
+add_action('wpcf7_before_send_mail', function($contact_form) {
+    global $once_upon_a_maze_cf7_posted_data;
+    $once_upon_a_maze_cf7_posted_data = array();
+    if (!function_exists('WPCF7_Submission') || !class_exists('WPCF7_Submission')) {
+        return;
+    }
+    $submission = WPCF7_Submission::get_instance();
+    if ($submission) {
+        $once_upon_a_maze_cf7_posted_data = $submission->get_posted_data();
+    }
+}, 5, 1);
+
+// Force Contact Form 7 emails to the client inbox and build body from actual submitted values
 add_filter('wpcf7_mail_components', function($components) {
-    // Always send to client inbox and from site domain
+    global $once_upon_a_maze_cf7_posted_data;
+
     $components['recipient'] = 'onceuponamaze@gmail.com';
     $components['sender'] = 'WordPress <wordpress@onceuponamaze.com>';
 
-    // Build a message containing all submitted fields
-    $submission = function_exists('WPCF7_Submission') ? WPCF7_Submission::get_instance() : null;
-    if ($submission) {
-        $posted_data = $submission->get_posted_data();
-        if (is_array($posted_data)) {
-            $ignore_keys = array(
-                '_wpcf7', '_wpcf7_version', '_wpcf7_locale', '_wpcf7_unit_tag', '_wpcf7_container_post',
-                '_wpcf7_posted_data_hash', '_wpcf7_recaptcha_response'
-            );
-
-            $lines = array();
-            foreach ($posted_data as $key => $value) {
-                if (in_array($key, $ignore_keys, true)) continue;
-                if (is_array($value)) $value = implode(', ', $value);
-                $pretty_key = ucwords(str_replace(array('-', '_'), ' ', (string)$key));
-                $lines[] = $pretty_key . ': ' . (string)$value;
-            }
-
-            if (!empty($lines)) {
-                $body_header = "New contact form submission:";
-                $components['body'] = $body_header . "\n\n" . implode("\n", $lines) . "\n";
-            }
-
-            // Set Reply-To to visitor email if present
-            $email_keys = array('your-email', 'email', 'your_email', 'contact-email');
-            foreach ($email_keys as $ek) {
-                if (!empty($posted_data[$ek]) && is_string($posted_data[$ek])) {
-                    $visitor_email = trim((string)$posted_data[$ek]);
-                    $headers = isset($components['additional_headers']) ? (string)$components['additional_headers'] : '';
-                    // Append Reply-To if not already present
-                    if (stripos($headers, 'Reply-To:') === false) {
-                        $headers = trim($headers . "\nReply-To: " . $visitor_email);
-                        $components['additional_headers'] = $headers;
-                    }
-                    break;
-                }
-            }
+    $posted_data = is_array($once_upon_a_maze_cf7_posted_data) ? $once_upon_a_maze_cf7_posted_data : array();
+    if (empty($posted_data) && function_exists('WPCF7_Submission') && class_exists('WPCF7_Submission')) {
+        $submission = WPCF7_Submission::get_instance();
+        if ($submission) {
+            $posted_data = $submission->get_posted_data();
         }
     }
 
-    // Ensure a helpful subject if none set
-    if (empty($components['subject'])) {
+    $ignore_keys = array(
+        '_wpcf7', '_wpcf7_version', '_wpcf7_locale', '_wpcf7_unit_tag', '_wpcf7_container_post',
+        '_wpcf7_posted_data_hash', '_wpcf7_recaptcha_response'
+    );
+
+    $lines = array();
+    foreach ($posted_data as $key => $value) {
+        if (in_array($key, $ignore_keys, true)) continue;
+        if (is_array($value)) $value = implode(', ', $value);
+        $value = trim((string)$value);
+        if ($value === '') continue;
+        $pretty_key = ucwords(str_replace(array('-', '_'), ' ', (string)$key));
+        $lines[] = $pretty_key . ': ' . $value;
+    }
+
+    if (!empty($lines)) {
         $site_name = get_bloginfo('name');
+        $components['body'] = "You received a new message from your website " . $site_name . ":\n\n"
+            . implode("\n", $lines) . "\n\n"
+            . "You can reply directly to this email to respond to the sender.";
+    }
+
+    // Reply-To so you can hit Reply and respond to the person who filled the form
+    $email_keys = array('your-email', 'email', 'your_email', 'contact-email');
+    foreach ($email_keys as $ek) {
+        if (!empty($posted_data[$ek]) && is_string($posted_data[$ek])) {
+            $visitor_email = trim((string)$posted_data[$ek]);
+            $headers = isset($components['additional_headers']) ? (string)$components['additional_headers'] : '';
+            if (stripos($headers, 'Reply-To:') === false) {
+                $headers = trim($headers . "\nReply-To: " . $visitor_email);
+                $components['additional_headers'] = $headers;
+            }
+            break;
+        }
+    }
+
+    // Subject: include subject line from form if present, otherwise default
+    $subject_line = '';
+    foreach (array('your-subject', 'subject') as $sk) {
+        if (!empty($posted_data[$sk]) && is_string($posted_data[$sk])) {
+            $subject_line = trim((string)$posted_data[$sk]);
+            break;
+        }
+    }
+    $site_name = get_bloginfo('name');
+    if ($subject_line !== '') {
+        $components['subject'] = '[' . $site_name . '] ' . $subject_line;
+    } elseif (empty($components['subject']) || strpos($components['subject'], '[') === false) {
         $components['subject'] = '[' . $site_name . '] New contact form submission';
     }
 
