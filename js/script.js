@@ -229,58 +229,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Enchanted Classes accordion
-    function initClassesAccordion() {
-        const classItems = document.querySelectorAll('.class-item');
-        if (classItems.length === 0) return;
-
-        classItems.forEach(item => {
-            const header = item.querySelector('.class-header');
-            if (header && !header.hasAttribute('data-class-initialized')) {
-                header.setAttribute('data-class-initialized', 'true');
-                header.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    const isActive = item.classList.contains('active');
-
-                    // Close all other class items
-                    classItems.forEach(other => {
-                        if (other !== item) {
-                            other.classList.remove('active');
-                            const otherBody = other.querySelector('.class-body');
-                            if (otherBody) {
-                                otherBody.style.display = 'none';
-                            }
-                        }
-                    });
-
-                    // Toggle current
-                    if (isActive) {
-                        item.classList.remove('active');
-                        const body = item.querySelector('.class-body');
-                        if (body) {
-                            body.style.display = 'none';
-                        }
-                    } else {
-                        item.classList.add('active');
-                        const body = item.querySelector('.class-body');
-                        if (body) {
-                            body.style.display = 'block';
-                        }
-                    }
-                });
-            }
-        });
-    }
-
     // Initialize FAQ accordion
     initFAQAccordion();
     setTimeout(initFAQAccordion, 100);
-
-    // Initialize classes accordion
-    initClassesAccordion();
-    setTimeout(initClassesAccordion, 100);
 });
 
 // Add CSS for ripple effect

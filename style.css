@@ -864,6 +864,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+    text-align: center;
 }
 
 .class-item:hover {
@@ -877,9 +878,10 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(90deg, rgba(255, 215, 0, 0.08), rgba(255, 105, 180, 0.08));
     padding: 1.25rem 1.5rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
+    text-align: center;
 }
 
 .class-icon {
@@ -890,7 +892,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .class-header-main {
-    text-align: left;
+    text-align: center;
 }
 
 .class-title {
@@ -905,17 +907,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .class-toggle-icon {
-    font-size: 1.5rem;
-    color: #052545;
-    font-weight: 700;
-    margin-left: 1rem;
+    display: none;
 }
 
 .class-body {
     padding: 1.25rem 1.5rem 1.5rem 1.5rem;
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
     font-size: 0.98rem;
     line-height: 1.7;
+    text-align: left;
 }
 
 .class-body p + p {
@@ -936,12 +939,9 @@ h1, h2, h3, h4, h5, h6 {
     cursor: not-allowed;
 }
 
-.class-item.active .class-body {
-    display: block;
-}
-
-.class-item.active .class-toggle-icon {
-    transform: rotate(45deg);
+.class-item:hover .class-body {
+    max-height: 600px;
+    opacity: 1;
 }
 
 .classes-registration {
@@ -976,7 +976,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 24px;
     background:
         linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95)),
-        url('assets/images/weekly-class-schedule.png');
+        url('assets/images/class-schedule.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
