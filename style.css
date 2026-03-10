@@ -907,15 +907,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .class-toggle-icon {
-    display: none;
+    font-size: 0.95rem;
+    color: #052545;
+    margin-left: 0.75rem;
+    font-weight: 600;
 }
 
 .class-body {
     padding: 1.25rem 1.5rem 1.5rem 1.5rem;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+    display: none;
     font-size: 0.98rem;
     line-height: 1.7;
     text-align: left;
@@ -939,9 +939,8 @@ h1, h2, h3, h4, h5, h6 {
     cursor: not-allowed;
 }
 
-.class-item:hover .class-body {
-    max-height: 600px;
-    opacity: 1;
+.class-item.active .class-body {
+    display: block;
 }
 
 .classes-registration {
@@ -975,7 +974,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 3rem 2rem;
     border-radius: 24px;
     background:
-        linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95)),
+        linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.7)),
         url('assets/images/class-schedule.png');
     background-size: cover;
     background-position: center;

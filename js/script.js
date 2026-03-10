@@ -232,6 +232,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize FAQ accordion
     initFAQAccordion();
     setTimeout(initFAQAccordion, 100);
+
+    // Enchanted Classes click-to-expand
+    const classItems = document.querySelectorAll('.class-item');
+    if (classItems.length) {
+        classItems.forEach(item => {
+            const header = item.querySelector('.class-header');
+            if (header && !header.hasAttribute('data-class-initialized')) {
+                header.setAttribute('data-class-initialized', 'true');
+                header.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const isActive = item.classList.contains('active');
+
+                    // Close others
+                    classItems.forEach(other => {
+                        if (other !== item) {
+                            other.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle current
+                    if (isActive) {
+                        item.classList.remove('active');
+                    } else {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
 });
 
 // Add CSS for ripple effect

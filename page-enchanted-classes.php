@@ -48,11 +48,12 @@ get_header(); ?>
                         <h2 class="class-title">Little Builders Club</h2>
                         <p class="class-meta">Woodworking Workshop | Ages 7–9 &amp; 10–12 • Class Fee: $20</p>
                     </div>
-                    <span class="class-toggle-icon" aria-hidden="true">+</span>
+                    <span class="class-toggle-icon" aria-hidden="true">Read more ↓</span>
                 </button>
                 <div class="class-body">
                     <p>Young makers step into the workshop to learn the art of real woodworking. With guidance from Mr. Shope, children safely use simple tools to create beautiful wooden projects they can proudly take home. Projects may include birdhouses, wooden name signs, and seasonal creations.</p>
                     <p>Working with wood helps children develop focus, patience, creativity, and confidence while experiencing the satisfaction of building something with their own hands. A perfect class for children who love to build, design, and create.</p>
+                    <p><strong>Class Fee:</strong> $20 (all materials included)</p>
                     <div class="class-actions">
                         <button class="btn btn-primary class-register-btn" type="button" disabled>Register on SimpleTix (Coming Soon)</button>
                     </div>
@@ -67,11 +68,12 @@ get_header(); ?>
                         <h2 class="class-title">Potions with the Pocket Fairy</h2>
                         <p class="class-meta">Whimsical Science Lab | Ages 6–9 • Class Fee: $15</p>
                     </div>
-                    <span class="class-toggle-icon" aria-hidden="true">+</span>
+                    <span class="class-toggle-icon" aria-hidden="true">Read more ↓</span>
                 </button>
                 <div class="class-body">
                     <p>A curious little fairy lives in the maze… and she has a lot of pockets. Inside them she keeps mysterious powders, sparkling crystals, colorful liquids, and fascinating ingredients for her magical experiments.</p>
                     <p>In each class, children join the Pocket Fairy’s Potion Lab to perform five or six fun science experiments, discovering bubbling reactions, color transformations, surprising mixtures, and more. With laughter, curiosity, and a little fairy mischief, children discover that science itself can feel like magic.</p>
+                    <p><strong>Class Fee:</strong> $15 (all materials included)</p>
                     <div class="class-actions">
                         <button class="btn btn-primary class-register-btn" type="button" disabled>Register on SimpleTix (Coming Soon)</button>
                     </div>
@@ -84,13 +86,14 @@ get_header(); ?>
                     <div class="class-header-main">
                         <span class="class-icon">🧘‍♀️</span>
                         <h2 class="class-title">My Grown-Up &amp; Me Storybook Yoga</h2>
-                        <p class="class-meta">Partner Yoga | Ages 3+</p>
+                        <p class="class-meta">Partner Yoga | Ages 3+ • Class Fee: $15</p>
                     </div>
-                    <span class="class-toggle-icon" aria-hidden="true">+</span>
+                    <span class="class-toggle-icon" aria-hidden="true">Read more ↓</span>
                 </button>
                 <div class="class-body">
                     <p>This gentle class invites children and their grown-ups to move together through a playful yoga journey inspired by stories and imagination.</p>
                     <p>Through simple poses, breathing games, and cooperative partner movements, families stretch, balance, and relax while sharing special moments together. Expect giggles, connection, and peaceful calm in this joyful bonding experience. Perfect for parents, grandparents, and caregivers.</p>
+                    <p><strong>Class Fee:</strong> $15 (all materials included)</p>
                     <div class="class-actions">
                         <button class="btn btn-primary class-register-btn" type="button" disabled>Register on SimpleTix (Coming Soon)</button>
                     </div>
@@ -103,9 +106,9 @@ get_header(); ?>
                     <div class="class-header-main">
                         <span class="class-icon">🏰</span>
                         <h2 class="class-title">Knight &amp; Princess Yoga Training</h2>
-                        <p class="class-meta">Mindful Movement Adventure | Ages 6+</p>
+                        <p class="class-meta">Mindful Movement Adventure | Ages 6+ • Class Fee: $15</p>
                     </div>
-                    <span class="class-toggle-icon" aria-hidden="true">+</span>
+                    <span class="class-toggle-icon" aria-hidden="true">Read more ↓</span>
                 </button>
                 <div class="class-body">
                     <p>Young knights and princesses are invited to train their strength, balance, and bravery. In this story-inspired yoga class held throughout the maze, children practice gentle poses, stretches, and mindful breathing while imagining themselves on a royal adventure.</p>
@@ -116,6 +119,7 @@ get_header(); ?>
                         <li>Practice calm focus like wise rulers</li>
                     </ul>
                     <p>This class builds confidence, body awareness, and inner calm through imaginative movement.</p>
+                    <p><strong>Class Fee:</strong> $15 (all materials included)</p>
                     <div class="class-actions">
                         <button class="btn btn-primary class-register-btn" type="button" disabled>Register on SimpleTix (Coming Soon)</button>
                     </div>
@@ -128,9 +132,9 @@ get_header(); ?>
                     <div class="class-header-main">
                         <span class="class-icon">🎭</span>
                         <h2 class="class-title">Fairytale Improv Theatre</h2>
-                        <p class="class-meta">Drama &amp; Storytelling | Ages 8–12</p>
+                        <p class="class-meta">Drama &amp; Storytelling | Ages 8–12 • Class Fee: $15</p>
                     </div>
-                    <span class="class-toggle-icon" aria-hidden="true">+</span>
+                    <span class="class-toggle-icon" aria-hidden="true">Read more ↓</span>
                 </button>
                 <div class="class-body">
                     <p>Led by a professional actor, this lively class invites children to step into the world of spontaneous storytelling and theater.</p>
@@ -143,6 +147,7 @@ get_header(); ?>
                         <li>Quick thinking</li>
                     </ul>
                     <p>No memorization required—just imagination.</p>
+                    <p><strong>Class Fee:</strong> $15 (all materials included)</p>
                     <div class="class-actions">
                         <button class="btn btn-primary class-register-btn" type="button" disabled>Register on SimpleTix (Coming Soon)</button>
                     </div>
@@ -155,14 +160,15 @@ get_header(); ?>
                     <div class="class-header-main">
                         <span class="class-icon">🎶</span>
                         <h2 class="class-title">Waldorf-inspired Preschool Circle Time</h2>
-                        <p class="class-meta">Songs, Story &amp; Art | Preschool</p>
+                        <p class="class-meta">Songs, Story &amp; Art | Preschool • Class Fee: $15</p>
                     </div>
-                    <span class="class-toggle-icon" aria-hidden="true">+</span>
+                    <span class="class-toggle-icon" aria-hidden="true">Read more ↓</span>
                 </button>
                 <div class="class-body">
                     <p>This gentle class offers the warmth and rhythm of a traditional Waldorf-inspired circle time.</p>
                     <p>Children gather for songs, movement, finger plays, and seasonal verses before enjoying a simple story or puppet tale. The class ends with a small art or craft activity inspired by the season.</p>
                     <p>The experience is designed to nourish imagination while creating a peaceful, joyful rhythm for young children.</p>
+                    <p><strong>Class Fee:</strong> $15 (all materials included)</p>
                     <div class="class-actions">
                         <button class="btn btn-primary class-register-btn" type="button" disabled>Register on SimpleTix (Coming Soon)</button>
                     </div>
@@ -175,9 +181,9 @@ get_header(); ?>
                     <div class="class-header-main">
                         <span class="class-icon">🦊</span>
                         <h2 class="class-title">Woodland Creatures Club</h2>
-                        <p class="class-meta">Animal &amp; Nature Discovery | Ages 6+</p>
+                        <p class="class-meta">Animal &amp; Nature Discovery | Ages 6+ • Class Fee: $15</p>
                     </div>
-                    <span class="class-toggle-icon" aria-hidden="true">+</span>
+                    <span class="class-toggle-icon" aria-hidden="true">Read more ↓</span>
                 </button>
                 <div class="class-body">
                     <p>Each week, children explore the fascinating life of a different woodland animal. Through science, storytelling, poetry, art, and crafts, children learn about creatures such as foxes, owls, deer, chipmunks, and otters.</p>
@@ -189,6 +195,7 @@ get_header(); ?>
                         <li>Recite the Woodland Protector Pledge, promising to care for animals and the natural world</li>
                     </ul>
                     <p>This class encourages curiosity, compassion, and connection with nature.</p>
+                    <p><strong>Class Fee:</strong> $15 (all materials included)</p>
                     <div class="class-actions">
                         <button class="btn btn-primary class-register-btn" type="button" disabled>Register on SimpleTix (Coming Soon)</button>
                     </div>
@@ -201,9 +208,9 @@ get_header(); ?>
                     <div class="class-header-main">
                         <span class="class-icon">🎨</span>
                         <h2 class="class-title">Seasonal Crafting</h2>
-                        <p class="class-meta">Nature-Inspired Art | Ages 6+</p>
+                        <p class="class-meta">Nature-Inspired Art | Ages 6+ • Class Fee: $15</p>
                     </div>
-                    <span class="class-toggle-icon" aria-hidden="true">+</span>
+                    <span class="class-toggle-icon" aria-hidden="true">Read more ↓</span>
                 </button>
                 <div class="class-body">
                     <p>In this peaceful crafting class, children create beautiful handmade projects inspired by the changing seasons of nature. Using natural materials and traditional techniques, children may create:</p>
@@ -214,6 +221,7 @@ get_header(); ?>
                         <li>Summer fairy gardens</li>
                     </ul>
                     <p>Each craft reflects the beauty of the season and invites children to slow down and enjoy the creative process.</p>
+                    <p><strong>Class Fee:</strong> $15 (all materials included)</p>
                     <div class="class-actions">
                         <button class="btn btn-primary class-register-btn" type="button" disabled>Register on SimpleTix (Coming Soon)</button>
                     </div>
@@ -223,7 +231,6 @@ get_header(); ?>
 
         <!-- Registration Details -->
         <section class="classes-registration">
-            <h2 class="section-title">Registration &amp; Class Details</h2>
             <div class="classes-registration-content">
                 <div class="classes-registration-card">
                     <h3>Class Details</h3>
