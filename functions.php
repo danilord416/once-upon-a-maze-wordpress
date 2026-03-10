@@ -34,10 +34,13 @@ add_action('wp_enqueue_scripts', 'once_upon_a_maze_scripts');
 function once_upon_a_maze_fallback_menu() {
     echo '<ul class="nav-menu">';
     echo '<li><a href="' . home_url() . '">Home</a></li>';
-    echo '<li><a href="' . home_url('/operating-hours/') . '">Operating Hours</a></li>';
     echo '<li><a href="' . home_url('/birthday-parties/') . '">Birthday Parties</a></li>';
     echo '<li><a href="' . home_url('/enchanted-classes/') . '">Enchanted Classes</a></li>';
-    echo '<li><a href="' . home_url('/faq/') . '">FAQ\'s</a></li>';
+    echo '<li><a href="' . home_url('/faq/') . '">FAQ\'s</a>';
+    echo '<ul class="sub-menu">';
+    echo '<li><a href="' . home_url('/operating-hours/') . '">Operating Hours</a></li>';
+    echo '</ul>';
+    echo '</li>';
     echo '<li><a href="' . home_url('/contact/') . '">Contact Us</a></li>';
     echo '<li><a href="https://www.simpletix.com/e/once-upon-a-maze-tickets-246927" target="_blank" rel="noopener noreferrer" class="cta-button mobile-tickets-btn">Get Tickets</a></li>';
     echo '<li><a href="https://app.squareup.com/gift/MLMNZYDMGM3AS/order" target="_blank" rel="noopener noreferrer" class="cta-button mobile-gift-cards-btn">Gift Cards</a></li>';

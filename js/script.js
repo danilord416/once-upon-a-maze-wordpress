@@ -248,14 +248,26 @@ document.addEventListener('DOMContentLoaded', function() {
                     classItems.forEach(other => {
                         if (other !== item) {
                             other.classList.remove('active');
+                            const otherBody = other.querySelector('.class-body');
+                            if (otherBody) {
+                                otherBody.style.display = 'none';
+                            }
                         }
                     });
 
                     // Toggle current
                     if (isActive) {
                         item.classList.remove('active');
+                        const body = item.querySelector('.class-body');
+                        if (body) {
+                            body.style.display = 'none';
+                        }
                     } else {
                         item.classList.add('active');
+                        const body = item.querySelector('.class-body');
+                        if (body) {
+                            body.style.display = 'block';
+                        }
                     }
                 });
             }

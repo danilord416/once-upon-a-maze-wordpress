@@ -30,13 +30,6 @@ get_header(); ?>
     </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="page-hero">
-    <div class="hero-image-container">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Header-Image.png" alt="Enchanted Classes Header" class="hero-header-img">
-    </div>
-</section>
-
 <!-- Enchanted Classes Intro -->
 <section class="classes-section">
     <div class="container">
@@ -51,6 +44,7 @@ get_header(); ?>
             <article class="class-item">
                 <button class="class-header" type="button">
                     <div class="class-header-main">
+                        <span class="class-icon">🛠️</span>
                         <h2 class="class-title">Little Builders Club</h2>
                         <p class="class-meta">Woodworking Workshop | Ages 7–9 &amp; 10–12 • Class Fee: $20</p>
                     </div>
@@ -69,6 +63,7 @@ get_header(); ?>
             <article class="class-item">
                 <button class="class-header" type="button">
                     <div class="class-header-main">
+                        <span class="class-icon">🧪</span>
                         <h2 class="class-title">Potions with the Pocket Fairy</h2>
                         <p class="class-meta">Whimsical Science Lab | Ages 6–9 • Class Fee: $15</p>
                     </div>
@@ -87,6 +82,7 @@ get_header(); ?>
             <article class="class-item">
                 <button class="class-header" type="button">
                     <div class="class-header-main">
+                        <span class="class-icon">🧘‍♀️</span>
                         <h2 class="class-title">My Grown-Up &amp; Me Storybook Yoga</h2>
                         <p class="class-meta">Partner Yoga | Ages 3+</p>
                     </div>
@@ -105,6 +101,7 @@ get_header(); ?>
             <article class="class-item">
                 <button class="class-header" type="button">
                     <div class="class-header-main">
+                        <span class="class-icon">🏰</span>
                         <h2 class="class-title">Knight &amp; Princess Yoga Training</h2>
                         <p class="class-meta">Mindful Movement Adventure | Ages 6+</p>
                     </div>
@@ -129,6 +126,7 @@ get_header(); ?>
             <article class="class-item">
                 <button class="class-header" type="button">
                     <div class="class-header-main">
+                        <span class="class-icon">🎭</span>
                         <h2 class="class-title">Fairytale Improv Theatre</h2>
                         <p class="class-meta">Drama &amp; Storytelling | Ages 8–12</p>
                     </div>
@@ -155,6 +153,7 @@ get_header(); ?>
             <article class="class-item">
                 <button class="class-header" type="button">
                     <div class="class-header-main">
+                        <span class="class-icon">🎶</span>
                         <h2 class="class-title">Waldorf-inspired Preschool Circle Time</h2>
                         <p class="class-meta">Songs, Story &amp; Art | Preschool</p>
                     </div>
@@ -174,6 +173,7 @@ get_header(); ?>
             <article class="class-item">
                 <button class="class-header" type="button">
                     <div class="class-header-main">
+                        <span class="class-icon">🦊</span>
                         <h2 class="class-title">Woodland Creatures Club</h2>
                         <p class="class-meta">Animal &amp; Nature Discovery | Ages 6+</p>
                     </div>
@@ -199,6 +199,7 @@ get_header(); ?>
             <article class="class-item">
                 <button class="class-header" type="button">
                     <div class="class-header-main">
+                        <span class="class-icon">🎨</span>
                         <h2 class="class-title">Seasonal Crafting</h2>
                         <p class="class-meta">Nature-Inspired Art | Ages 6+</p>
                     </div>
@@ -231,14 +232,6 @@ get_header(); ?>
                         <li>Drop-off format (parents may explore the mall but must remain nearby and reachable)</li>
                         <li>Space is limited</li>
                         <li>Registration is required; walk-ins may be available if space allows</li>
-                    </ul>
-                </div>
-                <div class="classes-registration-card">
-                    <h3>Pricing</h3>
-                    <ul>
-                        <li>Most classes: $15</li>
-                        <li>Little Builders Club (woodworking): $20</li>
-                        <li>All materials and supplies are included</li>
                     </ul>
                 </div>
             </div>

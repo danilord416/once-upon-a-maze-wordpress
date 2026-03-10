@@ -81,9 +81,43 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
     margin-left: auto;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu .sub-menu {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(5, 37, 69, 0.98);
+    padding: 0.75rem 0;
+    min-width: 180px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    display: none;
+    z-index: 1100;
+}
+
+.nav-menu .sub-menu li {
+    padding: 0;
+}
+
+.nav-menu .sub-menu a {
+    display: block;
+    padding: 0.5rem 1.25rem;
+    font-weight: 500;
+}
+
+.nav-menu li:hover > .sub-menu {
+    display: block;
 }
 
 .nav-menu a {
@@ -848,6 +882,13 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
+.class-icon {
+    font-size: 1.6rem;
+    margin-right: 0.75rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .class-header-main {
     text-align: left;
 }
@@ -931,6 +972,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .classes-schedule {
     margin-bottom: 4rem;
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95)),
+        url('assets/images/weekly-class-schedule.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .schedule-grid {
