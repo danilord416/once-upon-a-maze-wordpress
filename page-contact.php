@@ -43,7 +43,7 @@ get_header(); ?>
             <h2 class="section-title">Get In Touch</h2>
             <p class="section-subtitle" style="text-align: center;">Have a question or want to book a party? We'd love to hear from you!</p>
             
-            <?php echo do_shortcode('[contact-form-7 id="84e6169" title="Once Upon a Maze Contact Form"]'); ?>
+            <?php echo do_shortcode('[fluentform id="3"]'); ?>
         </div>
     </div>
 </section>
