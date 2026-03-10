@@ -229,11 +229,46 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Enchanted Classes accordion
+    function initClassesAccordion() {
+        const classItems = document.querySelectorAll('.class-item');
+        if (classItems.length === 0) return;
+
+        classItems.forEach(item => {
+            const header = item.querySelector('.class-header');
+            if (header && !header.hasAttribute('data-class-initialized')) {
+                header.setAttribute('data-class-initialized', 'true');
+                header.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const isActive = item.classList.contains('active');
+
+                    // Close all other class items
+                    classItems.forEach(other => {
+                        if (other !== item) {
+                            other.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle current
+                    if (isActive) {
+                        item.classList.remove('active');
+                    } else {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+
     // Initialize FAQ accordion
     initFAQAccordion();
-    
-    // Also try initializing after a short delay in case DOM isn't fully ready
     setTimeout(initFAQAccordion, 100);
+
+    // Initialize classes accordion
+    initClassesAccordion();
+    setTimeout(initClassesAccordion, 100);
 });
 
 // Add CSS for ripple effect
