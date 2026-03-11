@@ -38,6 +38,21 @@ get_header(); ?>
             <p class="classes-tagline">Classes that nurture imagination, creativity, and the joy of childhood.</p>
         </div>
 
+        <!-- SimpleTix embedded class selector -->
+        <div class="classes-selector">
+            <link href="https://embed.prod.simpletix.com/assets/widget/widget.min.css?t=2026.02.18" rel="stylesheet" />
+            <script src="https://embed.prod.simpletix.com/assets/widget/widget.min.js?t=2026.02.16"></script>
+            <div class="smt-pin-board" id="smt_pinBoard">
+                <input type="hidden" value="cfe48297-c2ce-48ed-840d-5f6cb5de6653" id="smt_hdnApplicationId" />
+                <input type="hidden" value="Once Upon A Maze" id="smt_hdnStoreName" />
+                <input type="hidden" value="0" id="smt_openEventPageType" />
+                <input type="hidden" value="1" id="smt_isDisplayEventCategory" />
+                <input type="hidden" value="Family &amp; Education" id="smt_selectedEventCategories" />
+                <input type="hidden" value="Cal" id="smt_displayStyle" />
+                <input type="hidden" value="Classes" id="smt_selectedInternalCategories" />
+            </div>
+        </div>
+
         <!-- Class List -->
         <div class="classes-list">
             <!-- Little Builders Club -->
