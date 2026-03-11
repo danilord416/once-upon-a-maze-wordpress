@@ -67,46 +67,51 @@ get_header(); ?>
                 </div>
             </div>
         </section>
+    </div>
+</section>
 
-        <!-- Weekly Schedule -->
-        <section class="classes-schedule">
-            <h2 class="section-title">Weekly Class Schedule</h2>
-            <div class="schedule-grid">
-                <div class="schedule-column">
-                    <h3>Fridays (For Homeschoolers!)</h3>
-                    <ul>
-                        <li><strong>10:00</strong> – Preschool Waldorf-Inspired Circle Time</li>
-                        <li><strong>10:00</strong> – My Grown-Up &amp; Me Yoga</li>
-                        <li><strong>11:00</strong> – Knight &amp; Princess Yoga Training</li>
-                        <li><strong>12:00</strong> – Woodland Creatures Club</li>
-                        <li><strong>1:00</strong> – Seasonal Crafting</li>
-                    </ul>
-                </div>
-                <div class="schedule-column">
-                    <h3>Saturdays</h3>
-                    <ul>
-                        <li><strong>10:00</strong> – Potions with the Pocket Fairy</li>
-                        <li><strong>11:00</strong> – Little Builders Club (Ages 7–9)</li>
-                        <li><strong>12:30</strong> – Little Builders Club (Ages 10–12)</li>
-                        <li><strong>12:30</strong> – Woodland Creatures Club</li>
-                        <li><strong>1:30</strong> – Fairytale Improv Theatre</li>
-                    </ul>
-                </div>
-                <div class="schedule-column">
-                    <h3>Sundays</h3>
-                    <ul>
-                        <li><strong>10:00</strong> – My Grown-Up &amp; Me Yoga</li>
-                        <li><strong>11:00</strong> – Knight &amp; Princess Yoga Training</li>
-                        <li><strong>2:00</strong> – Waldorf-inspired Seasonal Crafting</li>
-                    </ul>
-                </div>
+<!-- Weekly Schedule (full-width background) -->
+<section class="classes-schedule">
+    <div class="container">
+        <h2 class="section-title">Weekly Class Schedule</h2>
+        <div class="schedule-grid">
+            <div class="schedule-column">
+                <h3>Fridays (For Homeschoolers!)</h3>
+                <ul>
+                    <li><strong>10:00</strong> – Preschool Waldorf-Inspired Circle Time</li>
+                    <li><strong>10:00</strong> – My Grown-Up &amp; Me Yoga</li>
+                    <li><strong>11:00</strong> – Knight &amp; Princess Yoga Training</li>
+                    <li><strong>12:00</strong> – Woodland Creatures Club</li>
+                    <li><strong>1:00</strong> – Seasonal Crafting</li>
+                </ul>
             </div>
-        </section>
+            <div class="schedule-column">
+                <h3>Saturdays</h3>
+                <ul>
+                    <li><strong>10:00</strong> – Potions with the Pocket Fairy</li>
+                    <li><strong>11:00</strong> – Little Builders Club (Ages 7–9)</li>
+                    <li><strong>12:30</strong> – Little Builders Club (Ages 10–12)</li>
+                    <li><strong>12:30</strong> – Woodland Creatures Club</li>
+                    <li><strong>1:30</strong> – Fairytale Improv Theatre</li>
+                </ul>
+            </div>
+            <div class="schedule-column">
+                <h3>Sundays</h3>
+                <ul>
+                    <li><strong>10:00</strong> – My Grown-Up &amp; Me Yoga</li>
+                    <li><strong>11:00</strong> – Knight &amp; Princess Yoga Training</li>
+                    <li><strong>2:00</strong> – Waldorf-inspired Seasonal Crafting</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <!-- Meet Our Teachers -->
-        <section class="classes-teachers">
-            <h2 class="section-title">Meet Our Teachers</h2>
-            <div class="teachers-grid">
+<!-- Meet Our Teachers -->
+<section class="classes-teachers">
+    <div class="container">
+        <h2 class="section-title">Meet Our Teachers</h2>
+        <div class="teachers-grid">
                 <article class="teacher-card">
                     <h3>Sarah Barrett</h3>
                     <p>Sarah Barrett is a Waldorf-trained teacher and the founder of Lotus &amp; Ivy Waldorf-inspired virtual classes, as well as an owner of FairyTale Village and Once Upon A Maze. Before entering education, she worked as an engineer for The Walt Disney Company, where she developed a love for bringing stories to life.</p>
