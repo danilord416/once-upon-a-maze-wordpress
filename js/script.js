@@ -233,33 +233,56 @@ document.addEventListener('DOMContentLoaded', function() {
     initFAQAccordion();
     setTimeout(initFAQAccordion, 100);
 
-    // Enchanted Classes click-to-expand
+    // Enchanted Classes: open details in modal
     const classItems = document.querySelectorAll('.class-item');
-    if (classItems.length) {
+    const modalOverlay = document.getElementById('class-modal');
+    const modalContent = modalOverlay ? modalOverlay.querySelector('.class-modal-content') : null;
+    const modalClose = modalOverlay ? modalOverlay.querySelector('.class-modal-close') : null;
+
+    function openClassModal(html) {
+        if (!modalOverlay || !modalContent) return;
+        modalContent.innerHTML = html;
+        modalOverlay.classList.add('open');
+        document.body.classList.add('modal-open');
+    }
+
+    function closeClassModal() {
+        if (!modalOverlay || !modalContent) return;
+        modalOverlay.classList.remove('open');
+        document.body.classList.remove('modal-open');
+        modalContent.innerHTML = '';
+    }
+
+    if (classItems.length && modalOverlay && modalContent) {
         classItems.forEach(item => {
             const header = item.querySelector('.class-header');
-            if (header && !header.hasAttribute('data-class-initialized')) {
+            const body = item.querySelector('.class-body');
+            if (header && body && !header.hasAttribute('data-class-initialized')) {
                 header.setAttribute('data-class-initialized', 'true');
                 header.addEventListener('click', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
-
-                    const isActive = item.classList.contains('active');
-
-                    // Close others
-                    classItems.forEach(other => {
-                        if (other !== item) {
-                            other.classList.remove('active');
-                        }
-                    });
-
-                    // Toggle current
-                    if (isActive) {
-                        item.classList.remove('active');
-                    } else {
-                        item.classList.add('active');
-                    }
+                    openClassModal(body.innerHTML);
                 });
+            }
+        });
+    }
+
+    if (modalOverlay && modalClose) {
+        modalClose.addEventListener('click', function (e) {
+            e.preventDefault();
+            closeClassModal();
+        });
+
+        modalOverlay.addEventListener('click', function (e) {
+            if (e.target === modalOverlay) {
+                closeClassModal();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
+                closeClassModal();
             }
         });
     }

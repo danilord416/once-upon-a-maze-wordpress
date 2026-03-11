@@ -279,6 +279,16 @@ get_header(); ?>
             </div>
         </section>
 
+        <!-- Shared Class Details Modal -->
+        <div id="class-modal" class="class-modal-overlay" aria-hidden="true">
+            <div class="class-modal" role="dialog" aria-modal="true" aria-labelledby="class-modal-title">
+                <button type="button" class="class-modal-close" aria-label="Close details">&times;</button>
+                <div class="class-modal-content">
+                    <!-- Filled dynamically from class-body content -->
+                </div>
+            </div>
+        </div>
+
         <!-- Meet Our Teachers -->
         <section class="classes-teachers">
             <h2 class="section-title">Meet Our Teachers</h2>
