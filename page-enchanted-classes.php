@@ -161,7 +161,7 @@ get_header(); ?>
                         <details class="teacher-details">
                             <summary>Read full bio</summary>
                             <div class="teacher-bio-full">
-                                <p>Longer Kezia Norton enjoys working with children and encourages them to stay curious, be creative, and believe in themselves both in and out of the classroom. She taught preschool in Pacific Palisades, California, where the curriculum included all core subjects with a special emphasis on art and creative expression.</p>
+                                <p>Kezia Norton enjoys working with children and encourages them to stay curious, be creative, and believe in themselves both in and out of the classroom. She taught preschool in Pacific Palisades, California, where the curriculum included all core subjects with a special emphasis on art and creative expression.</p>
                                 <p>Kezia also taught acting classes to children ages 5–15 in Los Angeles before moving to Atlanta, focusing on commercial and theatrical script analysis as well as audition techniques.</p>
                                 <p>In addition to her classroom experience, Kezia spent 18 years teaching ice skating—first at Chelsea Piers in New York and later at the Toyota Sports Center in Los Angeles.</p>
                             </div>
