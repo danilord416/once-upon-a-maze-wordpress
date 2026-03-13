@@ -1032,8 +1032,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .teacher-photo {
-    width: 110px;
-    height: 110px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
@@ -1052,6 +1052,11 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+.teacher-photo-jasmine,
+.teacher-photo-kezia {
+    object-position: center top;
+}
+
 .teacher-body {
     flex: 1;
     max-width: 640px;
@@ -1062,33 +1067,36 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.75rem;
 }
 
-.teacher-toggle {
+.teacher-details {
+    margin-top: 0.25rem;
+}
+
+.teacher-details summary {
+    list-style: none;
+    cursor: pointer;
     display: inline-block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     padding: 0.4rem 0.95rem;
     font-size: 0.9rem;
     border-radius: 999px;
     border: 1px solid rgba(90, 122, 154, 0.25);
     background: #ffffff;
-    cursor: pointer;
     color: #2c3e50;
     transition: all 0.2s ease;
 }
 
-.teacher-toggle:hover {
+.teacher-details[open] summary {
     background: rgba(255, 215, 0, 0.12);
     border-color: rgba(255, 215, 0, 0.6);
 }
 
-.teacher-bio-full {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease;
+.teacher-details summary::-webkit-details-marker {
+    display: none;
 }
 
-.teacher-card.expanded .teacher-bio-full {
-    max-height: 900px;
-    margin-top: 0.6rem;
+.teacher-bio-full {
+    margin-top: 0.5rem;
+    text-align: left;
 }
 
 @media (max-width: 768px) {

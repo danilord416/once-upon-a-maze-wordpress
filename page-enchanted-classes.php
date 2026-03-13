@@ -107,11 +107,13 @@ get_header(); ?>
                     <div class="teacher-body">
                         <h3>Sarah Barrett</h3>
                         <p class="teacher-highlight">Waldorf-trained teacher, engineer-turned-educator, and co-owner of Once Upon A Maze and FairyTale Village.</p>
-                        <button type="button" class="teacher-toggle">Read full bio</button>
-                        <div class="teacher-bio-full">
-                            <p>Sarah Barrett is a Waldorf-trained teacher and the founder of Lotus &amp; Ivy Waldorf-inspired virtual classes, as well as an owner of FairyTale Village and Once Upon A Maze. Before entering education, she worked as an engineer for The Walt Disney Company, where she developed a love for bringing stories to life.</p>
-                            <p>Sarah is passionate about creating magical experiences where children can learn through imagination, creativity, and meaningful storytelling. Her work is guided by a deep belief in protecting the wonder of childhood and nurturing spaces where children can grow, explore, and thrive.</p>
-                        </div>
+                        <details class="teacher-details">
+                            <summary>Read full bio</summary>
+                            <div class="teacher-bio-full">
+                                <p>Sarah Barrett is a Waldorf-trained teacher and the founder of Lotus &amp; Ivy Waldorf-inspired virtual classes, as well as an owner of FairyTale Village and Once Upon A Maze. Before entering education, she worked as an engineer for The Walt Disney Company, where she developed a love for bringing stories to life.</p>
+                                <p>Sarah is passionate about creating magical experiences where children can learn through imagination, creativity, and meaningful storytelling. Her work is guided by a deep belief in protecting the wonder of childhood and nurturing spaces where children can grow, explore, and thrive.</p>
+                            </div>
+                        </details>
                     </div>
                 </article>
 
@@ -122,42 +124,48 @@ get_header(); ?>
                     <div class="teacher-body">
                         <h3>Nathan Shope</h3>
                         <p class="teacher-highlight">Certified educator, middle school counselor, and woodworker guiding Little Builders Club.</p>
-                        <button type="button" class="teacher-toggle">Read full bio</button>
-                        <div class="teacher-bio-full">
-                            <p>Nathan Shope is a certified educator and has spent the past 7 years working as a middle school counselor, supporting students’ growth, confidence, and well-being. He is also a skilled woodworker who enjoys home remodeling and woodworking projects.</p>
-                            <p>Nathan is the owner of Shope Construction and is one of the owners of Once Upon A Maze. In Little Builders Club, he loves helping children experience the satisfaction of creating something real with their own hands. He brings a calm, encouraging presence shaped by his training in child development and the desire to help all children reach their full potential.</p>
-                        </div>
+                        <details class="teacher-details">
+                            <summary>Read full bio</summary>
+                            <div class="teacher-bio-full">
+                                <p>Nathan Shope is a certified educator and has spent the past 7 years working as a middle school counselor, supporting students’ growth, confidence, and well-being. He is also a skilled woodworker who enjoys home remodeling and woodworking projects.</p>
+                                <p>Nathan is the owner of Shope Construction and is one of the owners of Once Upon A Maze. In Little Builders Club, he loves helping children experience the satisfaction of creating something real with their own hands. He brings a calm, encouraging presence shaped by his training in child development and the desire to help all children reach their full potential.</p>
+                            </div>
+                        </details>
                     </div>
                 </article>
 
                 <article class="teacher-card">
                     <div class="teacher-media">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/teacher-jasmine.jpg" alt="Portrait of teacher Jasmine Fuchs" class="teacher-photo" />
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/teacher-jasmine.jpg" alt="Portrait of teacher Jasmine Fuchs" class="teacher-photo teacher-photo-jasmine" />
                     </div>
                     <div class="teacher-body">
                         <h3>Jasmine Fuchs</h3>
                         <p class="teacher-highlight">BFA-trained actor and educator who blends storytelling, play, and learning.</p>
-                        <button type="button" class="teacher-toggle">Read full bio</button>
-                        <div class="teacher-bio-full">
-                            <p>Jasmine Fuchs holds a BFA in Acting and is a performer and educator. Working with children is her passion, and if she can entertain and educate at the same time, then it’s even better! She has taught numerous classes and workshops, from science to theatre to tennis.</p>
-                            <p>Her favorite part about teaching kids is that you don’t have to be an expert—you’ll learn a few things along the way.</p>
-                        </div>
+                        <details class="teacher-details">
+                            <summary>Read full bio</summary>
+                            <div class="teacher-bio-full">
+                                <p>Jasmine Fuchs holds a BFA in Acting and is a performer and educator. Working with children is her passion, and if she can entertain and educate at the same time, then it’s even better! She has taught numerous classes and workshops, from science to theatre to tennis.</p>
+                                <p>Her favorite part about teaching kids is that you don’t have to be an expert—you’ll learn a few things along the way.</p>
+                            </div>
+                        </details>
                     </div>
                 </article>
 
                 <article class="teacher-card">
                     <div class="teacher-media">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/teacher-kezia.jpg" alt="Portrait of teacher Kezia Norton" class="teacher-photo" />
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/teacher-kezia.jpg" alt="Portrait of teacher Kezia Norton" class="teacher-photo teacher-photo-kezia" />
                     </div>
                     <div class="teacher-body">
                         <h3>Kezia Norton</h3>
                         <p class="teacher-highlight">Creative educator and coach who helps children stay curious, expressive, and confident.</p>
-                        <button type="button" class="teacher-toggle">Read full bio</button>
-                        <div class="teacher-bio-full">
-                            <p>Longer Kezia Norton enjoys working with children and encourages them to stay curious, be creative, and believe in themselves both in and out of the classroom. She taught preschool in Pacific Palisades, California, where the curriculum included all core subjects with a special emphasis on art and creative expression.</p>
-                            <p>Kezia also taught acting classes to children ages 5–15 in Los Angeles before moving to Atlanta, focusing on commercial and theatrical script analysis as well as audition techniques.</p>
-                            <p>In addition to her classroom experience, Kezia spent 18 years teaching ice skating—first at Chelsea Piers in New York and later at the Toyota Sports Center in Los Angeles.</p>
-                        </div>
+                        <details class="teacher-details">
+                            <summary>Read full bio</summary>
+                            <div class="teacher-bio-full">
+                                <p>Longer Kezia Norton enjoys working with children and encourages them to stay curious, be creative, and believe in themselves both in and out of the classroom. She taught preschool in Pacific Palisades, California, where the curriculum included all core subjects with a special emphasis on art and creative expression.</p>
+                                <p>Kezia also taught acting classes to children ages 5–15 in Los Angeles before moving to Atlanta, focusing on commercial and theatrical script analysis as well as audition techniques.</p>
+                                <p>In addition to her classroom experience, Kezia spent 18 years teaching ice skating—first at Chelsea Piers in New York and later at the Toyota Sports Center in Los Angeles.</p>
+                            </div>
+                        </details>
                     </div>
                 </article>
             </div>

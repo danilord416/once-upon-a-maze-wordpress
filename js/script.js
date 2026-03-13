@@ -233,21 +233,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initFAQAccordion();
     setTimeout(initFAQAccordion, 100);
 
-    // Teacher bios: expand/collapse full bio on click
-    const teacherCards = document.querySelectorAll('.teacher-card');
-    teacherCards.forEach(card => {
-        const toggle = card.querySelector('.teacher-toggle');
-        const fullBio = card.querySelector('.teacher-bio-full');
-
-        if (!toggle || !fullBio) return;
-
-        toggle.addEventListener('click', function (e) {
-            e.preventDefault();
-            const isExpanded = card.classList.toggle('expanded');
-            toggle.textContent = isExpanded ? 'Hide full bio' : 'Read full bio';
-        });
-    });
-
     // Enchanted Classes (legacy): open details in modal if class cards exist
     const classItems = document.querySelectorAll('.class-item');
     const modalOverlay = document.getElementById('class-modal');
