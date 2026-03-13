@@ -850,6 +850,75 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
 }
 
+/* Fairytale School Membership highlight */
+.membership-highlight {
+    margin: 2.5rem auto 3rem auto;
+    padding: 2rem 2.5rem;
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at top left, rgba(255, 215, 0, 0.22), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(255, 105, 180, 0.22), transparent 55%),
+        #ffffff;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+.membership-copy h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+    color: #2c3e50;
+}
+
+.membership-copy p {
+    margin-bottom: 0.85rem;
+}
+
+.membership-details {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0.75rem 0;
+}
+
+.membership-details li {
+    margin-bottom: 0.35rem;
+}
+
+.membership-note {
+    font-size: 0.95rem;
+    color: #4b4b4b;
+}
+
+.membership-cta {
+    text-align: center;
+}
+
+.membership-tagline {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.membership-btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.membership-soon {
+    font-size: 0.85rem;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .membership-highlight {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 1.75rem 1.5rem;
+    }
+}
+
 /* (Class cards removed; SimpleTix selector now handles listing) */
 
 .classes-registration {
@@ -921,6 +990,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .classes-teachers {
     margin-bottom: 2rem;
+    padding: 4rem 0;
+    background:
+        linear-gradient(to bottom, rgba(253, 248, 255, 0.9), rgba(245, 245, 245, 0.95));
 }
 
 .teachers-grid {
@@ -932,9 +1004,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .teacher-card {
     background: rgba(255, 255, 255, 0.96);
-    border-radius: 16px;
-    padding: 1.75rem 1.5rem;
+    border-radius: 18px;
+    padding: 1.75rem 1.75rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
 }
 
 .teacher-card h3 {
@@ -943,6 +1018,46 @@ h1, h2, h3, h4, h5, h6 {
 
 .teacher-card p + p {
     margin-top: 0.75rem;
+}
+
+.teacher-media {
+    flex-shrink: 0;
+}
+
+.teacher-photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    background: #f3f3f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #777;
+}
+
+.teacher-photo.placeholder-photo {
+    font-weight: 600;
+}
+
+.teacher-body {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .teacher-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+    }
+
+    .teacher-body {
+        width: 100%;
+    }
 }
 
 .teachers-callout {

@@ -30,13 +30,38 @@ get_header(); ?>
     </div>
 </nav>
 
-<!-- Enchanted Classes Intro -->
+<!-- Fairytale School Intro -->
 <section class="classes-section">
     <div class="container">
         <div class="classes-header">
-            <h1 class="content-title">Enchanted Classes</h1>
+            <h1 class="content-title">Fairytale School</h1>
             <p class="classes-tagline">Classes that nurture imagination, creativity, and the joy of childhood.</p>
         </div>
+
+        <!-- Fairytale School Membership Highlight -->
+        <section class="membership-highlight">
+            <div class="membership-copy">
+                <h2>Fairytale School Memberships</h2>
+                <p>
+                    Give your child the magic of Fairytale School all month long. Our memberships make it easy
+                    to join as many age-appropriate classes as you’d like—no extra class fees at checkout.
+                </p>
+                <ul class="membership-details">
+                    <li><strong>$60/month</strong> for the first child</li>
+                    <li><strong>$49/month</strong> for the second child</li>
+                    <li><strong>Unlimited classes</strong> for their age group (with advance reservations)</li>
+                </ul>
+                <p class="membership-note">
+                    Members still reserve a spot for each class so we can save their seat—but there is no
+                    additional cost at booking.
+                </p>
+            </div>
+            <div class="membership-cta">
+                <p class="membership-tagline">Ready to join the Fairytale School?</p>
+                <a href="#" class="btn primary-btn membership-btn">Become a Member</a>
+                <p class="membership-soon">Online membership checkout coming soon.</p>
+            </div>
+        </section>
 
         <!-- SimpleTix embedded class selector -->
         <div class="classes-selector">
@@ -70,74 +95,64 @@ get_header(); ?>
     </div>
 </section>
 
-<!-- Weekly Schedule (full-width background) -->
-<section class="classes-schedule">
-    <div class="container">
-        <h2 class="section-title">Weekly Class Schedule</h2>
-        <div class="schedule-grid">
-            <div class="schedule-column">
-                <h3>Fridays (For Homeschoolers!)</h3>
-                <ul>
-                    <li><strong>10:00</strong> – Preschool Waldorf-Inspired Circle Time</li>
-                    <li><strong>10:00</strong> – My Grown-Up &amp; Me Yoga</li>
-                    <li><strong>11:00</strong> – Knight &amp; Princess Yoga Training</li>
-                    <li><strong>12:00</strong> – Woodland Creatures Club</li>
-                    <li><strong>1:00</strong> – Seasonal Crafting</li>
-                </ul>
-            </div>
-            <div class="schedule-column">
-                <h3>Saturdays</h3>
-                <ul>
-                    <li><strong>10:00</strong> – Potions with the Pocket Fairy</li>
-                    <li><strong>11:00</strong> – Little Builders Club (Ages 7–9)</li>
-                    <li><strong>12:30</strong> – Little Builders Club (Ages 10–12)</li>
-                    <li><strong>12:30</strong> – Woodland Creatures Club</li>
-                    <li><strong>1:30</strong> – Fairytale Improv Theatre</li>
-                </ul>
-            </div>
-            <div class="schedule-column">
-                <h3>Sundays</h3>
-                <ul>
-                    <li><strong>10:00</strong> – My Grown-Up &amp; Me Yoga</li>
-                    <li><strong>11:00</strong> – Knight &amp; Princess Yoga Training</li>
-                    <li><strong>2:00</strong> – Waldorf-inspired Seasonal Crafting</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Meet Our Teachers -->
 <section class="classes-teachers">
     <div class="container">
-        <h2 class="section-title">Meet Our Teachers</h2>
+        <h2 class="section-title">Meet Our Fairytale School Teachers</h2>
         <div class="teachers-grid">
                 <article class="teacher-card">
-                    <h3>Sarah Barrett</h3>
-                    <p>Sarah Barrett is a Waldorf-trained teacher and the founder of Lotus &amp; Ivy Waldorf-inspired virtual classes, as well as an owner of FairyTale Village and Once Upon A Maze. Before entering education, she worked as an engineer for The Walt Disney Company, where she developed a love for bringing stories to life.</p>
-                    <p>Sarah is passionate about creating magical experiences where children can learn through imagination, creativity, and meaningful storytelling. Her work is guided by a deep belief in protecting the wonder of childhood and nurturing spaces where children can grow, explore, and thrive.</p>
+                    <div class="teacher-media">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/teacher-sarah.jpg" alt="Portrait of teacher Sarah Barrett" class="teacher-photo" />
+                    </div>
+                    <div class="teacher-body">
+                        <h3>Sarah Barrett</h3>
+                        <p>Sarah Barrett is a Waldorf-trained teacher and the founder of Lotus &amp; Ivy Waldorf-inspired virtual classes, as well as an owner of FairyTale Village and Once Upon A Maze. Before entering education, she worked as an engineer for The Walt Disney Company, where she developed a love for bringing stories to life.</p>
+                        <p>Sarah is passionate about creating magical experiences where children can learn through imagination, creativity, and meaningful storytelling. Her work is guided by a deep belief in protecting the wonder of childhood and nurturing spaces where children can grow, explore, and thrive.</p>
+                    </div>
                 </article>
 
                 <article class="teacher-card">
-                    <h3>Nathan Shope</h3>
-                    <p>Nathan Shope is a certified educator and has spent the past 7 years working as a middle school counselor, supporting students’ growth, confidence, and well-being. He is also a skilled woodworker who enjoys home remodeling and woodworking projects.</p>
-                    <p>Nathan is the owner of Shope Construction and is one of the owners of Once Upon A Maze. In Little Builders Club, he loves helping children experience the satisfaction of creating something real with their own hands. He brings a calm, encouraging presence shaped by his training in child development and the desire to help all children reach their full potential.</p>
+                    <div class="teacher-media">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/teacher-nathan.jpg" alt="Portrait of teacher Nathan Shope" class="teacher-photo" />
+                    </div>
+                    <div class="teacher-body">
+                        <h3>Nathan Shope</h3>
+                        <p>Nathan Shope is a certified educator and has spent the past 7 years working as a middle school counselor, supporting students’ growth, confidence, and well-being. He is also a skilled woodworker who enjoys home remodeling and woodworking projects.</p>
+                        <p>Nathan is the owner of Shope Construction and is one of the owners of Once Upon A Maze. In Little Builders Club, he loves helping children experience the satisfaction of creating something real with their own hands. He brings a calm, encouraging presence shaped by his training in child development and the desire to help all children reach their full potential.</p>
+                    </div>
                 </article>
 
                 <article class="teacher-card">
-                    <h3>Jasmine Fuchs</h3>
-                    <p>Jasmine Fuchs holds a BFA in Acting and is a performer and educator. Working with children is her passion, and if she can entertain and educate at the same time, then it’s even better! She has taught numerous classes and workshops, from science to theatre to tennis.</p>
-                    <p>Her favorite part about teaching kids is that you don’t have to be an expert—you’ll learn a few things along the way.</p>
+                    <div class="teacher-media">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/teacher-jasmine.jpg" alt="Portrait of teacher Jasmine Fuchs" class="teacher-photo" />
+                    </div>
+                    <div class="teacher-body">
+                        <h3>Jasmine Fuchs</h3>
+                        <p>Jasmine Fuchs holds a BFA in Acting and is a performer and educator. Working with children is her passion, and if she can entertain and educate at the same time, then it’s even better! She has taught numerous classes and workshops, from science to theatre to tennis.</p>
+                        <p>Her favorite part about teaching kids is that you don’t have to be an expert—you’ll learn a few things along the way.</p>
+                    </div>
                 </article>
 
                 <article class="teacher-card">
-                    <h3>Coming Soon – Kesia</h3>
-                    <p>More details coming soon.</p>
+                    <div class="teacher-media">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/teacher-kezia.jpg" alt="Portrait of teacher Kezia Norton" class="teacher-photo" />
+                    </div>
+                    <div class="teacher-body">
+                        <h3>Kezia Norton</h3>
+                        <p>Longer Kezia Norton enjoys working with children and encourages them to stay curious, be creative, and believe in themselves both in and out of the classroom. She taught preschool in Pacific Palisades, California, where the curriculum included all core subjects with a special emphasis on art and creative expression.</p>
+                        <p>Kezia also taught acting classes to children ages 5–15 in Los Angeles before moving to Atlanta, focusing on commercial and theatrical script analysis as well as audition techniques.</p>
+                        <p>In addition to her classroom experience, Kezia spent 18 years teaching ice skating—first at Chelsea Piers in New York and later at the Toyota Sports Center in Los Angeles.</p>
+                    </div>
                 </article>
 
                 <article class="teacher-card">
-                    <h3>Coming Soon – Yoga Teacher</h3>
-                    <p>More details coming soon.</p>
+                    <div class="teacher-media">
+                        <div class="teacher-photo placeholder-photo">Coming Soon</div>
+                    </div>
+                    <div class="teacher-body">
+                        <h3>Coming Soon – Yoga Teacher</h3>
+                        <p>We’ll be introducing a dedicated Fairytale School yoga teacher soon, blending mindful movement with imaginative stories to support body awareness, balance, and calm.</p>
+                    </div>
                 </article>
             </div>
 
