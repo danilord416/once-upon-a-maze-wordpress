@@ -831,7 +831,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Enchanted Classes Page */
 .classes-section {
     padding: 140px 0 100px 0;
-    background: linear-gradient(to bottom, #fdf8ff, #f5f5f5);
+    background:
+        linear-gradient(rgba(253, 248, 255, 0.92), rgba(245, 245, 245, 0.96)),
+        url('assets/images/class-schedule.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .classes-header {
@@ -997,7 +1002,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .teachers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
     margin-top: 1.5rem;
 }
@@ -1005,11 +1010,12 @@ h1, h2, h3, h4, h5, h6 {
 .teacher-card {
     background: rgba(255, 255, 255, 0.96);
     border-radius: 18px;
-    padding: 1.75rem 1.75rem;
+    padding: 1.9rem 1.75rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .teacher-card h3 {
@@ -1022,6 +1028,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .teacher-media {
     flex-shrink: 0;
+    margin-bottom: 1rem;
 }
 
 .teacher-photo {
@@ -1029,6 +1036,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 110px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
     background: #f3f3f3;
     display: flex;
@@ -1046,15 +1054,44 @@ h1, h2, h3, h4, h5, h6 {
 
 .teacher-body {
     flex: 1;
+    max-width: 640px;
+}
+
+.teacher-highlight {
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.teacher-toggle {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    padding: 0.4rem 0.95rem;
+    font-size: 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(90, 122, 154, 0.25);
+    background: #ffffff;
+    cursor: pointer;
+    color: #2c3e50;
+    transition: all 0.2s ease;
+}
+
+.teacher-toggle:hover {
+    background: rgba(255, 215, 0, 0.12);
+    border-color: rgba(255, 215, 0, 0.6);
+}
+
+.teacher-bio-full {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.teacher-card.expanded .teacher-bio-full {
+    max-height: 900px;
+    margin-top: 0.6rem;
 }
 
 @media (max-width: 768px) {
-    .teacher-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: left;
-    }
-
     .teacher-body {
         width: 100%;
     }
