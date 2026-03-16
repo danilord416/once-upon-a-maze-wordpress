@@ -855,7 +855,13 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
 }
 
-/* Fairytale School Membership highlight */
+.classes-callout {
+    margin-top: 0.75rem;
+    font-size: 1.05rem;
+    color: #b23a7f;
+}
+
+/* Fairy Tale School Membership highlight */
 .membership-highlight {
     margin: 2.5rem auto 3rem auto;
     padding: 2rem 2.5rem;

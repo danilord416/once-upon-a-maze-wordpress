@@ -35,7 +35,7 @@ function once_upon_a_maze_fallback_menu() {
     echo '<ul class="nav-menu">';
     echo '<li><a href="' . home_url() . '">Home</a></li>';
     echo '<li><a href="' . home_url('/birthday-parties/') . '">Birthday Parties</a></li>';
-    echo '<li><a href="' . home_url('/enchanted-classes/') . '">Fairytale School</a></li>';
+    echo '<li><a href="' . home_url('/enchanted-classes/') . '">Fairy Tale School</a></li>';
     echo '<li><a href="' . home_url('/faq/') . '">FAQ\'s</a>';
     echo '<ul class="sub-menu">';
     echo '<li><a href="' . home_url('/operating-hours/') . '">Operating Hours</a></li>';

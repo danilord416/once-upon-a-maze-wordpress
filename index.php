@@ -66,12 +66,12 @@ get_header(); ?>
                 </div>
                 <div class="event-card">
                     <div class="event-icon">📚</div>
-                    <h3 class="event-title">Waldorf-Inspired Classes</h3>
-                    <p class="event-dates">Coming Soon — April 2026</p>
-                    <p class="event-description">We're bringing Waldorf-inspired classes to Once Upon a Maze. More details coming soon!</p>
-                    <a href="<?php echo home_url('/contact/'); ?>" class="btn btn-white event-btn">
-                        <i class="fas fa-envelope"></i>
-                        Get Notified
+                    <h3 class="event-title">Fairy Tale School</h3>
+                    <p class="event-dates">Starting in April 2026</p>
+                    <p class="event-description">Our Fairy Tale School classes bring story-rich, imaginative learning to Once Upon a Maze.</p>
+                    <a href="<?php echo home_url('/enchanted-classes/'); ?>" class="btn btn-white event-btn">
+                        <i class="fas fa-book-open"></i>
+                        Book a Class
                     </a>
                 </div>
             </div>

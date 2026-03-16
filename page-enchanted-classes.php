@@ -30,38 +30,14 @@ get_header(); ?>
     </div>
 </nav>
 
-<!-- Fairytale School Intro -->
+<!-- Fairy Tale School Intro -->
 <section class="classes-section">
     <div class="container">
         <div class="classes-header">
-            <h1 class="content-title">Fairytale School</h1>
+            <h1 class="content-title">Fairy Tale School</h1>
             <p class="classes-tagline">Classes that nurture imagination, creativity, and the joy of childhood.</p>
+            <p class="classes-callout"><strong>Choose your class or become a member and enjoy unlimited classes.</strong></p>
         </div>
-
-        <!-- Fairytale School Membership Highlight -->
-        <section class="membership-highlight">
-            <div class="membership-copy">
-                <h2>Fairytale School Memberships</h2>
-                <p>
-                    Give your child the magic of Fairytale School all month long. Our memberships make it easy
-                    to join as many age-appropriate classes as you’d like—no extra class fees at checkout.
-                </p>
-                <ul class="membership-details">
-                    <li><strong>$60/month</strong> for the first child</li>
-                    <li><strong>$49/month</strong> for the second child</li>
-                    <li><strong>Unlimited classes</strong> for their age group (with advance reservations)</li>
-                </ul>
-                <p class="membership-note">
-                    Members still reserve a spot for each class so we can save their seat—but there is no
-                    additional cost at booking.
-                </p>
-            </div>
-            <div class="membership-cta">
-                <p class="membership-tagline">Ready to join the Fairytale School?</p>
-                <a href="#" class="btn primary-btn membership-btn">Become a Member</a>
-                <p class="membership-soon">Online membership checkout coming soon.</p>
-            </div>
-        </section>
 
         <!-- SimpleTix embedded class selector -->
         <div class="classes-selector">
@@ -92,13 +68,38 @@ get_header(); ?>
                 </div>
             </div>
         </section>
+
+        <!-- Fairy Tale School Membership Highlight -->
+        <section class="membership-highlight">
+            <div class="membership-copy">
+                <h2>Fairy Tale School Memberships</h2>
+                <p>
+                    Give your child the magic of Fairy Tale School all month long. Our memberships make it easy
+                    to join as many age-appropriate classes as you’d like—no extra class fees at checkout.
+                </p>
+                <ul class="membership-details">
+                    <li><strong>$60/month</strong> for the first child</li>
+                    <li><strong>$49/month</strong> for the second child</li>
+                    <li><strong>Unlimited entry</strong> to Once Upon a Maze</li>
+                </ul>
+                <p class="membership-note">
+                    Members still reserve a spot for each class so we can save their seat—but there is no
+                    additional cost at booking.
+                </p>
+            </div>
+            <div class="membership-cta">
+                <p class="membership-tagline">Ready to join Fairy Tale School?</p>
+                <a href="#" class="btn primary-btn membership-btn">Become a Member</a>
+                <p class="membership-soon">Online membership checkout coming soon.</p>
+            </div>
+        </section>
     </div>
 </section>
 
 <!-- Meet Our Teachers -->
 <section class="classes-teachers">
     <div class="container">
-        <h2 class="section-title">Meet Our Fairytale School Teachers</h2>
+        <h2 class="section-title">Meet Our Fairy Tale School Teachers</h2>
         <div class="teachers-grid">
                 <article class="teacher-card">
                     <div class="teacher-media">
