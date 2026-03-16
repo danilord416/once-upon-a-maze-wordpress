@@ -48,9 +48,9 @@ get_header(); ?>
                 <input type="hidden" value="Once Upon A Maze" id="smt_hdnStoreName" />
                 <input type="hidden" value="0" id="smt_openEventPageType" />
                 <input type="hidden" value="1" id="smt_isDisplayEventCategory" />
-                <input type="hidden" value="Family &amp; Education" id="smt_selectedEventCategories" />
-                <input type="hidden" value="Cal" id="smt_displayStyle" />
-                <input type="hidden" value="Classes" id="smt_selectedInternalCategories" />
+                <input type="hidden" value="" id="smt_selectedEventCategories" />
+                <input type="hidden" value="Next50" id="smt_displayStyle" />
+                <input type="hidden" value="" id="smt_selectedInternalCategories" />
             </div>
         </div>
 
