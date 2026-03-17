@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Fairy Tale School promo popup – show once per visitor after ~3–5 seconds
+    // Fairy Tale School promo popup – show once per visitor after ~3 seconds
     const ftsPopup = document.getElementById('fairy-tale-school-popup');
     const ftsPopupClose = ftsPopup ? ftsPopup.querySelector('.fts-popup-close') : null;
     const FTS_POPUP_KEY = 'ouam_fts_popup_shown_v2';
@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (ftsPopup && !hasSeenPopup) {
         setTimeout(() => {
             ftsPopup.classList.add('fts-visible');
-        }, 3500);
+        }, 3000);
 
         if (ftsPopupClose) {
             ftsPopupClose.addEventListener('click', hideFtsPopup);
