@@ -23,7 +23,7 @@
                             <a href="https://www.instagram.com/visitonceuponamaze/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                             <a href="https://www.tiktok.com/@visitonceuponamaze" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
                         </div>
-                        <a href="#" class="btn btn-white btn-small">
+                        <a href="http://eepurl.com/jzW8zg" class="btn btn-white btn-small" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-envelope"></i>
                             Join Our Storybook List
                         </a>
@@ -48,6 +48,20 @@
             </div>
         </div>
     </footer>
+
+    <!-- Fairy Tale School promo popup -->
+    <div id="fairy-tale-school-popup" class="fts-popup-overlay">
+        <div class="fts-popup">
+            <button class="fts-popup-close" aria-label="Close Fairy Tale School announcement">&times;</button>
+            <div class="fts-popup-content">
+                <h2>New: Fairy Tale School Classes</h2>
+                <p>Story-rich classes in science, woodworking, arts & crafts, theatre, yoga, and more—right inside Once Upon a Maze.</p>
+                <div class="fts-popup-actions">
+                    <a href="<?php echo home_url('/enchanted-classes/'); ?>" class="btn btn-primary">Learn More &amp; Book a Class</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
     <?php wp_footer(); ?>

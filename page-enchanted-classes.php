@@ -73,24 +73,25 @@ get_header(); ?>
         <section class="membership-highlight">
             <div class="membership-copy">
                 <h2>Fairy Tale School Memberships</h2>
-                <p>
-                    Give your child the magic of Fairy Tale School all month long. Our memberships make it easy
-                    to join as many age-appropriate classes as you’d like—no extra class fees at checkout.
-                </p>
+                <p>Give your child the magic of Fairy Tale School all month long. Our memberships make it easy to join as many age-appropriate classes as you’d like—no extra class fees at checkout.</p>
                 <ul class="membership-details">
                     <li><strong>$60/month</strong> for the first child</li>
                     <li><strong>$49/month</strong> for the second child</li>
-                    <li><strong>Unlimited entry</strong> to Once Upon a Maze</li>
                 </ul>
                 <p class="membership-note">
-                    Members still reserve a spot for each class so we can save their seat—but there is no
-                    additional cost at booking.
+                    Unlimited classes in science, woodworking, arts and crafts, theatre, circle time, yoga, and more! New classes will be added for summer.
+                </p>
+                <p class="membership-note">
+                    <strong>PLUS</strong> Unlimited entry to Once Upon a Maze for daily play and adventure.
+                </p>
+                <p class="membership-note">
+                    Members must still reserve a spot for each class so we can save their seat—but there is no additional cost at booking.
                 </p>
             </div>
             <div class="membership-cta">
                 <p class="membership-tagline">Ready to join Fairy Tale School?</p>
-                <a href="#" class="btn primary-btn membership-btn">Become a Member</a>
-                <p class="membership-soon">Online membership checkout coming soon.</p>
+                <a href="https://checkout.square.site/merchant/MLMNZYDMGM3AS/checkout/S3UPNMX4SEMHGMBJBJAQFRHL" target="_blank" rel="noopener noreferrer" class="btn primary-btn membership-btn">Join – First Student</a>
+                <a href="https://checkout.square.site/merchant/MLMNZYDMGM3AS/checkout/U6VBF3QYECS6E53F4ILSMOGG" target="_blank" rel="noopener noreferrer" class="btn btn-white membership-btn-secondary">Add a Sibling</a>
             </div>
         </section>
     </div>

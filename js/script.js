@@ -286,6 +286,42 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Fairy Tale School promo popup – show once per visitor after 5 seconds
+    const ftsPopup = document.getElementById('fairy-tale-school-popup');
+    const ftsPopupClose = ftsPopup ? ftsPopup.querySelector('.fts-popup-close') : null;
+    const FTS_POPUP_KEY = 'ouam_fts_popup_shown';
+
+    function hideFtsPopup() {
+        if (!ftsPopup) return;
+        ftsPopup.classList.remove('fts-visible');
+        try {
+            localStorage.setItem(FTS_POPUP_KEY, '1');
+        } catch (e) {
+            // Ignore storage errors
+        }
+    }
+
+    if (ftsPopup && !localStorage.getItem(FTS_POPUP_KEY)) {
+        setTimeout(() => {
+            ftsPopup.classList.add('fts-visible');
+        }, 5000);
+
+        if (ftsPopupClose) {
+            ftsPopupClose.addEventListener('click', hideFtsPopup);
+        }
+
+        ftsPopup.addEventListener('click', (e) => {
+            if (e.target === ftsPopup) {
+                hideFtsPopup();
+            }
+        });
+
+        const ftsLink = ftsPopup.querySelector('.fts-popup-actions a');
+        if (ftsLink) {
+            ftsLink.addEventListener('click', hideFtsPopup);
+        }
+    }
 });
 
 // Add CSS for ripple effect
