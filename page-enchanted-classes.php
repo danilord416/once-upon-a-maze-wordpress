@@ -179,5 +179,45 @@ get_header(); ?>
     </div>
 </section>
 
+<!-- Fairy Tale School FAQ (inline) -->
+<section class="faq-section faq-section-compact">
+    <div class="container">
+        <div class="faq-intro">
+            <h2 class="section-title">Fairy Tale School FAQ</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What does the Fairy Tale School membership include?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Unlimited classes in science, woodworking, arts and crafts, theatre, circle time, yoga, and more! PLUS unlimited entry to Once Upon a Maze for daily play and adventure.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do I need to be a member in order to attend classes?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No, all of our classes are a la carte, so your child can take as many or as few as they'd like.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do I need to stay with my child during the class?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No, all classes are drop-off format. Parents may explore the mall but must remain nearby and reachable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <?php get_footer(); ?>
 
