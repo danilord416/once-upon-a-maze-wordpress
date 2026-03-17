@@ -90,8 +90,8 @@ get_header(); ?>
             </div>
             <div class="membership-cta">
                 <p class="membership-tagline">Ready to join Fairy Tale School?</p>
-                <a href="https://checkout.square.site/merchant/MLMNZYDMGM3AS/checkout/S3UPNMX4SEMHGMBJBJAQFRHL" target="_blank" rel="noopener noreferrer" class="btn primary-btn membership-btn">Join – First Student</a>
-                <a href="https://checkout.square.site/merchant/MLMNZYDMGM3AS/checkout/U6VBF3QYECS6E53F4ILSMOGG" target="_blank" rel="noopener noreferrer" class="btn btn-white membership-btn-secondary">Add a Sibling</a>
+                <a href="https://checkout.square.site/merchant/MLMNZYDMGM3AS/checkout/S3UPNMX4SEMHGMBJBJAQFRHL" target="_blank" rel="noopener noreferrer" class="btn primary-btn membership-btn membership-btn-primary">Join – First Student</a>
+                <a href="https://checkout.square.site/merchant/MLMNZYDMGM3AS/checkout/U6VBF3QYECS6E53F4ILSMOGG" target="_blank" rel="noopener noreferrer" class="btn btn-white membership-btn membership-btn-secondary">Add a Sibling</a>
             </div>
         </section>
     </div>

@@ -923,7 +923,8 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
     padding: 0.8rem 1.8rem;
     font-size: 1rem;
-    margin-bottom: 0.5rem;
+    margin: 0.25rem 0.35rem;
+    border-radius: 999px;
 }
 
 .membership-soon {
@@ -933,7 +934,28 @@ h1, h2, h3, h4, h5, h6 {
 
 .membership-btn-secondary {
     display: inline-block;
-    margin-left: 0.5rem;
+}
+
+.membership-btn-primary {
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.85), 0 8px 20px rgba(0, 0, 0, 0.18);
+    position: relative;
+    overflow: hidden;
+}
+
+.membership-btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    pointer-events: none;
+    transition: box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.membership-btn-primary:hover::after {
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
+    opacity: 1;
 }
 
 @media (max-width: 768px) {
