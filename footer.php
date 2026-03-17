@@ -69,13 +69,24 @@
         var popup = document.getElementById('fairy-tale-school-popup');
         if (!popup) return;
 
+        var shouldShow = true;
         try {
-            var hasShown = sessionStorage.getItem('ouam_fts_popup_shown') === '1';
+            var lastDismissed = localStorage.getItem('ouam_fts_popup_dismissed_at');
+            if (lastDismissed) {
+                var lastTime = parseInt(lastDismissed, 10);
+                if (!isNaN(lastTime)) {
+                    var now = Date.now();
+                    var oneDay = 24 * 60 * 60 * 1000;
+                    if (now - lastTime < oneDay) {
+                        shouldShow = false;
+                    }
+                }
+            }
         } catch (e) {
-            var hasShown = false;
+            shouldShow = true;
         }
 
-        if (!hasShown) {
+        if (shouldShow) {
             setTimeout(function() {
                 popup.classList.add('fts-visible');
             }, 3000);
@@ -87,7 +98,7 @@
                 e.preventDefault();
                 popup.classList.remove('fts-visible');
                 try {
-                    sessionStorage.setItem('ouam_fts_popup_shown', '1');
+                    localStorage.setItem('ouam_fts_popup_dismissed_at', String(Date.now()));
                 } catch (e) {}
             });
         }
@@ -96,7 +107,7 @@
             if (e.target === popup) {
                 popup.classList.remove('fts-visible');
                 try {
-                    sessionStorage.setItem('ouam_fts_popup_shown', '1');
+                    localStorage.setItem('ouam_fts_popup_dismissed_at', String(Date.now()));
                 } catch (e) {}
             }
         });

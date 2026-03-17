@@ -192,47 +192,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // FAQ Accordion Functionality
-    function initFAQAccordion() {
-        const faqItems = document.querySelectorAll('.faq-item');
-        
-        if (faqItems.length === 0) {
-            return; // No FAQ items found
-        }
-        
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            if (question && !question.hasAttribute('data-faq-initialized')) {
-                question.setAttribute('data-faq-initialized', 'true');
-                
-                question.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    const isActive = item.classList.contains('active');
-                    
-                    // Close all other FAQ items
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle current item
-                    if (isActive) {
-                        item.classList.remove('active');
-                    } else {
-                        item.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
-    
-    // Initialize FAQ accordion
-    initFAQAccordion();
-    setTimeout(initFAQAccordion, 100);
-
     // Enchanted Classes (legacy): open details in modal if class cards exist
     const classItems = document.querySelectorAll('.class-item');
     const modalOverlay = document.getElementById('class-modal');
