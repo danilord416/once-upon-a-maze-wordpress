@@ -2424,6 +2424,12 @@ html {
     min-height: 100vh;
 }
 
+.faq-section-compact {
+    padding: 80px 0;
+    background: transparent;
+    min-height: auto;
+}
+
 .faq-intro {
     text-align: center;
     margin-bottom: 3rem;

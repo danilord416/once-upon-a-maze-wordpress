@@ -287,29 +287,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Fairy Tale School promo popup – show once per visitor after ~3 seconds
+    // Fairy Tale School promo popup – show on every visit after ~3 seconds
     const ftsPopup = document.getElementById('fairy-tale-school-popup');
     const ftsPopupClose = ftsPopup ? ftsPopup.querySelector('.fts-popup-close') : null;
-    const FTS_POPUP_KEY = 'ouam_fts_popup_shown_v2';
+    // No localStorage key now; show on every visit
 
     function hideFtsPopup() {
         if (!ftsPopup) return;
         ftsPopup.classList.remove('fts-visible');
-        try {
-            localStorage.setItem(FTS_POPUP_KEY, '1');
-        } catch (e) {
-            // Ignore storage errors
-        }
     }
 
-    let hasSeenPopup = false;
-    try {
-        hasSeenPopup = localStorage.getItem(FTS_POPUP_KEY) === '1';
-    } catch (e) {
-        hasSeenPopup = false;
-    }
-
-    if (ftsPopup && !hasSeenPopup) {
+    if (ftsPopup) {
         setTimeout(() => {
             ftsPopup.classList.add('fts-visible');
         }, 3000);
