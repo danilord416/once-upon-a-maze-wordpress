@@ -215,9 +215,6 @@ document.addEventListener('DOMContentLoaded', function() {
         question.dataset.faqInlineInitialized = 'true';
 
         question.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-
             const isActive = item.classList.contains('active');
 
             faqItems.forEach(otherItem => {

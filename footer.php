@@ -69,21 +69,35 @@
         var popup = document.getElementById('fairy-tale-school-popup');
         if (!popup) return;
 
-        setTimeout(function() {
-            popup.classList.add('fts-visible');
-        }, 3000);
+        try {
+            var hasShown = sessionStorage.getItem('ouam_fts_popup_shown') === '1';
+        } catch (e) {
+            var hasShown = false;
+        }
+
+        if (!hasShown) {
+            setTimeout(function() {
+                popup.classList.add('fts-visible');
+            }, 3000);
+        }
 
         var closeBtn = popup.querySelector('.fts-popup-close');
         if (closeBtn) {
             closeBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 popup.classList.remove('fts-visible');
+                try {
+                    sessionStorage.setItem('ouam_fts_popup_shown', '1');
+                } catch (e) {}
             });
         }
 
         popup.addEventListener('click', function(e) {
             if (e.target === popup) {
                 popup.classList.remove('fts-visible');
+                try {
+                    sessionStorage.setItem('ouam_fts_popup_shown', '1');
+                } catch (e) {}
             }
         });
     });
