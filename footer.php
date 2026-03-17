@@ -64,6 +64,30 @@
     </div>
 
     <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var popup = document.getElementById('fairy-tale-school-popup');
+        if (!popup) return;
+
+        setTimeout(function() {
+            popup.classList.add('fts-visible');
+        }, 3000);
+
+        var closeBtn = popup.querySelector('.fts-popup-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                popup.classList.remove('fts-visible');
+            });
+        }
+
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                popup.classList.remove('fts-visible');
+            }
+        });
+    });
+    </script>
     <?php wp_footer(); ?>
 </body>
 </html>
