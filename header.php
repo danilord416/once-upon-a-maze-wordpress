@@ -1,7 +1,20 @@
 <?php
 $default_social_image = get_template_directory_uri() . '/assets/images/Once-Upon-a Maze-Logo-2.png';
+$default_social_image_path = get_template_directory() . '/assets/images/Once-Upon-a Maze-Logo-2.png';
+$is_fairy_tale_school_page = is_page('enchanted-classes');
 $fairy_tale_school_social_image = get_template_directory_uri() . '/assets/Fairy%20Tale%20Classes%20Graphic-2.png';
-$social_share_image = is_page('enchanted-classes') ? $fairy_tale_school_social_image : $default_social_image;
+$fairy_tale_school_social_image_path = get_template_directory() . '/assets/Fairy Tale Classes Graphic-2.png';
+
+if (file_exists($default_social_image_path)) {
+    $default_social_image .= '?v=' . filemtime($default_social_image_path);
+}
+
+if ($is_fairy_tale_school_page && file_exists($fairy_tale_school_social_image_path)) {
+    $fairy_tale_school_social_image .= '?v=' . filemtime($fairy_tale_school_social_image_path);
+}
+
+$social_share_image = $is_fairy_tale_school_page ? $fairy_tale_school_social_image : $default_social_image;
+$social_share_title = $is_fairy_tale_school_page ? 'Fairy Tale School | Once Upon a Maze' : wp_get_document_title();
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -33,7 +46,8 @@ $social_share_image = is_page('enchanted-classes') ? $fairy_tale_school_social_i
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo get_permalink(); ?>">
-    <meta property="og:title" content="<?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?>">
+    <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
+    <meta property="og:title" content="<?php echo esc_attr($social_share_title); ?>">
     <meta property="og:description" content="<?php 
         if (is_home() || is_front_page()) {
             echo 'Step into a living storybook, where magic winds through enchanted pathways & whimsical rooms as familiar tales come to life.';
@@ -50,11 +64,14 @@ $social_share_image = is_page('enchanted-classes') ? $fairy_tale_school_social_i
         }
     ?>">
     <meta property="og:image" content="<?php echo esc_url($social_share_image); ?>">
+    <meta property="og:image:secure_url" content="<?php echo esc_url($social_share_image); ?>">
+    <meta property="og:image:width" content="<?php echo $is_fairy_tale_school_page ? '1792' : '1024'; ?>">
+    <meta property="og:image:height" content="<?php echo $is_fairy_tale_school_page ? '1024' : '1024'; ?>">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="<?php echo get_permalink(); ?>">
-    <meta property="twitter:title" content="<?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?>">
+    <meta property="twitter:title" content="<?php echo esc_attr($social_share_title); ?>">
     <meta property="twitter:description" content="<?php 
         if (is_home() || is_front_page()) {
             echo 'Step into a living storybook, where magic winds through enchanted pathways & whimsical rooms as familiar tales come to life.';
@@ -69,6 +86,7 @@ $social_share_image = is_page('enchanted-classes') ? $fairy_tale_school_social_i
         }
     ?>">
     <meta property="twitter:image" content="<?php echo esc_url($social_share_image); ?>">
+    <meta name="twitter:image" content="<?php echo esc_url($social_share_image); ?>">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
