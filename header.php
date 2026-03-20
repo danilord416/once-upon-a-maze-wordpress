@@ -1,3 +1,8 @@
+<?php
+$default_social_image = get_template_directory_uri() . '/assets/images/Once-Upon-a Maze-Logo-2.png';
+$fairy_tale_school_social_image = get_template_directory_uri() . '/assets/Fairy%20Tale%20Classes%20Graphic-2.png';
+$social_share_image = is_page('enchanted-classes') ? $fairy_tale_school_social_image : $default_social_image;
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -44,7 +49,7 @@
             echo get_bloginfo('description');
         }
     ?>">
-    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/Once-Upon-a Maze-Logo-2.png">
+    <meta property="og:image" content="<?php echo esc_url($social_share_image); ?>">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -63,7 +68,7 @@
             echo get_bloginfo('description');
         }
     ?>">
-    <meta property="twitter:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/Once-Upon-a Maze-Logo-2.png">
+    <meta property="twitter:image" content="<?php echo esc_url($social_share_image); ?>">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
