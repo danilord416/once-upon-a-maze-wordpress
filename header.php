@@ -46,7 +46,9 @@ $social_share_title = $is_fairy_tale_school_page ? 'Fairy Tale School | Once Upo
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo get_permalink(); ?>">
+    <?php if (!$is_fairy_tale_school_page) : ?>
     <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
+    <?php endif; ?>
     <meta property="og:title" content="<?php echo esc_attr($social_share_title); ?>">
     <meta property="og:description" content="<?php 
         if (is_home() || is_front_page()) {
