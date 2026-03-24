@@ -67,7 +67,7 @@ get_header(); ?>
 
                 <div class="party-packages">
                     <h3 class="party-packages-title">Party Packages:</h3>
-                    <p class="party-package-price">Room rental is $100 for two hours.</p>
+                    <p class="party-package-price">Room rental is $150 for two hours.</p>
                     <p class="party-package-note">(Tickets to the Once Upon a Maze experience are purchased separately so you can tailor your visit.)</p>
                 </div>
 
