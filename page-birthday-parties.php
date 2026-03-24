@@ -86,11 +86,6 @@ get_header(); ?>
                     <p>In addition to booking Once Upon A Maze tickets for $12.50 per person with a minimum of 17, make the celebration even more magical! Add admission to <a href="https://fairytalevillage.com" target="_blank" rel="noopener noreferrer">FairyTale Village</a> for only $10 per person, 17 minimum. Ask us for details.</p>
                 </div>
 
-                <div class="party-customize">
-                    <h3 class="party-customize-title">Customize Your Celebration</h3>
-                    <p>Add balloon decorations or themed décor with our independent party stylist, Kathryn.</p>
-                    <p>Contact her directly at <a href="tel:678-943-5469">678-943-5469</a> for details and pricing.</p>
-                </div>
             </div>
         </div>
 
