@@ -245,37 +245,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // Fairy Tale School promo popup – show on every visit after ~3 seconds
-    const ftsPopup = document.getElementById('fairy-tale-school-popup');
-    const ftsPopupClose = ftsPopup ? ftsPopup.querySelector('.fts-popup-close') : null;
-    // No localStorage key now; show on every visit
-
-    function hideFtsPopup() {
-        if (!ftsPopup) return;
-        ftsPopup.classList.remove('fts-visible');
-    }
-
-    if (ftsPopup) {
-        setTimeout(() => {
-            ftsPopup.classList.add('fts-visible');
-        }, 3000);
-
-        if (ftsPopupClose) {
-            ftsPopupClose.addEventListener('click', hideFtsPopup);
-        }
-
-        ftsPopup.addEventListener('click', (e) => {
-            if (e.target === ftsPopup) {
-                hideFtsPopup();
-            }
-        });
-
-        const ftsLink = ftsPopup.querySelector('.fts-popup-actions a');
-        if (ftsLink) {
-            ftsLink.addEventListener('click', hideFtsPopup);
-        }
-    }
 });
 
 // Add CSS for ripple effect

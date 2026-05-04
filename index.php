@@ -46,16 +46,6 @@ get_header(); ?>
             <h2 class="events-heading">Upcoming Events</h2>
             <div class="events-grid events-grid-inline">
                 <div class="event-card">
-                    <div class="event-icon">🥚</div>
-                    <h3 class="event-title">Enchanted Egg Spotting Adventure</h3>
-                    <p class="event-dates">March 27–29 &amp; April 3–4</p>
-                    <p class="event-description">The Easter Bunny has visited every fairytale in our Maze and left behind enchanted eggs. Spot one egg in each fairy tale world, complete your quest card, and earn a spring surprise.</p>
-                    <a href="https://www.simpletix.com/e/once-upon-a-maze-tickets-246927" target="_blank" rel="noopener noreferrer" class="btn btn-white event-btn">
-                        <i class="fas fa-ticket-alt"></i>
-                        Purchase Tickets
-                    </a>
-                </div>
-                <div class="event-card">
                     <div class="event-icon">🎂</div>
                     <h3 class="event-title">Birthday Parties</h3>
                     <p class="event-description">Host your next birthday or special event inside our enchanting party rooms! Choose between The Fairy Room—full of sparkle, flowers, and woodland charm—or The Dragon Room—bold, mystical, and full of adventure. Make your special day truly magical.</p>
