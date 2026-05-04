@@ -169,6 +169,7 @@ get_header(); ?>
                 </div>
             </div>
 
+            <?php if (once_upon_a_maze_is_fairy_tale_school_visible()) : ?>
             <!-- Fairy Tale School FAQs -->
             <div class="faq-item">
                 <div class="faq-question">
@@ -199,6 +200,7 @@ get_header(); ?>
                     <p>No, all classes are drop-off format. Parents may explore the mall but must remain nearby and reachable.</p>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>

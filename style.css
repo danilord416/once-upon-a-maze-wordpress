@@ -1181,6 +1181,14 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 2.5rem 0;
 }
 
+/* Single upcoming-events card (e.g. when Fairy Tale School is toggled off) */
+.events-grid.events-grid-inline:has(> .event-card:only-child) {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .event-card {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);

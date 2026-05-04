@@ -3,6 +3,55 @@
  * Once Upon a Maze Theme Functions
  */
 
+/**
+ * Fairy Tale School (/enchanted-classes/) and related nav, homepage card, and FAQ block.
+ * Set to true to show everything again (templates stay in the theme either way).
+ */
+if (!defined('ONCE_UPON_A_MAZE_FAIRY_TALE_SCHOOL_VISIBLE')) {
+    define('ONCE_UPON_A_MAZE_FAIRY_TALE_SCHOOL_VISIBLE', false);
+}
+
+function once_upon_a_maze_is_fairy_tale_school_visible() {
+    return (bool) ONCE_UPON_A_MAZE_FAIRY_TALE_SCHOOL_VISIBLE;
+}
+
+/** Redirect the Fairy Tale School page when hidden (bookmark and search engines get home). */
+add_action('template_redirect', function () {
+    if (once_upon_a_maze_is_fairy_tale_school_visible()) {
+        return;
+    }
+    if (is_page('enchanted-classes')) {
+        wp_safe_redirect(home_url('/'), 302);
+        exit;
+    }
+}, 5);
+
+/** Remove Fairy Tale School from Appearance → Menus when hidden. */
+add_filter('wp_nav_menu_objects', function ($items, $args) {
+    if (once_upon_a_maze_is_fairy_tale_school_visible() || !is_array($items)) {
+        return $items;
+    }
+    $slug = 'enchanted-classes';
+    foreach ($items as $key => $item) {
+        $remove = false;
+        if (!empty($item->object) && $item->object === 'page' && !empty($item->object_id)) {
+            if (get_post_field('post_name', (int) $item->object_id) === $slug) {
+                $remove = true;
+            }
+        }
+        if (!$remove && !empty($item->url) && is_string($item->url)) {
+            $path = wp_parse_url($item->url, PHP_URL_PATH);
+            if (is_string($path) && preg_match('#(^|/)enchanted-classes/?$#', untrailingslashit($path))) {
+                $remove = true;
+            }
+        }
+        if ($remove) {
+            unset($items[$key]);
+        }
+    }
+    return array_values($items);
+}, 10, 2);
+
 // Theme setup
 function once_upon_a_maze_setup() {
     // Add theme support for various features
@@ -35,7 +84,9 @@ function once_upon_a_maze_fallback_menu() {
     echo '<ul class="nav-menu">';
     echo '<li><a href="' . home_url() . '">Home</a></li>';
     echo '<li><a href="' . home_url('/birthday-parties/') . '">Birthday Parties</a></li>';
-    echo '<li><a href="' . home_url('/enchanted-classes/') . '">Fairy Tale School</a></li>';
+    if (once_upon_a_maze_is_fairy_tale_school_visible()) {
+        echo '<li><a href="' . home_url('/enchanted-classes/') . '">Fairy Tale School</a></li>';
+    }
     echo '<li><a href="' . home_url('/faq/') . '">FAQ\'s</a>';
     echo '<ul class="sub-menu">';
     echo '<li><a href="' . home_url('/operating-hours/') . '">Operating Hours</a></li>';

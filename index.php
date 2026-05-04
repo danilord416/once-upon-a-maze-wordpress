@@ -54,6 +54,7 @@ get_header(); ?>
                         Learn More
                     </a>
                 </div>
+                <?php if (once_upon_a_maze_is_fairy_tale_school_visible()) : ?>
                 <div class="event-card">
                     <div class="event-icon">📚</div>
                     <h3 class="event-title">Fairy Tale School</h3>
@@ -64,6 +65,7 @@ get_header(); ?>
                         Book a Class
                     </a>
                 </div>
+                <?php endif; ?>
             </div>
             <div class="hero-buttons">
                 <a href="https://www.simpletix.com/e/once-upon-a-maze-tickets-246927" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
