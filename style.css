@@ -1219,6 +1219,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5rem;
 }
 
+.event-card .event-dates.event-dates-highlight {
+    color: #4a2372;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
 .event-card .event-description {
     color: #333;
     font-size: 0.9rem;
