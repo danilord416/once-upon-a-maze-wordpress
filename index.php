@@ -57,7 +57,6 @@ get_header(); ?>
                 <div class="event-card">
                     <div class="event-icon">📚</div>
                     <h3 class="event-title">Fairy Tale School</h3>
-                    <p class="event-dates">Starting in April 2026</p>
                     <p class="event-description">Our Fairy Tale School classes bring story-rich, imaginative learning to Once Upon a Maze.</p>
                     <a href="<?php echo home_url('/enchanted-classes/'); ?>" class="btn btn-white event-btn">
                         <i class="fas fa-book-open"></i>
