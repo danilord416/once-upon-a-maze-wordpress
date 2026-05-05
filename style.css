@@ -1265,42 +1265,42 @@ h1, h2, h3, h4, h5, h6 {
 
 .site-refresh-popup {
     position: relative;
-    width: min(560px, 100%);
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 1.5rem 1.5rem 1.25rem;
-    border: 2px solid rgba(90, 122, 154, 0.3);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+    width: min(840px, 100%);
+    background: transparent;
+    border-radius: 18px;
+    padding: 0;
+    border: none;
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.35);
     text-align: center;
 }
 
-.site-refresh-popup h2 {
-    margin-bottom: 0.7rem;
-    color: #2c3e50;
-    font-size: 1.35rem;
-}
-
-.site-refresh-popup p {
-    margin: 0;
-    color: #3a3a3a;
-    line-height: 1.6;
-    font-size: 1.02rem;
+.site-refresh-popup-image {
+    width: 100%;
+    display: block;
+    border-radius: 18px;
 }
 
 .site-refresh-popup-close {
     position: absolute;
-    top: 0.55rem;
-    right: 0.75rem;
+    top: 0.65rem;
+    right: 0.85rem;
     border: none;
-    background: transparent;
-    color: #505050;
-    font-size: 1.6rem;
+    background: rgba(255, 255, 255, 0.88);
+    color: #2c3e50;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    font-size: 1.3rem;
     line-height: 1;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .site-refresh-popup-close:hover {
-    color: #1f1f1f;
+    background: #ffffff;
+    color: #111111;
 }
 
 .party-room-image {

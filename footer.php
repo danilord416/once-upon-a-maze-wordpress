@@ -50,10 +50,9 @@
     </footer>
 
     <div id="site-refresh-popup" class="site-refresh-popup-overlay" aria-hidden="true">
-        <div class="site-refresh-popup" role="dialog" aria-modal="true" aria-labelledby="site-refresh-popup-title">
+        <div class="site-refresh-popup" role="dialog" aria-modal="true" aria-label="Temporary closure announcement">
             <button class="site-refresh-popup-close" aria-label="Close announcement">&times;</button>
-            <h2 id="site-refresh-popup-title">Notice</h2>
-            <p>We are closing our doors for a little refresh May 8-10 and May 15-17 as we get everything ready for an exciting summer season!</p>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/site-refresh-popup.png" alt="Once Upon a Maze temporary closure and summer season announcement" class="site-refresh-popup-image">
         </div>
     </div>
 
