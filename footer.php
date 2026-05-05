@@ -51,7 +51,7 @@
 
     <div id="site-refresh-popup" class="site-refresh-popup-overlay" aria-hidden="true">
         <div class="site-refresh-popup" role="dialog" aria-modal="true" aria-label="Temporary closure announcement">
-            <button class="site-refresh-popup-close" aria-label="Close announcement">&times;</button>
+            <button class="site-refresh-popup-close" aria-label="Close announcement">Close ✕</button>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/site-refresh-popup.png" alt="Once Upon a Maze temporary closure and summer season announcement" class="site-refresh-popup-image">
         </div>
     </div>
@@ -77,6 +77,12 @@
 
         popup.addEventListener('click', function (event) {
             if (event.target === popup) {
+                closePopup();
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && popup.classList.contains('is-visible')) {
                 closePopup();
             }
         });
