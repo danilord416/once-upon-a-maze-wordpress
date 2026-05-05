@@ -49,7 +49,40 @@
         </div>
     </footer>
 
+    <div id="site-refresh-popup" class="site-refresh-popup-overlay" aria-hidden="true">
+        <div class="site-refresh-popup" role="dialog" aria-modal="true" aria-labelledby="site-refresh-popup-title">
+            <button class="site-refresh-popup-close" aria-label="Close announcement">&times;</button>
+            <h2 id="site-refresh-popup-title">Notice</h2>
+            <p>We are closing our doors for a little refresh May 8-10 and May 15-17 as we get everything ready for an exciting summer season!</p>
+        </div>
+    </div>
+
     <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var popup = document.getElementById('site-refresh-popup');
+        if (!popup) return;
+
+        function closePopup() {
+            popup.classList.remove('is-visible');
+            popup.setAttribute('aria-hidden', 'true');
+        }
+
+        popup.classList.add('is-visible');
+        popup.setAttribute('aria-hidden', 'false');
+
+        var closeBtn = popup.querySelector('.site-refresh-popup-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closePopup);
+        }
+
+        popup.addEventListener('click', function (event) {
+            if (event.target === popup) {
+                closePopup();
+            }
+        });
+    });
+    </script>
     <?php wp_footer(); ?>
 </body>
 </html>

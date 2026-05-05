@@ -1247,6 +1247,62 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.9rem;
 }
 
+/* Site-wide temporary closure popup */
+.site-refresh-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(19, 10, 40, 0.58);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 1rem;
+}
+
+.site-refresh-popup-overlay.is-visible {
+    display: flex;
+}
+
+.site-refresh-popup {
+    position: relative;
+    width: min(560px, 100%);
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem 1.5rem 1.25rem;
+    border: 2px solid rgba(90, 122, 154, 0.3);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+    text-align: center;
+}
+
+.site-refresh-popup h2 {
+    margin-bottom: 0.7rem;
+    color: #2c3e50;
+    font-size: 1.35rem;
+}
+
+.site-refresh-popup p {
+    margin: 0;
+    color: #3a3a3a;
+    line-height: 1.6;
+    font-size: 1.02rem;
+}
+
+.site-refresh-popup-close {
+    position: absolute;
+    top: 0.55rem;
+    right: 0.75rem;
+    border: none;
+    background: transparent;
+    color: #505050;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.site-refresh-popup-close:hover {
+    color: #1f1f1f;
+}
+
 .party-room-image {
     width: 100%;
     max-width: 400px;
