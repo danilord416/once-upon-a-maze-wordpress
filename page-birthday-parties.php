@@ -95,6 +95,15 @@ get_header(); ?>
                 Book Your Party Today!
             </a>
         </div>
+
+        <section class="party-testimonial" aria-label="Birthday party testimonial">
+            <p class="party-testimonial-stars" aria-hidden="true">★★★★★</p>
+            <h3 class="party-testimonial-title">Parent Testimonial</h3>
+            <blockquote>
+                "It couldn’t have been better. Everyone, especially Brynley, was absolutely thrilled with the experience. The room decor and photo spots took it all over the top. Thank you so much!"
+            </blockquote>
+            <p class="party-testimonial-author">— Allison F.</p>
+        </section>
     </div>
 </section>
 

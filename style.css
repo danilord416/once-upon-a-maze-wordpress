@@ -1516,6 +1516,44 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.6;
 }
 
+.party-testimonial {
+    margin: 2.5rem auto 0;
+    max-width: 760px;
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    border: 2px solid rgba(255, 215, 0, 0.35);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.party-testimonial-stars {
+    margin: 0 0 0.35rem 0;
+    color: #f4b400;
+    letter-spacing: 0.12em;
+    font-size: 1.3rem;
+}
+
+.party-testimonial-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.25rem;
+    color: #2c3e50;
+}
+
+.party-testimonial blockquote {
+    margin: 0;
+    color: #2d2d2d;
+    font-size: 1.06rem;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.party-testimonial-author {
+    margin: 0.9rem 0 0 0;
+    color: #5a7a9a;
+    font-weight: 700;
+}
+
 /* Gift Shop Section */
 .gift-shop {
     padding: 80px 0;

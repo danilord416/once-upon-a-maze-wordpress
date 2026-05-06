@@ -61,10 +61,26 @@
     document.addEventListener('DOMContentLoaded', function () {
         var popup = document.getElementById('site-refresh-popup');
         if (!popup) return;
+        var dismissedKey = 'ouam_site_refresh_popup_dismissed_day';
+        var today = new Date().toISOString().slice(0, 10);
 
         function closePopup() {
             popup.classList.remove('is-visible');
             popup.setAttribute('aria-hidden', 'true');
+            try {
+                localStorage.setItem(dismissedKey, today);
+            } catch (err) {}
+        }
+
+        var shouldShow = true;
+        try {
+            shouldShow = localStorage.getItem(dismissedKey) !== today;
+        } catch (err) {
+            shouldShow = true;
+        }
+
+        if (!shouldShow) {
+            return;
         }
 
         popup.classList.add('is-visible');
