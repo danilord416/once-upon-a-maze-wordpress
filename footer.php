@@ -49,61 +49,7 @@
         </div>
     </footer>
 
-    <div id="site-refresh-popup" class="site-refresh-popup-overlay" aria-hidden="true">
-        <div class="site-refresh-popup" role="dialog" aria-modal="true" aria-label="Temporary closure announcement">
-            <button class="site-refresh-popup-close" aria-label="Close announcement">Close ✕</button>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/site-refresh-popup.png" alt="Once Upon a Maze temporary closure and summer season announcement" class="site-refresh-popup-image">
-        </div>
-    </div>
-
     <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var popup = document.getElementById('site-refresh-popup');
-        if (!popup) return;
-        var dismissedKey = 'ouam_site_refresh_popup_dismissed_day';
-        var today = new Date().toISOString().slice(0, 10);
-
-        function closePopup() {
-            popup.classList.remove('is-visible');
-            popup.setAttribute('aria-hidden', 'true');
-            try {
-                localStorage.setItem(dismissedKey, today);
-            } catch (err) {}
-        }
-
-        var shouldShow = true;
-        try {
-            shouldShow = localStorage.getItem(dismissedKey) !== today;
-        } catch (err) {
-            shouldShow = true;
-        }
-
-        if (!shouldShow) {
-            return;
-        }
-
-        popup.classList.add('is-visible');
-        popup.setAttribute('aria-hidden', 'false');
-
-        var closeBtn = popup.querySelector('.site-refresh-popup-close');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', closePopup);
-        }
-
-        popup.addEventListener('click', function (event) {
-            if (event.target === popup) {
-                closePopup();
-            }
-        });
-
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape' && popup.classList.contains('is-visible')) {
-                closePopup();
-            }
-        });
-    });
-    </script>
     <?php wp_footer(); ?>
 </body>
 </html>

@@ -1247,64 +1247,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.9rem;
 }
 
-/* Site-wide temporary closure popup */
-.site-refresh-popup-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(19, 10, 40, 0.58);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    padding: 1rem;
-}
-
-.site-refresh-popup-overlay.is-visible {
-    display: flex;
-}
-
-.site-refresh-popup {
-    position: relative;
-    width: min(520px, 92vw);
-    background: transparent;
-    border-radius: 18px;
-    padding: 0;
-    border: none;
-    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.35);
-    text-align: center;
-}
-
-.site-refresh-popup-image {
-    width: 100%;
-    max-height: 78vh;
-    object-fit: contain;
-    display: block;
-    border-radius: 18px;
-}
-
-.site-refresh-popup-close {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    border: 1px solid rgba(44, 62, 80, 0.25);
-    background: rgba(255, 255, 255, 0.96);
-    color: #1f2a38;
-    padding: 0.4rem 0.7rem;
-    border-radius: 999px;
-    font-size: 0.88rem;
-    font-weight: 700;
-    line-height: 1.1;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.site-refresh-popup-close:hover {
-    background: #ffffff;
-    color: #111111;
-}
-
 .party-room-image {
     width: 100%;
     max-width: 400px;
