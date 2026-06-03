@@ -82,8 +82,8 @@ add_action('after_setup_theme', 'once_upon_a_maze_setup');
 
 // Enqueue scripts and styles
 function once_upon_a_maze_scripts() {
-    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.0');
-    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.0', true);
+    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.1');
+    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.1', true);
 
     if (is_front_page() || (is_home() && !is_paged())) {
         wp_enqueue_script(
@@ -99,11 +99,6 @@ function once_upon_a_maze_scripts() {
     }
 }
 add_action('wp_enqueue_scripts', 'once_upon_a_maze_scripts');
-
-function once_upon_a_maze_summer_pass_modal() {
-    get_template_part('template-parts/summer-pass', 'modal');
-}
-add_action('wp_footer', 'once_upon_a_maze_summer_pass_modal');
 
 // Fallback menu function
 function once_upon_a_maze_fallback_menu() {

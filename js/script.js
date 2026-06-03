@@ -1,3 +1,85 @@
+// Summer Pass promo — once per browser visit (session); runs independently of other init
+(function () {
+    const STORAGE_KEY = 'ouam_summer_pass_modal_seen';
+
+    function openSummerPassModal(modal) {
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+    }
+
+    function closeSummerPassModal(modal) {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+    }
+
+    function initSummerPassModal() {
+        const modal = document.getElementById('summer-pass-modal');
+        if (!modal) {
+            return;
+        }
+
+        try {
+            if (sessionStorage.getItem(STORAGE_KEY)) {
+                return;
+            }
+        } catch (err) {
+            // Private browsing may block sessionStorage
+        }
+
+        const closeBtn = modal.querySelector('.summer-pass-modal-close');
+        let showTimer = null;
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (showTimer) {
+                    clearTimeout(showTimer);
+                    showTimer = null;
+                }
+                closeSummerPassModal(modal);
+            });
+        }
+
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) {
+                closeSummerPassModal(modal);
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('open')) {
+                closeSummerPassModal(modal);
+            }
+        });
+
+        showTimer = setTimeout(function () {
+            try {
+                if (sessionStorage.getItem(STORAGE_KEY)) {
+                    return;
+                }
+            } catch (err) {
+                // continue without storage
+            }
+
+            openSummerPassModal(modal);
+
+            try {
+                sessionStorage.setItem(STORAGE_KEY, '1');
+            } catch (err) {
+                // continue without storage
+            }
+        }, 1500);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSummerPassModal);
+    } else {
+        initSummerPassModal();
+    }
+})();
+
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
@@ -21,14 +103,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            const href = this.getAttribute('href');
+            if (!href || href === '#' || href.length < 2) {
+                return;
             }
+
+            let target;
+            try {
+                target = document.querySelector(href);
+            } catch (err) {
+                return;
+            }
+
+            if (!target) {
+                return;
+            }
+
+            e.preventDefault();
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         });
     });
 
@@ -80,9 +175,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = this.querySelector('#name').value;
-            const email = this.querySelector('#email').value;
-            const inquiry = this.querySelector('#inquiry').value;
+            const nameEl = this.querySelector('#name');
+            const emailEl = this.querySelector('#email');
+            const inquiryEl = this.querySelector('#inquiry');
+            if (!nameEl || !emailEl || !inquiryEl) {
+                return;
+            }
+            const name = nameEl.value;
+            const email = emailEl.value;
+            const inquiry = inquiryEl.value;
             
             // Simple validation
             if (name && email && email.includes('@') && inquiry) {
@@ -242,54 +343,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
                 closeClassModal();
-            }
-        });
-    }
-
-    // Summer Pass promo — once per browser visit (session)
-    const summerPassModal = document.getElementById('summer-pass-modal');
-    const summerPassStorageKey = 'ouam_summer_pass_modal_seen';
-
-    function openSummerPassModal() {
-        if (!summerPassModal) return;
-        summerPassModal.classList.add('open');
-        summerPassModal.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('modal-open');
-    }
-
-    function closeSummerPassModal() {
-        if (!summerPassModal) return;
-        summerPassModal.classList.remove('open');
-        summerPassModal.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('modal-open');
-    }
-
-    if (summerPassModal && !sessionStorage.getItem(summerPassStorageKey)) {
-        const summerPassClose = summerPassModal.querySelector('.summer-pass-modal-close');
-
-        setTimeout(function () {
-            if (!sessionStorage.getItem(summerPassStorageKey)) {
-                openSummerPassModal();
-                sessionStorage.setItem(summerPassStorageKey, '1');
-            }
-        }, 1500);
-
-        if (summerPassClose) {
-            summerPassClose.addEventListener('click', function (e) {
-                e.preventDefault();
-                closeSummerPassModal();
-            });
-        }
-
-        summerPassModal.addEventListener('click', function (e) {
-            if (e.target === summerPassModal) {
-                closeSummerPassModal();
-            }
-        });
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && summerPassModal.classList.contains('open')) {
-                closeSummerPassModal();
             }
         });
     }
