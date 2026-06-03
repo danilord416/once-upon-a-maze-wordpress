@@ -654,6 +654,167 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: none;
 }
 
+/* Social Feeds Section */
+.social-feeds-section {
+    padding: 100px 0;
+    background: #ffffff;
+    position: relative;
+}
+
+.social-feeds-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.social-feeds-subtitle {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.social-feeds-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.social-feed-card {
+    background: rgba(244, 241, 235, 0.9);
+    border-radius: 18px;
+    padding: 1.5rem;
+    border: 2px solid rgba(255, 105, 180, 0.25);
+    box-shadow: 0 12px 30px rgba(5, 37, 69, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.social-feed-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.social-feed-card-header i {
+    font-size: 1.75rem;
+    color: #052545;
+}
+
+.social-feed-card-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #052545;
+}
+
+.social-feed-embed {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.social-feed-embed-instagram {
+    padding: 0;
+}
+
+.instagram-feed-iframe {
+    width: 100%;
+    min-height: 500px;
+    border: 0;
+}
+
+.social-feed-embed-facebook .fb-page,
+.social-feed-embed-facebook .fb-page span,
+.social-feed-embed-facebook .fb-page iframe {
+    width: 100% !important;
+}
+
+.social-feed-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #052545;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: auto;
+}
+
+.social-feed-link:hover {
+    color: #FF69B4;
+}
+
+/* Summer Pass Modal */
+.summer-pass-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 37, 69, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.summer-pass-modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.summer-pass-modal {
+    background: linear-gradient(180deg, #fffef8 0%, #f4f1eb 100%);
+    border-radius: 20px;
+    padding: 2.5rem 2rem 2rem;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    border: 3px solid #FFD700;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.summer-pass-modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    color: #052545;
+    cursor: pointer;
+    padding: 0;
+}
+
+.summer-pass-modal-title {
+    font-size: 2rem;
+    color: #052545;
+    margin-bottom: 1rem;
+}
+
+.summer-pass-modal-text {
+    font-size: 1.15rem;
+    color: #2c3e50;
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+}
+
+.summer-pass-modal-cta {
+    width: 100%;
+    max-width: 320px;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
 /* Plan Your Visit Section */
 .plan-visit-section {
     padding: 100px 0;
@@ -1768,6 +1929,18 @@ h1, h2, h3, h4, h5, h6 {
     
     .header-gift-cards-btn {
         display: none;
+    }
+
+    .social-feeds-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-feed-embed {
+        min-height: 420px;
+    }
+
+    .instagram-feed-iframe {
+        min-height: 420px;
     }
     
     .mobile-tickets-btn {

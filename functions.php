@@ -11,6 +11,14 @@ if (!defined('ONCE_UPON_A_MAZE_FAIRY_TALE_SCHOOL_VISIBLE')) {
     define('ONCE_UPON_A_MAZE_FAIRY_TALE_SCHOOL_VISIBLE', false);
 }
 
+if (!defined('ONCE_UPON_A_MAZE_SUMMER_PASS_URL')) {
+    define('ONCE_UPON_A_MAZE_SUMMER_PASS_URL', 'https://www.simpletix.com/e/once-upon-a-summer-pass-278061');
+}
+
+function once_upon_a_maze_summer_pass_url() {
+    return ONCE_UPON_A_MAZE_SUMMER_PASS_URL;
+}
+
 function once_upon_a_maze_is_fairy_tale_school_visible() {
     return (bool) ONCE_UPON_A_MAZE_FAIRY_TALE_SCHOOL_VISIBLE;
 }
@@ -74,10 +82,28 @@ add_action('after_setup_theme', 'once_upon_a_maze_setup');
 
 // Enqueue scripts and styles
 function once_upon_a_maze_scripts() {
-    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.0.0');
-    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.0.0', true);
+    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.0');
+    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.0', true);
+
+    if (is_front_page() || (is_home() && !is_paged())) {
+        wp_enqueue_script(
+            'facebook-jssdk',
+            'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v24.0',
+            array(),
+            null,
+            true
+        );
+        wp_script_add_data('facebook-jssdk', 'async', true);
+        wp_script_add_data('facebook-jssdk', 'defer', true);
+        wp_script_add_data('facebook-jssdk', 'crossorigin', 'anonymous');
+    }
 }
 add_action('wp_enqueue_scripts', 'once_upon_a_maze_scripts');
+
+function once_upon_a_maze_summer_pass_modal() {
+    get_template_part('template-parts/summer-pass', 'modal');
+}
+add_action('wp_footer', 'once_upon_a_maze_summer_pass_modal');
 
 // Fallback menu function
 function once_upon_a_maze_fallback_menu() {
@@ -94,7 +120,7 @@ function once_upon_a_maze_fallback_menu() {
     echo '</li>';
     echo '<li><a href="' . home_url('/contact/') . '">Contact Us</a></li>';
     echo '<li><a href="https://www.simpletix.com/e/once-upon-a-maze-tickets-246927" target="_blank" rel="noopener noreferrer" class="cta-button mobile-tickets-btn">Get Tickets</a></li>';
-    echo '<li><a href="https://app.squareup.com/gift/MLMNZYDMGM3AS/order" target="_blank" rel="noopener noreferrer" class="cta-button mobile-gift-cards-btn">Gift Cards</a></li>';
+    echo '<li><a href="' . esc_url(once_upon_a_maze_summer_pass_url()) . '" target="_blank" rel="noopener noreferrer" class="cta-button mobile-gift-cards-btn">Summer Deal</a></li>';
     echo '</ul>';
 }
 

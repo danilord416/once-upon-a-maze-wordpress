@@ -245,6 +245,70 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Summer Pass promo — once per browser visit (session)
+    const summerPassModal = document.getElementById('summer-pass-modal');
+    const summerPassStorageKey = 'ouam_summer_pass_modal_seen';
+
+    function openSummerPassModal() {
+        if (!summerPassModal) return;
+        summerPassModal.classList.add('open');
+        summerPassModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+    }
+
+    function closeSummerPassModal() {
+        if (!summerPassModal) return;
+        summerPassModal.classList.remove('open');
+        summerPassModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+    }
+
+    if (summerPassModal && !sessionStorage.getItem(summerPassStorageKey)) {
+        const summerPassClose = summerPassModal.querySelector('.summer-pass-modal-close');
+
+        setTimeout(function () {
+            if (!sessionStorage.getItem(summerPassStorageKey)) {
+                openSummerPassModal();
+                sessionStorage.setItem(summerPassStorageKey, '1');
+            }
+        }, 1500);
+
+        if (summerPassClose) {
+            summerPassClose.addEventListener('click', function (e) {
+                e.preventDefault();
+                closeSummerPassModal();
+            });
+        }
+
+        summerPassModal.addEventListener('click', function (e) {
+            if (e.target === summerPassModal) {
+                closeSummerPassModal();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && summerPassModal.classList.contains('open')) {
+                closeSummerPassModal();
+            }
+        });
+    }
+
+    // Parse Facebook Page embed on homepage social section
+    const facebookFeed = document.querySelector('.social-feed-embed-facebook .fb-page');
+    if (facebookFeed) {
+        function parseFacebookEmbed() {
+            if (window.FB && typeof window.FB.XFBML === 'function') {
+                window.FB.XFBML.parse(facebookFeed.parentElement);
+            }
+        }
+
+        if (window.FB) {
+            parseFacebookEmbed();
+        } else {
+            window.addEventListener('load', parseFacebookEmbed);
+        }
+    }
 });
 
 // Add CSS for ripple effect
