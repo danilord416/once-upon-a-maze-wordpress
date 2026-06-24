@@ -1,0 +1,26 @@
+# Once Upon a Maze — WordPress root .htaccess (self-hosted Apache only)
+#
+# Copy this file to your WordPress installation root as ".htaccess".
+# WordPress.com managed hosting does NOT use .htaccess; HTTPS is enforced
+# at the platform level and via theme code in functions.php instead.
+
+# BEGIN Force HTTPS
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+# END Force HTTPS
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress

@@ -19,6 +19,97 @@ function once_upon_a_maze_summer_pass_url() {
     return ONCE_UPON_A_MAZE_SUMMER_PASS_URL;
 }
 
+/**
+ * Production hosts where HTTPS enforcement and security headers apply.
+ */
+function once_upon_a_maze_is_production_host() {
+    if (!isset($_SERVER['HTTP_HOST'])) {
+        return false;
+    }
+
+    $host = strtolower((string) $_SERVER['HTTP_HOST']);
+    $host = preg_replace('/:\d+$/', '', $host);
+
+    return in_array($host, array('onceuponamaze.com', 'www.onceuponamaze.com'), true);
+}
+
+/**
+ * Honor HTTPS when TLS is terminated by a reverse proxy or CDN.
+ */
+function once_upon_a_maze_configure_proxy_https() {
+    if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+        return;
+    }
+
+    if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower((string) $_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https') {
+        $_SERVER['HTTPS'] = 'on';
+        return;
+    }
+
+    if (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && strtolower((string) $_SERVER['HTTP_X_FORWARDED_SSL']) === 'on') {
+        $_SERVER['HTTPS'] = 'on';
+        return;
+    }
+
+    if (!empty($_SERVER['HTTP_CF_VISITOR']) && strpos((string) $_SERVER['HTTP_CF_VISITOR'], 'https') !== false) {
+        $_SERVER['HTTPS'] = 'on';
+    }
+}
+once_upon_a_maze_configure_proxy_https();
+
+/** Redirect plain HTTP requests to HTTPS on production. */
+add_action('template_redirect', function () {
+    if (!once_upon_a_maze_is_production_host() || is_ssl()) {
+        return;
+    }
+
+    if (is_admin() || wp_doing_ajax() || (defined('WP_CLI') && WP_CLI)) {
+        return;
+    }
+
+    $request_uri = isset($_SERVER['REQUEST_URI']) ? (string) $_SERVER['REQUEST_URI'] : '/';
+    $redirect_url = 'https://' . strtolower((string) $_SERVER['HTTP_HOST']) . $request_uri;
+
+    wp_safe_redirect($redirect_url, 301);
+    exit;
+}, 1);
+
+/** Send security headers that help ad scanners and browsers trust the site. */
+add_filter('wp_headers', function ($headers) {
+    if (!once_upon_a_maze_is_production_host()) {
+        return $headers;
+    }
+
+    $headers['Content-Security-Policy'] = 'upgrade-insecure-requests';
+    $headers['Referrer-Policy'] = 'strict-origin-when-cross-origin';
+    $headers['X-Content-Type-Options'] = 'nosniff';
+
+    return $headers;
+});
+
+/** Canonical URL for meta tags — always HTTPS on production. */
+function once_upon_a_maze_canonical_url() {
+    if (is_front_page()) {
+        return home_url('/');
+    }
+
+    if (is_singular()) {
+        return get_permalink();
+    }
+
+    $path = '/';
+    if (isset($GLOBALS['wp']) && $GLOBALS['wp'] instanceof WP && !empty($GLOBALS['wp']->request)) {
+        $path = '/' . ltrim((string) $GLOBALS['wp']->request, '/');
+    } elseif (!empty($_SERVER['REQUEST_URI'])) {
+        $path = strtok((string) $_SERVER['REQUEST_URI'], '?');
+        if (!is_string($path) || $path === '') {
+            $path = '/';
+        }
+    }
+
+    return home_url($path);
+}
+
 function once_upon_a_maze_is_fairy_tale_school_visible() {
     return (bool) ONCE_UPON_A_MAZE_FAIRY_TALE_SCHOOL_VISIBLE;
 }
@@ -82,8 +173,8 @@ add_action('after_setup_theme', 'once_upon_a_maze_setup');
 
 // Enqueue scripts and styles
 function once_upon_a_maze_scripts() {
-    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.1');
-    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.1', true);
+    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.3');
+    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.3', true);
 
     if (is_front_page() || (is_home() && !is_paged())) {
         wp_enqueue_script(

@@ -23,7 +23,7 @@
                             <a href="https://www.instagram.com/visitonceuponamaze/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                             <a href="https://www.tiktok.com/@visitonceuponamaze" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
                         </div>
-                        <a href="http://eepurl.com/jzW8zg" class="btn btn-white btn-small" target="_blank" rel="noopener noreferrer">
+                        <a href="https://eepurl.com/jzW8zg" class="btn btn-white btn-small" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-envelope"></i>
                             Join Our Storybook List
                         </a>

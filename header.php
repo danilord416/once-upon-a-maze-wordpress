@@ -21,6 +21,8 @@ $social_share_title = $is_fairy_tale_school_page ? 'Fairy Tale School | Once Upo
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="canonical" href="<?php echo esc_url(once_upon_a_maze_canonical_url()); ?>">
     <meta name="google-site-verification" content="9841SaOiIaf5O9xHX8esXHkc-79bwSLF_X-pAF7a080" />
     <title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
     <meta name="description" content="<?php 
@@ -45,7 +47,7 @@ $social_share_title = $is_fairy_tale_school_page ? 'Fairy Tale School | Once Upo
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="<?php echo get_permalink(); ?>">
+    <meta property="og:url" content="<?php echo esc_url(once_upon_a_maze_canonical_url()); ?>">
     <?php if (!$is_fairy_tale_school_page) : ?>
     <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
     <?php endif; ?>
@@ -72,7 +74,7 @@ $social_share_title = $is_fairy_tale_school_page ? 'Fairy Tale School | Once Upo
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="<?php echo get_permalink(); ?>">
+    <meta property="twitter:url" content="<?php echo esc_url(once_upon_a_maze_canonical_url()); ?>">
     <meta property="twitter:title" content="<?php echo esc_attr($social_share_title); ?>">
     <meta property="twitter:description" content="<?php 
         if (is_home() || is_front_page()) {
@@ -96,8 +98,8 @@ $social_share_title = $is_fairy_tale_school_page ? 'Fairy Tale School | Once Upo
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Once Upon a Maze",
-        "url": "<?php echo home_url(); ?>",
-        "logo": "<?php echo get_template_directory_uri(); ?>/assets/images/Once-Upon-a Maze-Logo-2.png",
+        "url": "<?php echo esc_url(home_url('/')); ?>",
+        "logo": "<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/Once-Upon-a Maze-Logo-2.png",
         "description": "Step into a living storybook, where magic winds through enchanted pathways & whimsical rooms as familiar tales come to life.",
         "address": {
             "@type": "PostalAddress",
@@ -112,7 +114,7 @@ $social_share_title = $is_fairy_tale_school_page ? 'Fairy Tale School | Once Upo
             "email": "onceuponamaze@gmail.com"
         },
         "sameAs": [
-            "<?php echo home_url(); ?>"
+            "<?php echo esc_url(home_url('/')); ?>"
         ]
     }
     </script>
