@@ -166,12 +166,16 @@ h1, h2, h3, h4, h5, h6 {
     white-space: nowrap;
     margin-left: 1.5rem;
     text-decoration: none;
+    font-size: 0.9rem !important;
+    padding: 10px 16px !important;
 }
 
 .header-gift-cards-btn {
     white-space: nowrap;
     margin-left: 0.75rem;
     text-decoration: none;
+    font-size: 0.9rem !important;
+    padding: 10px 16px !important;
 }
 
 .mobile-tickets-btn {
@@ -1493,6 +1497,161 @@ body.modal-open {
     margin: 0;
 }
 
+.party-adults-note {
+    display: inline-block;
+    margin: 1.25rem auto 0;
+    padding: 0.65rem 1.4rem;
+    background: #052545;
+    color: #FFD700;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 999px;
+}
+
+.party-packages-section {
+    margin: 3.5rem 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.party-packages-heading,
+.party-rooms-heading {
+    font-size: 2rem;
+    color: #052545;
+    text-align: center;
+    margin: 0 0 1.75rem;
+    font-weight: 700;
+}
+
+.party-package-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+    .party-package-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+}
+
+.party-package-card {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 18px;
+    padding: 1.75rem 1.5rem 1.5rem;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    border-top: 6px solid #FF69B4;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.party-package-storybook {
+    border-top-color: #c0392b;
+}
+
+.party-package-enchanted {
+    border-top-color: #8e44ad;
+}
+
+.party-package-royal {
+    border-top-color: #1abc9c;
+}
+
+.party-package-tier {
+    margin: 0 0 0.35rem;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #052545;
+}
+
+.party-package-capacity {
+    margin: 0 0 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #5a7a9a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.party-package-price-tag {
+    margin: 0 0 1.25rem;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #FF69B4;
+    line-height: 1;
+}
+
+.party-package-storybook .party-package-price-tag {
+    color: #c0392b;
+}
+
+.party-package-enchanted .party-package-price-tag {
+    color: #8e44ad;
+}
+
+.party-package-royal .party-package-price-tag {
+    color: #148f77;
+}
+
+.party-package-includes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.party-package-includes li {
+    position: relative;
+    padding: 0.65rem 0 0.65rem 1.4rem;
+    border-top: 1px solid rgba(5, 37, 69, 0.08);
+    font-size: 0.98rem;
+    color: #2c3e50;
+    line-height: 1.55;
+}
+
+.party-package-includes li:first-child {
+    border-top: none;
+}
+
+.party-package-includes li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    color: #052545;
+    font-weight: 700;
+}
+
+.party-packages-summary {
+    max-width: 900px;
+    margin: 1.75rem auto 0;
+    padding: 1rem 1.25rem;
+    background: rgba(5, 37, 69, 0.85);
+    color: #fff;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+.party-cta-note a {
+    color: #FF69B4;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.party-cta-note a:hover {
+    color: #FFD700;
+    text-decoration: underline;
+}
+
 .party-addons {
     margin: 3rem 0;
     padding: 2rem;
@@ -2067,6 +2226,20 @@ body.modal-open {
     .party-customize {
         padding: 1.5rem;
         margin: 2rem 0;
+    }
+
+    .party-package-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+
+    .party-packages-heading,
+    .party-rooms-heading {
+        font-size: 1.6rem;
+    }
+
+    .party-package-price-tag {
+        font-size: 2rem;
     }
     
     .party-packages-title,

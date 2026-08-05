@@ -11,12 +11,20 @@ if (!defined('ONCE_UPON_A_MAZE_FAIRY_TALE_SCHOOL_VISIBLE')) {
     define('ONCE_UPON_A_MAZE_FAIRY_TALE_SCHOOL_VISIBLE', false);
 }
 
-if (!defined('ONCE_UPON_A_MAZE_SUMMER_PASS_URL')) {
-    define('ONCE_UPON_A_MAZE_SUMMER_PASS_URL', 'https://www.simpletix.com/e/once-upon-a-summer-pass-278061');
+if (!defined('ONCE_UPON_A_MAZE_TICKETS_URL')) {
+    define('ONCE_UPON_A_MAZE_TICKETS_URL', 'https://www.simpletix.com/e/once-upon-a-not-so-spooky-maze-tickets-284693');
 }
 
-function once_upon_a_maze_summer_pass_url() {
-    return ONCE_UPON_A_MAZE_SUMMER_PASS_URL;
+if (!defined('ONCE_UPON_A_MAZE_MERRY_MAZE_URL')) {
+    define('ONCE_UPON_A_MAZE_MERRY_MAZE_URL', 'https://www.simpletix.com/e/once-upon-a-merry-maze-tickets-284701');
+}
+
+function once_upon_a_maze_tickets_url() {
+    return ONCE_UPON_A_MAZE_TICKETS_URL;
+}
+
+function once_upon_a_maze_merry_maze_url() {
+    return ONCE_UPON_A_MAZE_MERRY_MAZE_URL;
 }
 
 /**
@@ -125,31 +133,60 @@ add_action('template_redirect', function () {
     }
 }, 5);
 
-/** Remove Fairy Tale School from Appearance → Menus when hidden. */
+/** Remove Fairy Tale School and legacy ticket CTAs from Appearance → Menus when hidden / replaced by header buttons. */
 add_filter('wp_nav_menu_objects', function ($items, $args) {
-    if (once_upon_a_maze_is_fairy_tale_school_visible() || !is_array($items)) {
+    if (!is_array($items)) {
         return $items;
     }
+
     $slug = 'enchanted-classes';
     foreach ($items as $key => $item) {
         $remove = false;
-        if (!empty($item->object) && $item->object === 'page' && !empty($item->object_id)) {
-            if (get_post_field('post_name', (int) $item->object_id) === $slug) {
+
+        if (!once_upon_a_maze_is_fairy_tale_school_visible()) {
+            if (!empty($item->object) && $item->object === 'page' && !empty($item->object_id)) {
+                if (get_post_field('post_name', (int) $item->object_id) === $slug) {
+                    $remove = true;
+                }
+            }
+            if (!$remove && !empty($item->url) && is_string($item->url)) {
+                $path = wp_parse_url($item->url, PHP_URL_PATH);
+                if (is_string($path) && preg_match('#(^|/)enchanted-classes/?$#', untrailingslashit($path))) {
+                    $remove = true;
+                }
+            }
+        }
+
+        if (!$remove && !empty($item->title) && is_string($item->title)) {
+            $title = $item->title;
+            if (
+                stripos($title, 'Get Tickets') !== false
+                || stripos($title, 'Summer Deal') !== false
+                || stripos($title, 'Not-So-Spooky') !== false
+                || stripos($title, 'Merry Maze') !== false
+            ) {
                 $remove = true;
             }
         }
-        if (!$remove && !empty($item->url) && is_string($item->url)) {
-            $path = wp_parse_url($item->url, PHP_URL_PATH);
-            if (is_string($path) && preg_match('#(^|/)enchanted-classes/?$#', untrailingslashit($path))) {
-                $remove = true;
-            }
-        }
+
         if ($remove) {
             unset($items[$key]);
         }
     }
     return array_values($items);
 }, 10, 2);
+
+/** Keep primary mobile menu CTAs in sync with the current event ticket links. */
+add_filter('wp_nav_menu_items', function ($items, $args) {
+    if (!isset($args->theme_location) || $args->theme_location !== 'primary') {
+        return $items;
+    }
+
+    $items .= '<li><a href="' . esc_url(once_upon_a_maze_tickets_url()) . '" target="_blank" rel="noopener noreferrer" class="cta-button mobile-tickets-btn">Not-So-Spooky Maze</a></li>';
+    $items .= '<li><a href="' . esc_url(once_upon_a_maze_merry_maze_url()) . '" target="_blank" rel="noopener noreferrer" class="cta-button mobile-gift-cards-btn">Merry Maze</a></li>';
+
+    return $items;
+}, 20, 2);
 
 // Theme setup
 function once_upon_a_maze_setup() {
@@ -173,8 +210,8 @@ add_action('after_setup_theme', 'once_upon_a_maze_setup');
 
 // Enqueue scripts and styles
 function once_upon_a_maze_scripts() {
-    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.3');
-    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.3', true);
+    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.4');
+    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.4', true);
 
     if (is_front_page() || (is_home() && !is_paged())) {
         wp_enqueue_script(
@@ -205,8 +242,8 @@ function once_upon_a_maze_fallback_menu() {
     echo '</ul>';
     echo '</li>';
     echo '<li><a href="' . home_url('/contact/') . '">Contact Us</a></li>';
-    echo '<li><a href="https://www.simpletix.com/e/once-upon-a-maze-tickets-246927" target="_blank" rel="noopener noreferrer" class="cta-button mobile-tickets-btn">Get Tickets</a></li>';
-    echo '<li><a href="' . esc_url(once_upon_a_maze_summer_pass_url()) . '" target="_blank" rel="noopener noreferrer" class="cta-button mobile-gift-cards-btn">Summer Deal</a></li>';
+    echo '<li><a href="' . esc_url(once_upon_a_maze_tickets_url()) . '" target="_blank" rel="noopener noreferrer" class="cta-button mobile-tickets-btn">Not-So-Spooky Maze</a></li>';
+    echo '<li><a href="' . esc_url(once_upon_a_maze_merry_maze_url()) . '" target="_blank" rel="noopener noreferrer" class="cta-button mobile-gift-cards-btn">Merry Maze</a></li>';
     echo '</ul>';
 }
 
@@ -219,10 +256,11 @@ function once_upon_a_maze_body_classes($classes) {
 }
 add_filter('body_class', 'once_upon_a_maze_body_classes');
 
-// Auto-update "Get Tickets" menu items to link to SimpleTix
+// Auto-update legacy "Get Tickets" menu items to the current event ticket URL
 add_filter('wp_setup_nav_menu_item', function($menu_item) {
     if (isset($menu_item->title) && stripos($menu_item->title, 'Get Tickets') !== false) {
-        $menu_item->url = 'https://www.simpletix.com/e/once-upon-a-maze-tickets-246927';
+        $menu_item->title = 'Not-So-Spooky Maze';
+        $menu_item->url = once_upon_a_maze_tickets_url();
         $menu_item->target = '_blank';
     }
     return $menu_item;
@@ -230,11 +268,12 @@ add_filter('wp_setup_nav_menu_item', function($menu_item) {
 
 // Also filter nav menu output to add target="_blank" and rel attributes
 add_filter('walker_nav_menu_start_el', function($item_output, $item, $depth, $args) {
-    if (isset($item->title) && stripos($item->title, 'Get Tickets') !== false) {
-        $ticket_url = 'https://www.simpletix.com/e/once-upon-a-maze-tickets-246927';
-        // Replace href if it's different
+    if (isset($item->title) && (stripos($item->title, 'Get Tickets') !== false || stripos($item->title, 'Not-So-Spooky') !== false)) {
+        $ticket_url = once_upon_a_maze_tickets_url();
         $item_output = preg_replace('/href="[^"]*"/', 'href="' . esc_url($ticket_url) . '"', $item_output);
-        // Add target and rel if not present
+        if (stripos($item->title, 'Get Tickets') !== false) {
+            $item_output = preg_replace('/>\s*Get Tickets\s*</i', '>Not-So-Spooky Maze<', $item_output);
+        }
         if (strpos($item_output, 'target=') === false) {
             $item_output = str_replace('<a ', '<a target="_blank" rel="noopener noreferrer" ', $item_output);
         }

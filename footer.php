@@ -49,7 +49,6 @@
         </div>
     </footer>
 
-    <?php get_template_part('template-parts/summer-pass', 'modal'); ?>
     <?php wp_footer(); ?>
 </body>
 </html>
