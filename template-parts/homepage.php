@@ -36,7 +36,7 @@
                 <?php endif; ?>
             </div>
             <div class="hero-buttons">
-                <a href="<?php echo esc_url(once_upon_a_maze_tickets_url()); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <a href="https://www.simpletix.com/e/once-upon-a-maze-tickets-246927" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                     <i class="fas fa-ticket-alt"></i>
                     Reserve Your Adventure
                 </a>
