@@ -14,6 +14,26 @@
             <h2 class="events-heading">Upcoming Events</h2>
             <div class="events-grid events-grid-inline">
                 <div class="event-card">
+                    <div class="event-image-wrap">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/not-so-spooky-maze.png'); ?>" alt="Once Upon A Not So Spooky Maze Fall Scavenger Hunt, begins September 4th" class="event-image">
+                    </div>
+                    <h3 class="event-title">Not-So-Spooky Maze</h3>
+                    <a href="<?php echo esc_url(once_upon_a_maze_tickets_url()); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-white event-btn">
+                        <i class="fas fa-ticket-alt"></i>
+                        Get Tickets
+                    </a>
+                </div>
+                <div class="event-card">
+                    <div class="event-image-wrap">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/merry-maze.png'); ?>" alt="Once Upon A Merry Maze, a holiday adventure the whole family will love" class="event-image">
+                    </div>
+                    <h3 class="event-title">Merry Maze</h3>
+                    <a href="<?php echo esc_url(once_upon_a_maze_merry_maze_url()); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-white event-btn">
+                        <i class="fas fa-ticket-alt"></i>
+                        Get Tickets
+                    </a>
+                </div>
+                <div class="event-card">
                     <div class="event-icon">🎂</div>
                     <h3 class="event-title">Birthday Parties</h3>
                     <p class="event-description">Host your next birthday or special event inside our enchanting party rooms! Choose between The Fairy Room—full of sparkle, flowers, and woodland charm—or The Dragon Room—bold, mystical, and full of adventure. Make your special day truly magical.</p>

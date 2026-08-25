@@ -1336,7 +1336,7 @@ body.modal-open {
 
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
     position: relative;
     z-index: 2;
@@ -1372,6 +1372,25 @@ body.modal-open {
 .event-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 16px 32px rgba(255, 215, 0, 0.25);
+}
+
+.event-card .event-image-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7f1e6;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+.event-card .event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .event-card .event-icon {
@@ -1412,6 +1431,15 @@ body.modal-open {
     margin-top: auto;
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
+}
+
+@media (max-width: 992px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .party-room-image {
