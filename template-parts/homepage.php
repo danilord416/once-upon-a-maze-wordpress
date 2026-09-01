@@ -11,24 +11,14 @@
         <div class="content-header">
             <h1 class="content-title">Every Twist Tells a Tale</h1>
             <p class="content-subtitle">Step into a living storybook, where magic winds through enchanted pathways & whimsical rooms as familiar tales come to life.</p>
-            <h2 class="events-heading">Upcoming Events</h2>
-            <div class="events-grid events-grid-inline">
+            <h2 class="events-heading">Current Events</h2>
+            <div class="events-grid events-grid-inline events-grid-current">
                 <div class="event-card">
                     <div class="event-image-wrap">
                         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/not-so-spooky-maze.png'); ?>" alt="Once Upon A Not So Spooky Maze Fall Scavenger Hunt, begins September 4th" class="event-image">
                     </div>
                     <h3 class="event-title">Not-So-Spooky Maze</h3>
                     <a href="<?php echo esc_url(once_upon_a_maze_tickets_url()); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-white event-btn">
-                        <i class="fas fa-ticket-alt"></i>
-                        Get Tickets
-                    </a>
-                </div>
-                <div class="event-card">
-                    <div class="event-image-wrap">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/merry-maze.png'); ?>" alt="Once Upon A Merry Maze, a holiday adventure the whole family will love" class="event-image">
-                    </div>
-                    <h3 class="event-title">Merry Maze</h3>
-                    <a href="<?php echo esc_url(once_upon_a_maze_merry_maze_url()); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-white event-btn">
                         <i class="fas fa-ticket-alt"></i>
                         Get Tickets
                     </a>
@@ -55,12 +45,19 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="hero-buttons">
-                <a href="https://onceuponamaze.simpletix.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                    <i class="fas fa-ticket-alt"></i>
-                    Reserve Your Adventure
-                </a>
-                <p class="ticket-info">or visit us in person — tickets available online or at the door every 15 minutes!</p>
+            <h2 class="events-heading">Upcoming Events</h2>
+            <div class="events-grid events-grid-inline">
+                <div class="event-card">
+                    <div class="event-image-wrap">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/merry-maze.png'); ?>" alt="Once Upon A Merry Maze, a holiday adventure the whole family will love" class="event-image">
+                    </div>
+                    <h3 class="event-title">Merry Maze</h3>
+                    <p class="event-dates event-dates-highlight">Opens Nov. 13th</p>
+                    <a href="<?php echo esc_url(once_upon_a_maze_merry_maze_url()); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-white event-btn">
+                        <i class="fas fa-ticket-alt"></i>
+                        Get Tickets
+                    </a>
+                </div>
             </div>
         </div>
     </div>

@@ -1336,11 +1336,11 @@ body.modal-open {
 
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
     position: relative;
     z-index: 2;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
