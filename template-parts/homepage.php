@@ -185,15 +185,3 @@
         </div>
     </div>
 </section>
-
-<!-- Gift Shop -->
-<section class="gift-shop">
-    <div class="container">
-        <div class="gift-shop-header">
-            <div class="gift-shop-emoji">🛍️</div>
-            <h2 class="section-title">The Whimsical Gift Shop</h2>
-        </div>
-        
-        <p class="gift-shop-text">Before you leave, stop by our charming gift shop filled with treasures inspired by your favorite stories.<br>Take a piece of the maze home and keep the magic alive.</p>
-    </div>
-</section>
