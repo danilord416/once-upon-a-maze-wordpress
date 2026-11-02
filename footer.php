@@ -1,3 +1,5 @@
+    <?php get_template_part('template-parts/google-reviews'); ?>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
