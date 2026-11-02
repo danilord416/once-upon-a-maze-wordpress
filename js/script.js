@@ -309,21 +309,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Parse Facebook Page embed on homepage social section
-    const facebookFeed = document.querySelector('.social-feed-embed-facebook .fb-page');
-    if (facebookFeed) {
-        function parseFacebookEmbed() {
-            if (window.FB && typeof window.FB.XFBML === 'function') {
-                window.FB.XFBML.parse(facebookFeed.parentElement);
-            }
-        }
-
-        if (window.FB) {
-            parseFacebookEmbed();
-        } else {
-            window.addEventListener('load', parseFacebookEmbed);
-        }
-    }
 });
 
 // Add CSS for ripple effect

@@ -1,4 +1,3 @@
-<div id="fb-root"></div>
 <section class="social-feeds-section" id="social-feeds">
     <div class="container">
         <div class="social-feeds-header">
@@ -33,19 +32,45 @@
                     <h3>Facebook</h3>
                 </div>
                 <div class="social-feed-embed social-feed-embed-facebook">
-                    <div
-                        class="fb-page"
-                        data-href="https://www.facebook.com/profile.php?id=61582774421478"
-                        data-tabs="timeline"
-                        data-width="500"
-                        data-height="500"
-                        data-small-header="false"
-                        data-adapt-container-width="true"
-                        data-hide-cover="false"
-                        data-show-facepile="true"
-                    ></div>
+                    <div class="facebook-feed-stack">
+                        <?php
+                        // Facebook's Page Plugin timeline currently renders the page header
+                        // and leaves the posts area blank. These official post and video
+                        // embeds are the recent posts from the page.
+                        $facebook_posts = array(
+                            array(
+                                'type' => 'post',
+                                'url' => 'https://www.facebook.com/permalink.php?story_fbid=pfbid02Uyk1LojaeduXHnyH3UMwxsBJMbttADKCRagT57AvdAXJdnRMsKAb37SKq9uQaSM3l&id=61582774421478',
+                                'title' => 'Once Upon a Maze Facebook post about the Merry Maze opening November 13th',
+                            ),
+                            array(
+                                'type' => 'post',
+                                'url' => 'https://www.facebook.com/permalink.php?story_fbid=pfbid02eeY5UjwPfZaGfRQHTQSzmo2HNpd2Xmd15fB77DKeGVQEBSxhYyR2w4Th5o4zbKoRl&id=61582774421478',
+                                'title' => 'Once Upon a Maze Facebook Halloween post',
+                            ),
+                            array(
+                                'type' => 'video',
+                                'url' => 'https://www.facebook.com/reel/1142522718316943/',
+                                'title' => 'Once Upon a Maze Facebook reel about the gift shop',
+                            ),
+                        );
+
+                        foreach ($facebook_posts as $facebook_post) :
+                            $plugin = $facebook_post['type'] === 'video' ? 'video' : 'post';
+                            $embed_src = 'https://www.facebook.com/plugins/' . $plugin . '.php?href=' . rawurlencode($facebook_post['url']) . '&show_text=true&width=500';
+                            ?>
+                            <iframe
+                                src="<?php echo esc_url($embed_src); ?>"
+                                title="<?php echo esc_attr($facebook_post['title']); ?>"
+                                class="facebook-post-iframe<?php echo $facebook_post['type'] === 'video' ? ' facebook-post-iframe-video' : ''; ?>"
+                                loading="lazy"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                                allowfullscreen="true"
+                            ></iframe>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-                <a href="https://www.facebook.com/profile.php?id=61582774421478" target="_blank" rel="noopener noreferrer" class="social-feed-link">
+                <a href="https://www.facebook.com/people/Once-Upon-a-Maze/61582774421478/" target="_blank" rel="noopener noreferrer" class="social-feed-link">
                     Once Upon a Maze on Facebook
                     <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                 </a>

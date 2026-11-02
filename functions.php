@@ -209,21 +209,8 @@ add_action('after_setup_theme', 'once_upon_a_maze_setup');
 
 // Enqueue scripts and styles
 function once_upon_a_maze_scripts() {
-    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.5');
-    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.5', true);
-
-    if (is_front_page() || (is_home() && !is_paged())) {
-        wp_enqueue_script(
-            'facebook-jssdk',
-            'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v24.0',
-            array(),
-            null,
-            true
-        );
-        wp_script_add_data('facebook-jssdk', 'async', true);
-        wp_script_add_data('facebook-jssdk', 'defer', true);
-        wp_script_add_data('facebook-jssdk', 'crossorigin', 'anonymous');
-    }
+    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.6');
+    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.6', true);
 }
 add_action('wp_enqueue_scripts', 'once_upon_a_maze_scripts');
 
