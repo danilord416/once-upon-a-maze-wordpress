@@ -16,7 +16,9 @@
             <div class="events-grid events-grid-inline events-grid-current">
                 <div class="event-card event-card-banner">
                     <div class="event-image-wrap">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/merry-maze.jpg'); ?>" alt="Once Upon A Merry Maze, a holiday adventure the whole family will love" class="event-image">
+                        <video class="event-image event-video" autoplay muted loop playsinline preload="metadata" aria-label="Once Upon A Merry Maze, a holiday adventure the whole family will love">
+                            <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/videos/merry-maze.mp4'); ?>" type="video/mp4">
+                        </video>
                     </div>
                     <h3 class="event-title">Merry Maze</h3>
                     <p class="event-dates event-dates-highlight">Opens Nov. 13th</p>

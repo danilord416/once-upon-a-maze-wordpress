@@ -217,8 +217,8 @@ add_action('after_setup_theme', 'once_upon_a_maze_setup');
 
 // Enqueue scripts and styles
 function once_upon_a_maze_scripts() {
-    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.9');
-    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.9', true);
+    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.10');
+    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.10', true);
 }
 add_action('wp_enqueue_scripts', 'once_upon_a_maze_scripts');
 

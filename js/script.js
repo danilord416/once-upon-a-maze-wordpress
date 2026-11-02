@@ -309,6 +309,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    document.querySelectorAll('.event-video').forEach(function (video) {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            video.removeAttribute('autoplay');
+            video.pause();
+            return;
+        }
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function () {});
+        }
+    });
+
     const reviewsRoot = document.querySelector('[data-google-reviews]');
     if (reviewsRoot) {
         const viewport = reviewsRoot.querySelector('.google-reviews-viewport');
