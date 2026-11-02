@@ -182,8 +182,7 @@ add_filter('wp_nav_menu_items', function ($items, $args) {
         return $items;
     }
 
-    $items .= '<li><a href="' . esc_url(once_upon_a_maze_tickets_url()) . '" target="_blank" rel="noopener noreferrer" class="cta-button mobile-tickets-btn">Not-So-Spooky Maze</a></li>';
-    $items .= '<li><a href="' . esc_url(once_upon_a_maze_merry_maze_url()) . '" target="_blank" rel="noopener noreferrer" class="cta-button mobile-gift-cards-btn">Merry Maze</a></li>';
+    $items .= '<li><a href="' . esc_url(once_upon_a_maze_merry_maze_url()) . '" target="_blank" rel="noopener noreferrer" class="cta-button mobile-tickets-btn">Get tickets to the Merry Maze</a></li>';
 
     return $items;
 }, 20, 2);
@@ -210,8 +209,8 @@ add_action('after_setup_theme', 'once_upon_a_maze_setup');
 
 // Enqueue scripts and styles
 function once_upon_a_maze_scripts() {
-    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.4');
-    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.4', true);
+    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.5');
+    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.5', true);
 
     if (is_front_page() || (is_home() && !is_paged())) {
         wp_enqueue_script(
@@ -242,8 +241,7 @@ function once_upon_a_maze_fallback_menu() {
     echo '</ul>';
     echo '</li>';
     echo '<li><a href="' . home_url('/contact/') . '">Contact Us</a></li>';
-    echo '<li><a href="' . esc_url(once_upon_a_maze_tickets_url()) . '" target="_blank" rel="noopener noreferrer" class="cta-button mobile-tickets-btn">Not-So-Spooky Maze</a></li>';
-    echo '<li><a href="' . esc_url(once_upon_a_maze_merry_maze_url()) . '" target="_blank" rel="noopener noreferrer" class="cta-button mobile-gift-cards-btn">Merry Maze</a></li>';
+    echo '<li><a href="' . esc_url(once_upon_a_maze_merry_maze_url()) . '" target="_blank" rel="noopener noreferrer" class="cta-button mobile-tickets-btn">Get tickets to the Merry Maze</a></li>';
     echo '</ul>';
 }
 
@@ -256,11 +254,15 @@ function once_upon_a_maze_body_classes($classes) {
 }
 add_filter('body_class', 'once_upon_a_maze_body_classes');
 
-// Auto-update legacy "Get Tickets" menu items to the current event ticket URL
+// Point any leftover ticket menu items at the Merry Maze ticket page.
 add_filter('wp_setup_nav_menu_item', function($menu_item) {
-    if (isset($menu_item->title) && stripos($menu_item->title, 'Get Tickets') !== false) {
-        $menu_item->title = 'Not-So-Spooky Maze';
-        $menu_item->url = once_upon_a_maze_tickets_url();
+    if (!isset($menu_item->title) || !is_string($menu_item->title)) {
+        return $menu_item;
+    }
+
+    if (stripos($menu_item->title, 'Get Tickets') !== false || stripos($menu_item->title, 'Not-So-Spooky') !== false) {
+        $menu_item->title = 'Get tickets to the Merry Maze';
+        $menu_item->url = once_upon_a_maze_merry_maze_url();
         $menu_item->target = '_blank';
     }
     return $menu_item;
@@ -268,11 +270,11 @@ add_filter('wp_setup_nav_menu_item', function($menu_item) {
 
 // Also filter nav menu output to add target="_blank" and rel attributes
 add_filter('walker_nav_menu_start_el', function($item_output, $item, $depth, $args) {
-    if (isset($item->title) && (stripos($item->title, 'Get Tickets') !== false || stripos($item->title, 'Not-So-Spooky') !== false)) {
-        $ticket_url = once_upon_a_maze_tickets_url();
+    if (isset($item->title) && (stripos($item->title, 'Get Tickets') !== false || stripos($item->title, 'Not-So-Spooky') !== false || stripos($item->title, 'Merry Maze') !== false)) {
+        $ticket_url = once_upon_a_maze_merry_maze_url();
         $item_output = preg_replace('/href="[^"]*"/', 'href="' . esc_url($ticket_url) . '"', $item_output);
-        if (stripos($item->title, 'Get Tickets') !== false) {
-            $item_output = preg_replace('/>\s*Get Tickets\s*</i', '>Not-So-Spooky Maze<', $item_output);
+        if (stripos($item->title, 'Get Tickets') !== false || stripos($item->title, 'Not-So-Spooky') !== false) {
+            $item_output = preg_replace('/>\s*(Get Tickets|Not-So-Spooky Maze)\s*</i', '>Get tickets to the Merry Maze<', $item_output);
         }
         if (strpos($item_output, 'target=') === false) {
             $item_output = str_replace('<a ', '<a target="_blank" rel="noopener noreferrer" ', $item_output);

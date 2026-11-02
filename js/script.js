@@ -265,6 +265,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    const announcementPopup = document.getElementById('announcement-popup');
+    if (announcementPopup) {
+        const dismissKey = 'ouam-merry-maze-popup-dismissed';
+        let alreadyDismissed = false;
+
+        try {
+            alreadyDismissed = sessionStorage.getItem(dismissKey) === '1';
+        } catch (err) {
+            alreadyDismissed = false;
+        }
+
+        const closeAnnouncement = function () {
+            announcementPopup.hidden = true;
+            document.body.classList.remove('modal-open');
+            try {
+                sessionStorage.setItem(dismissKey, '1');
+            } catch (err) {
+                // Ignore storage failures and just close the popup.
+            }
+        };
+
+        if (!alreadyDismissed) {
+            announcementPopup.hidden = false;
+            document.body.classList.add('modal-open');
+            const closeButton = announcementPopup.querySelector('.announcement-popup-close');
+            if (closeButton) {
+                closeButton.focus();
+            }
+        }
+
+        announcementPopup.addEventListener('click', function (e) {
+            if (e.target === announcementPopup || e.target.closest('.announcement-popup-close')) {
+                e.preventDefault();
+                closeAnnouncement();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !announcementPopup.hidden) {
+                closeAnnouncement();
+            }
+        });
+    }
+
     // Parse Facebook Page embed on homepage social section
     const facebookFeed = document.querySelector('.social-feed-embed-facebook .fb-page');
     if (facebookFeed) {

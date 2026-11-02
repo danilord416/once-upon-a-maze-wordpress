@@ -49,6 +49,13 @@
         </div>
     </footer>
 
+    <div id="announcement-popup" class="announcement-popup" hidden role="dialog" aria-modal="true" aria-label="The Merry Maze is closed November 1 through 12 and opens November 13th">
+        <div class="announcement-popup-dialog">
+            <button type="button" class="announcement-popup-close" aria-label="Close announcement">&times;</button>
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/merry-maze-popup.jpg'); ?>" alt="The merry magic is on the way. Closed November 1 through 12. Merry Maze opens November 13th.">
+        </div>
+    </div>
+
     <?php wp_footer(); ?>
 </body>
 </html>

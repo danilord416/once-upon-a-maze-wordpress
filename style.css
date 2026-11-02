@@ -164,10 +164,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .header-tickets-btn {
     white-space: nowrap;
-    margin-left: 1.5rem;
+    margin-left: 1rem;
     text-decoration: none;
-    font-size: 0.9rem !important;
-    padding: 10px 16px !important;
+    font-size: 0.82rem !important;
+    padding: 10px 14px !important;
+    flex-shrink: 0;
 }
 
 .header-gift-cards-btn {
@@ -821,6 +822,57 @@ body.modal-open {
     overflow: hidden;
 }
 
+.announcement-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 100001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    background: rgba(5, 37, 69, 0.78);
+}
+
+.announcement-popup[hidden] {
+    display: none;
+}
+
+.announcement-popup-dialog {
+    position: relative;
+    width: min(520px, 100%);
+}
+
+.announcement-popup-dialog img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 2.5rem);
+    object-fit: contain;
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.announcement-popup-close {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.65rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: none;
+    border-radius: 50%;
+    background: #052545;
+    color: #fff;
+    font-size: 1.7rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.announcement-popup-close:hover {
+    background: #FF69B4;
+}
+
 /* Plan Your Visit Section */
 .plan-visit-section {
     padding: 100px 0;
@@ -1433,12 +1485,46 @@ body.modal-open {
     font-size: 0.9rem;
 }
 
+.events-grid-current {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto 2.5rem;
+}
+
+.events-grid-current .event-card {
+    width: 100%;
+}
+
+.events-grid-current .event-card-flyer {
+    max-width: 720px;
+}
+
+.events-grid-current .event-card .event-image-wrap {
+    aspect-ratio: auto;
+    height: auto;
+    background: transparent;
+}
+
+.events-grid-current .event-card .event-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
 @media (max-width: 992px) {
     .events-grid {
         grid-template-columns: 1fr;
         max-width: 440px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .events-grid.events-grid-current {
+        max-width: 720px;
     }
 }
 
