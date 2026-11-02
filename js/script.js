@@ -309,6 +309,143 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    const reviewsRoot = document.querySelector('[data-google-reviews]');
+    if (reviewsRoot) {
+        const viewport = reviewsRoot.querySelector('.google-reviews-viewport');
+        const track = reviewsRoot.querySelector('.google-reviews-track');
+        const cards = Array.prototype.slice.call(track.children);
+        const prevButton = reviewsRoot.querySelector('.google-reviews-prev');
+        const nextButton = reviewsRoot.querySelector('.google-reviews-next');
+        const dotsWrap = reviewsRoot.querySelector('.google-reviews-dots');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let index = 0;
+        let timer = null;
+        let stops = 0;
+
+        function perView() {
+            const width = viewport.clientWidth;
+            if (width >= 1080) {
+                return 4;
+            }
+            if (width >= 860) {
+                return 3;
+            }
+            if (width >= 600) {
+                return 2;
+            }
+            return 1;
+        }
+
+        function gap() {
+            const styles = window.getComputedStyle(track);
+            return parseFloat(styles.columnGap || styles.gap) || 0;
+        }
+
+        function maxIndex() {
+            return Math.max(0, cards.length - perView());
+        }
+
+        function updateDots() {
+            const dots = dotsWrap.querySelectorAll('.google-reviews-dot');
+            dots.forEach(function (dot, dotIndex) {
+                const active = dotIndex === index;
+                dot.classList.toggle('is-active', active);
+                if (active) {
+                    dot.setAttribute('aria-current', 'true');
+                } else {
+                    dot.removeAttribute('aria-current');
+                }
+            });
+        }
+
+        function renderDots() {
+            const nextStops = maxIndex() + 1;
+            if (nextStops === stops) {
+                updateDots();
+                return;
+            }
+            stops = nextStops;
+            dotsWrap.innerHTML = '';
+            for (let dotIndex = 0; dotIndex < stops; dotIndex++) {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'google-reviews-dot';
+                dot.setAttribute('aria-label', 'Show reviews ' + (dotIndex + 1));
+                dot.addEventListener('click', function () {
+                    go(dotIndex, true);
+                    start();
+                });
+                dotsWrap.appendChild(dot);
+            }
+            updateDots();
+        }
+
+        function go(nextIndex, animate) {
+            const max = maxIndex();
+            index = nextIndex;
+            if (index > max) {
+                index = 0;
+            }
+            if (index < 0) {
+                index = max;
+            }
+
+            const cardWidth = cards[0].getBoundingClientRect().width;
+            const shift = index * (cardWidth + gap());
+            track.style.transition = animate && !reduceMotion ? 'transform 1.1s ease' : 'none';
+            track.style.transform = 'translateX(' + (-shift) + 'px)';
+            renderDots();
+        }
+
+        function layout() {
+            const visible = perView();
+            const cardGap = gap();
+            const width = (viewport.clientWidth - cardGap * (visible - 1)) / visible;
+            cards.forEach(function (card) {
+                card.style.flexBasis = width + 'px';
+            });
+            go(Math.min(index, maxIndex()), false);
+        }
+
+        function stop() {
+            if (timer) {
+                clearInterval(timer);
+                timer = null;
+            }
+        }
+
+        function start() {
+            stop();
+            if (reduceMotion || cards.length <= perView()) {
+                return;
+            }
+            timer = setInterval(function () {
+                go(index + 1, true);
+            }, 7000);
+        }
+
+        prevButton.addEventListener('click', function () {
+            go(index - 1, true);
+            start();
+        });
+        nextButton.addEventListener('click', function () {
+            go(index + 1, true);
+            start();
+        });
+        reviewsRoot.addEventListener('mouseenter', stop);
+        reviewsRoot.addEventListener('mouseleave', start);
+        reviewsRoot.addEventListener('focusin', stop);
+        reviewsRoot.addEventListener('focusout', function (event) {
+            if (!reviewsRoot.contains(event.relatedTarget)) {
+                start();
+            }
+        });
+        window.addEventListener('resize', layout);
+
+        layout();
+        start();
+    }
+
 });
 
 // Add CSS for ripple effect

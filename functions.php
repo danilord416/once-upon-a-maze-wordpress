@@ -35,144 +35,6 @@ if (!defined('ONCE_UPON_A_MAZE_GOOGLE_REVIEW_URL')) {
     define('ONCE_UPON_A_MAZE_GOOGLE_REVIEW_URL', 'https://g.page/r/CalDlMTnN7W_EAE/review');
 }
 
-function once_upon_a_maze_google_places_api_key() {
-    if (defined('ONCE_UPON_A_MAZE_GOOGLE_PLACES_API_KEY') && ONCE_UPON_A_MAZE_GOOGLE_PLACES_API_KEY) {
-        return trim((string) ONCE_UPON_A_MAZE_GOOGLE_PLACES_API_KEY);
-    }
-
-    $option = get_option('ouam_google_places_api_key', '');
-    return is_string($option) ? trim($option) : '';
-}
-
-function once_upon_a_maze_google_reviews_cache_key() {
-    return 'ouam_google_reviews_' . md5(ONCE_UPON_A_MAZE_GOOGLE_PLACE_ID);
-}
-
-/**
- * Five-star Google reviews for the place, cached so the page does not call Google on every visit.
- *
- * @return array{reviews: array<int, array<string, string>>, maps_url: string}
- */
-function once_upon_a_maze_google_reviews() {
-    $cache_key = once_upon_a_maze_google_reviews_cache_key();
-    $cached = get_transient($cache_key);
-    if (is_array($cached) && isset($cached['reviews'], $cached['maps_url'])) {
-        return $cached;
-    }
-
-    $empty = array(
-        'reviews' => array(),
-        'maps_url' => '',
-    );
-    $api_key = once_upon_a_maze_google_places_api_key();
-    if ($api_key === '') {
-        return $empty;
-    }
-
-    $response = wp_remote_get(
-        'https://places.googleapis.com/v1/places/' . rawurlencode(ONCE_UPON_A_MAZE_GOOGLE_PLACE_ID),
-        array(
-            'timeout' => 8,
-            'headers' => array(
-                'X-Goog-Api-Key' => $api_key,
-                'X-Goog-FieldMask' => 'googleMapsUri,reviews',
-            ),
-        )
-    );
-
-    if (is_wp_error($response) || (int) wp_remote_retrieve_response_code($response) !== 200) {
-        set_transient($cache_key, $empty, 15 * MINUTE_IN_SECONDS);
-        return $empty;
-    }
-
-    $body = json_decode(wp_remote_retrieve_body($response), true);
-    if (!is_array($body)) {
-        set_transient($cache_key, $empty, 15 * MINUTE_IN_SECONDS);
-        return $empty;
-    }
-
-    $result = array(
-        'reviews' => array(),
-        'maps_url' => isset($body['googleMapsUri']) ? (string) $body['googleMapsUri'] : '',
-    );
-    $reviews = isset($body['reviews']) && is_array($body['reviews']) ? $body['reviews'] : array();
-
-    foreach ($reviews as $review) {
-        if (!is_array($review) || (int) ($review['rating'] ?? 0) !== 5) {
-            continue;
-        }
-
-        $text = '';
-        if (isset($review['text']['text'])) {
-            $text = trim((string) $review['text']['text']);
-        } elseif (isset($review['originalText']['text'])) {
-            $text = trim((string) $review['originalText']['text']);
-        }
-        if ($text === '') {
-            continue;
-        }
-
-        $author = isset($review['authorAttribution']) && is_array($review['authorAttribution']) ? $review['authorAttribution'] : array();
-        $result['reviews'][] = array(
-            'text' => $text,
-            'author' => isset($author['displayName']) && $author['displayName'] !== '' ? (string) $author['displayName'] : 'Google user',
-            'author_url' => isset($author['uri']) ? (string) $author['uri'] : '',
-            'author_photo' => isset($author['photoUri']) ? (string) $author['photoUri'] : '',
-            'when' => isset($review['relativePublishTimeDescription']) ? (string) $review['relativePublishTimeDescription'] : '',
-            'review_url' => isset($review['googleMapsUri']) ? (string) $review['googleMapsUri'] : '',
-        );
-    }
-
-    set_transient($cache_key, $result, 12 * HOUR_IN_SECONDS);
-    return $result;
-}
-
-add_action('admin_init', function () {
-    register_setting('ouam_google_reviews', 'ouam_google_places_api_key', array(
-        'type' => 'string',
-        'sanitize_callback' => 'sanitize_text_field',
-        'default' => '',
-    ));
-});
-
-add_action('update_option_ouam_google_places_api_key', function () {
-    delete_transient(once_upon_a_maze_google_reviews_cache_key());
-});
-
-add_action('admin_menu', function () {
-    add_options_page(
-        'Google Reviews',
-        'Google Reviews',
-        'manage_options',
-        'ouam-google-reviews',
-        'once_upon_a_maze_google_reviews_settings_page'
-    );
-});
-
-function once_upon_a_maze_google_reviews_settings_page() {
-    if (!current_user_can('manage_options')) {
-        return;
-    }
-    ?>
-    <div class="wrap">
-        <h1>Google Reviews</h1>
-        <p>Paste a Google Places API key to show 5-star reviews at the bottom of the site. In Google Cloud, enable <strong>Places API (New)</strong>, create an API key, and restrict it to that API.</p>
-        <form action="options.php" method="post">
-            <?php settings_fields('ouam_google_reviews'); ?>
-            <table class="form-table" role="presentation">
-                <tr>
-                    <th scope="row"><label for="ouam_google_places_api_key">Places API key</label></th>
-                    <td>
-                        <input type="text" class="regular-text" id="ouam_google_places_api_key" name="ouam_google_places_api_key" value="<?php echo esc_attr(once_upon_a_maze_google_places_api_key()); ?>" autocomplete="off">
-                    </td>
-                </tr>
-            </table>
-            <?php submit_button('Save key'); ?>
-        </form>
-    </div>
-    <?php
-}
-
 /**
  * Production hosts where HTTPS enforcement and security headers apply.
  */
@@ -355,8 +217,8 @@ add_action('after_setup_theme', 'once_upon_a_maze_setup');
 
 // Enqueue scripts and styles
 function once_upon_a_maze_scripts() {
-    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.7');
-    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.7', true);
+    wp_enqueue_style('once-upon-a-maze-style', get_stylesheet_uri(), array(), '1.1.9');
+    wp_enqueue_script('once-upon-a-maze-script', get_template_directory_uri() . '/js/script.js', array(), '1.1.9', true);
 }
 add_action('wp_enqueue_scripts', 'once_upon_a_maze_scripts');
 
