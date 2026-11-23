@@ -841,57 +841,6 @@ body.modal-open {
     overflow: hidden;
 }
 
-.announcement-popup {
-    position: fixed;
-    inset: 0;
-    z-index: 100001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.25rem;
-    background: rgba(5, 37, 69, 0.78);
-}
-
-.announcement-popup[hidden] {
-    display: none;
-}
-
-.announcement-popup-dialog {
-    position: relative;
-    width: min(520px, 100%);
-}
-
-.announcement-popup-dialog img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: calc(100vh - 2.5rem);
-    object-fit: contain;
-    border-radius: 18px;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
-}
-
-.announcement-popup-close {
-    position: absolute;
-    top: 0.65rem;
-    right: 0.65rem;
-    width: 2.4rem;
-    height: 2.4rem;
-    border: none;
-    border-radius: 50%;
-    background: #052545;
-    color: #fff;
-    font-size: 1.7rem;
-    line-height: 1;
-    cursor: pointer;
-    z-index: 1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.announcement-popup-close:hover {
-    background: #FF69B4;
-}
-
 /* Plan Your Visit Section */
 .plan-visit-section {
     padding: 100px 0;
